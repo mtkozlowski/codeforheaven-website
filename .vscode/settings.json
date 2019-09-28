@@ -1,0 +1,6 @@
+{
+    "editor.formatOnSaveTimeout": null,
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+}
