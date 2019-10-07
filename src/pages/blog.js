@@ -3,64 +3,81 @@ import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../layout/Layout"
 import BlogTeaser from "../components/blog-teaser/blog-teaser";
-import styled, {createGlobalStyle, ThemeProvider} from 'styled-components';
-import PostLink from "../components/post-link"
-import {theme} from '../utils/theme';
+import styled from 'styled-components';
+import { Helmet } from "react-helmet"
+import ContentPage from '../layout/ContentPage';
 
 
-const BlogWrapper = styled.div`
-    margin-top: 100px;
-    margin-left: 200px;
-    width: 100%;
-    min-width: 680px;
-    max-width: 960px
+const BlogContainer = styled.div`
+    grid-area: content;
 `;
 
 const SubpageHeader = styled.h1`
     font-size: ${({theme}) => theme.font.crumbtrailSize};
     margin: 0;
-    color: #333;
+
+    a {
+      color: #333;
+    }
+
+    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
+      font-size: 22px;
+    }
 `;
 
 const PageHeader = styled.h2`
     font-size: ${({theme}) => theme.font.largeHeaderSize};
-    margin: 0 0 20px;
+    margin: 0 0 80px;
     line-height: 1;
     text-indent: -8px;
 `;
 
 const IconsWaterfall = styled.div`
-    background-color: #fab;
+    // background-color: #fab;
 
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    grid-area: iconsWaterfall;
 
-    width: calc(100% - 1160px);
-    max-width: 760px;
-    min-width: 344px;
+    @media(max-width: ${({theme}) => theme.responsive.tablet}) {
+
+    }
+
+    @media(max-width: ${({theme}) => theme.responsive.tabletVertical}) {
+      display: none;
+    }
 `;
 
 const IndexPage = ({
     data: {
       allMarkdownRemark: { edges },
     },
-  }) => {
-    const Posts = edges
-      .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-      .map(edge => <BlogTeaser key={edge.node.id} teaserData={edge.node} />)
-    return <Layout>
-                <BlogWrapper>
-                    <SubpageHeader>
-                      <Link to="/">Code for Heaven</Link>
-                    </SubpageHeader>
-                    <PageHeader>Blog</PageHeader>
-                    {Posts}
-                </BlogWrapper>
+    }) => {
+      const Posts = edges
+        .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+        .map(edge => <BlogTeaser key={edge.node.id} teaserData={edge.node} />);
+
+      return (
+        <>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>Code for Heaven - BLOG</title>
+            <link rel="canonical" href="http://codeforheaven.com/blog" />
+          </Helmet>
+          <Layout>
+            <ContentPage>
+              <BlogContainer>
+                  <SubpageHeader>
+                    <Link to="/">Code for Heaven</Link>
+                  </SubpageHeader>
+                  <PageHeader>Blog</PageHeader>
+                  {Posts}
+              </BlogContainer>
                 <IconsWaterfall />
-            </Layout>
-}
+            </ContentPage>
+        </Layout>
+        </>
+              )
+    }
 
 export default IndexPage
 
@@ -75,6 +92,7 @@ export const pageQuery = graphql`
             date(formatString: "DD/MM")
             path
             title
+            description
           }
         }
       }

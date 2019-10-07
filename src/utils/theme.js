@@ -10,6 +10,13 @@ export const theme = {
         crumbtrailSize: "14px",
         // blogPostTitleSize: "72px",
         blogPostTitleSize: "48px",
-        regularTextSize: "14px",
+        blogPostTeaserSize: "24px",
+        regularTextSize: "18px",
+    },
+    responsive: {
+        tablet: "1024px",
+        tabletVertical: "768px",
+        mobile: "640px",
+        mobileVertical: "360px",
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {createGlobalStyle, ThemeProvider} from 'styled-components';
+import {createGlobalStyle, ThemeProvider} from 'styled-components';
 import {theme} from '../utils/theme';
 
 const GlobalStyle = createGlobalStyle`
@@ -9,24 +9,15 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: ${({theme}) => theme.font.family};
+        font-size: ${({theme}) => theme.font.regularTextSize};
         color: ${({theme}) => theme.colors.headerText};
         height: 100vh;
         margin: 0;
+
+        @media(max-width: ${({theme}) => theme.responsive.mobile}) {
+            font-size: 22px;
+        }
     }
-`;
-
-const H1 = styled.h1`
-    margin-bottom: 1em;
-    margin-top: -1em;
-    font-size: 5em;
-`;
-
-const MainWrapper = styled.div`
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 `;
 
 const Layout = ({children}) => (
