@@ -11,7 +11,7 @@ const Content = styled.div`
     grid-area: content;
 `;
 const SubpageHeader = styled.h3`
-    font-size: ${({theme}) => theme.font.crumbtrailSize};
+    font-size: ${({theme}) => theme.font.regularTextSize};
     margin: 0;
 
     a {
@@ -40,7 +40,7 @@ const DivFlex = styled.div`
 `;
 
 const PostTitle = styled.h1`
-    font-size: ${({theme}) => theme.font.blogPostTitleSize};
+    font-size: ${({theme}) => theme.font.subHeaderSize};
     line-height: 1;
     margin: 0 0 0 20px;
 
@@ -60,7 +60,7 @@ const PostTitle = styled.h1`
 const PostDateBlock = styled.div`
 background-color: #111;
 color: ${({theme}) => theme.colors.white};
-font-size: ${({theme}) => theme.font.blogPostTitleSize};
+font-size: ${({theme}) => theme.font.subHeaderSize};
 font-weight: 700;
 line-height: 1;
 

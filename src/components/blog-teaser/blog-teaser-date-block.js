@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const BlogTeaserDateBlock = styled.div`
     background-color: ${({theme}) => theme.colors.black};
     color: ${({theme}) => theme.colors.white};
-    font-size: ${({theme}) => theme.font.blogPostTitleSize};
+    font-size: ${({theme}) => theme.font.subHeaderSize};
     font-weight: 700;
     line-height: 1;
 

@@ -13,7 +13,7 @@ const BlogContainer = styled.div`
 `;
 
 const SubpageHeader = styled.h1`
-    font-size: ${({theme}) => theme.font.crumbtrailSize};
+    font-size: ${({theme}) => theme.font.regularTextSize};
     margin: 0;
 
     a {

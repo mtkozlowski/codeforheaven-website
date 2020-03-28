@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const BlogTeaserTitle = styled.h3`
     flex: 0 1 60px;
 
-    font-size: ${({theme}) => theme.font.blogPostTitleSize};
+    font-size: ${({theme}) => theme.font.subHeaderSize};
     line-height: 1;
     margin: 0 0 0 270px;
     padding-bottom: 12px;

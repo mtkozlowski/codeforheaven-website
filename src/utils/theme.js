@@ -6,12 +6,12 @@ export const theme = {
         family: "'Montserrat', sans-serif",
 
         largeHeaderSize: "94px",
-        largeHeaderSizeMobile: "72px",
         subHeaderSize: "48px",
-        crumbtrailSize: "14px",
-        blogPostTitleSize: "48px",
         blogPostTeaserSize: "24px",
         regularTextSize: "18px",
+
+        /* MOBILE FONT SIZES */
+        largeHeaderSize__Mobile: "72px",
     },
     responsive: {
         tablet: "1024px",

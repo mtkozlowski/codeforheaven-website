@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${({theme}) => theme.font.largeHeaderSize}
 
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-      font-size: ${({theme}) => theme.font.largeHeaderSizeMobile};
+      font-size: ${({theme}) => theme.font.largeHeaderSize__Mobile};
     }
   }
   .content a {
