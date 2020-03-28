@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../layout/Layout"
 import BlogTeaser from "../components/blog-teaser/blog-teaser";
@@ -12,7 +11,7 @@ const BlogContainer = styled.div`
     grid-area: content;
 `;
 
-const SubpageHeader = styled.h1`
+const SubpageHeader = styled.a`
     font-size: ${({theme}) => theme.font.regularTextSize};
     margin: 0;
 
@@ -25,7 +24,7 @@ const SubpageHeader = styled.h1`
     }
 `;
 
-const PageHeader = styled.h2`
+const PageHeader = styled.h1`
     font-size: ${({theme}) => theme.font.largeHeaderSize};
     margin: 0 0 80px;
     line-height: 1;
@@ -52,9 +51,6 @@ const IndexPage = ({
           <Layout>
             <ContentPage>
               <BlogContainer>
-                  <SubpageHeader>
-                    <Link to="/">Code for Heaven</Link>
-                  </SubpageHeader>
                   <PageHeader>Blog</PageHeader>
                   {Posts}
               </BlogContainer>

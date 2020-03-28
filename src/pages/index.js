@@ -1,24 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../layout/Layout"
-import {createGlobalStyle} from 'styled-components';
 import { Helmet } from "react-helmet"
 import ContentPage from "../layout/ContentPage"
+import PageHeader from "../components/typography/headers"
+import styled from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
-  .content {
+const Container = styled.div`
     grid-area: content
-  }
-  .content h1 {
-    font-size: ${({theme}) => theme.font.largeHeaderSize}
-
-    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-      font-size: ${({theme}) => theme.font.largeHeaderSize__Mobile};
-    }
-  }
-  .content a {
-    font-size: ${({theme}) => theme.font.blogPostTeaserSize}
-  }
 `;
 
 export default () => (
@@ -30,15 +19,14 @@ export default () => (
       <link rel="canonical" href="http://codeforheaven.com/" />
     </Helmet>
     <Layout>
-      <GlobalStyle/>
-        <ContentPage>
-            <div className="content">
-                <h1>
-                    Code for<br/>Heaven
-                </h1>
-                <Link to="/blog">Blog</Link>
-            </div>
-        </ContentPage>
+      <ContentPage>
+          <Container>
+              <PageHeader>
+                  Code for<br/>Heaven
+              </PageHeader>
+              <Link to="/blog">Blog</Link>
+          </Container>
+      </ContentPage>
     </Layout>
     </>
   )
