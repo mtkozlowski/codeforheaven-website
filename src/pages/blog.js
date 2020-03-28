@@ -32,20 +32,6 @@ const PageHeader = styled.h2`
     text-indent: -8px;
 `;
 
-const IconsWaterfall = styled.div`
-    // background-color: #fab;
-
-    grid-area: iconsWaterfall;
-
-    @media(max-width: ${({theme}) => theme.responsive.tablet}) {
-
-    }
-
-    @media(max-width: ${({theme}) => theme.responsive.tabletVertical}) {
-      display: none;
-    }
-`;
-
 const IndexPage = ({
     data: {
       allMarkdownRemark: { edges },
@@ -72,7 +58,6 @@ const IndexPage = ({
                   <PageHeader>Blog</PageHeader>
                   {Posts}
               </BlogContainer>
-                <IconsWaterfall />
             </ContentPage>
         </Layout>
         </>
