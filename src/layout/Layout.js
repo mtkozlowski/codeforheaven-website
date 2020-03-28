@@ -10,14 +10,22 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: ${({theme}) => theme.font.family};
         font-size: ${({theme}) => theme.font.regularTextSize};
-        color: ${({theme}) => theme.colors.headerText};
+        color: ${({theme}) => theme.colors.black};
         height: 100vh;
         margin: 0;
-
+    }
+    pre {
         @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-            font-size: 22px;
+            overflow-x: scroll !important;
+            max-width: 100%;
         }
     }
+    .gatsby-highlight {
+        @media(max-width: ${({theme}) => theme.responsive.mobile}) {
+            max-width: 100%;
+        }
+    }
+    svg.icons-waterfall {fill: ${({theme}) => theme.colors.dark}}
 `;
 
 const Layout = ({children}) => (
