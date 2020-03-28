@@ -6,7 +6,7 @@ import BlogTeaser from "../components/blog-teaser/blog-teaser";
 import styled from 'styled-components';
 import { Helmet } from "react-helmet"
 import ContentPage from '../layout/ContentPage';
-
+import IconsWaterfall from '../components/icons-waterfall/icons-waterfall';
 
 const BlogContainer = styled.div`
     grid-area: content;
@@ -32,7 +32,7 @@ const PageHeader = styled.h2`
     text-indent: -8px;
 `;
 
-const IconsWaterfall = styled.div`
+const IconsWaterfallWrapper = styled.div`
     // background-color: #fab;
 
     grid-area: iconsWaterfall;
@@ -72,11 +72,10 @@ const IndexPage = ({
                   <PageHeader>Blog</PageHeader>
                   {Posts}
               </BlogContainer>
-                <IconsWaterfall />
             </ContentPage>
-        </Layout>
+          </Layout>
         </>
-              )
+      )
     }
 
 export default IndexPage
