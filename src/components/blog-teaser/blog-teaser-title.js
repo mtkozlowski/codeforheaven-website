@@ -13,6 +13,11 @@ const BlogTeaserTitle = styled.h3`
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
         margin-left: 200px;
     }
+    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
+        margin-left: 0px;
+        font-size: 36px;
+        line-height: 1.2;
+    }
 `;
 
 export default BlogTeaserTitle;

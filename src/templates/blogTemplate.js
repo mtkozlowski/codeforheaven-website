@@ -5,6 +5,7 @@ import Layout from "../layout/Layout"
 import { Link } from "gatsby"
 import ContentPage from '../layout/ContentPage';
 import { Helmet } from "react-helmet"
+require("prismjs/themes/prism-coy.css");
 
 const Content = styled.div`
     grid-area: content;
@@ -32,6 +33,10 @@ const PageHeader = styled.h2`
 const DivFlex = styled.div`
     display: flex;
     margin-top: 20px;
+
+    @media(max-width: ${({theme}) => theme.responsive.mobileMid}) {
+        flex-direction: column;
+    }
 `;
 
 const PostTitle = styled.h1`
@@ -43,8 +48,12 @@ const PostTitle = styled.h1`
 
     a {color: ${({theme}) => theme.colors.dark};}
 
-    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-        // margin-left: 200px;
+    @media(max-width: ${({theme}) => theme.responsive.mobileMid}) {
+      margin-left: 0px;
+    }
+    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
+      font-size: 36px;
+      line-height: 1.2;
     }
 `;
 

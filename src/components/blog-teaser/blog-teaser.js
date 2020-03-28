@@ -12,6 +12,11 @@ const BlogTeaserWrapper = styled.div`
 
     margin-bottom: 50px;
     height: 250px;
+
+    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
+        height: auto;
+        flex-direction: column;
+    }
 `;
 
 const BlogTeaserText = styled.p`
@@ -37,8 +42,12 @@ const BlogTeaserText = styled.p`
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
         margin-left: 200px;
     }
+    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
+        font-size: 18px;
+        margin-left: 0px;
+        order: 3;
+    }
 `;
-
 
 const BlogTeaser = ({ teaserData }) => (
     <BlogTeaserWrapper>
