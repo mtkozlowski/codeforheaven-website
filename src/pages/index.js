@@ -1,33 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../layout/Layout"
-import styled from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import { Helmet } from "react-helmet"
+import ContentPage from "../layout/ContentPage"
 
-const HomePage = styled.div`
-    display: grid;
+const GlobalStyle = createGlobalStyle`
+  .content {
+    grid-area: content
+  }
+  .content h1 {
+    font-size: ${({theme}) => theme.font.largeHeaderSize}
 
-    grid-template-columns: minmax(0, 200px) minmax(680px, 960px) minmax(344px, 760px);
-    grid-template-rows: 100px auto 100px;
-
-    grid-template-areas:
-      ". . iconsWaterfall"
-      ". blogPage iconsWaterfall"
-      ". . iconsWaterfall";
-
-      @media(max-width: ${({theme}) => theme.responsive.tablet}) {
-          grid-template-rows: 50px auto 100px;
-      }
-
-      div {
-        grid-area: blogPage
-      }
-      h1 {
-        font-size: ${({theme}) => theme.font.largeHeaderSize}
-      }
-      a {
-        font-size: ${({theme}) => theme.font.blogPostTeaserSize}
-      }
+    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
+      font-size: ${({theme}) => theme.font.largeHeaderSizeMobile};
+    }
+  }
+  .content a {
+    font-size: ${({theme}) => theme.font.blogPostTeaserSize}
+  }
 `;
 
 export default () => (
@@ -39,14 +30,15 @@ export default () => (
       <link rel="canonical" href="http://codeforheaven.com/" />
     </Helmet>
     <Layout>
-        <HomePage>
-            <div>
+      <GlobalStyle/>
+        <ContentPage>
+            <div className="content">
                 <h1>
                     Code for<br/>Heaven
                 </h1>
                 <Link to="/blog">Blog</Link>
             </div>
-        </HomePage>
+        </ContentPage>
     </Layout>
     </>
   )
