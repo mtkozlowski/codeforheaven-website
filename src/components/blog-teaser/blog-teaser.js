@@ -35,7 +35,7 @@ const BlogTeaserText = styled.p`
         bottom: 0;
         right: 0;
         width: 70%;
-        height: 1.2em;
+        height: 1.1em;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
     }
 

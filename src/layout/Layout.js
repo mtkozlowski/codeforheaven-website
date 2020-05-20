@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${({theme}) => theme.colors.black};
         height: 100vh;
         margin: 0;
+        background-color: #0C43AA;
     }
     pre {
         @media(max-width: ${({theme}) => theme.responsive.mobile}) {
