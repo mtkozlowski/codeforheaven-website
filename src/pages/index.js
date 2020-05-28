@@ -2,10 +2,7 @@ import React from "react";
 import Layout from "../layout/Layout";
 import { Helmet } from "react-helmet";
 import RegularSection from '../layout/RegularSection';
-import {LinkAsButton} from '../elements/Buttons';
-import Logo from '../components/Logo';
-import Cloud from '../components/Cloud';
-import cloudSrc from '../components/code-for-heaven-cloud.png';
+
 
 const IndexPage = () => (
     <>
@@ -15,12 +12,7 @@ const IndexPage = () => (
       <title>Code for Heaven</title>
       <link rel="canonical" href="http://codeforheaven.com/" />
     </Helmet>
-    <Layout atHome={true}>
-      <RegularSection>
-              <Logo className="atHome" />
-              <LinkAsButton className="atHome" to="/blog">Blog</LinkAsButton>
-      </RegularSection>
-      <Cloud src={cloudSrc} />
+    <Layout atHome >
     </Layout>
     </>
   );

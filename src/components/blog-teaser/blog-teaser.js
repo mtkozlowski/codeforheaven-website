@@ -29,7 +29,6 @@ const BlogTeaserText = styled.p`
     position: relative;
 
     &::after {
-        content: "";
         text-align: right;
         position: absolute;
         bottom: 0;
@@ -49,9 +48,9 @@ const BlogTeaserText = styled.p`
     }
 `;
 
-const BlogTeaser = ({ teaserData }) => (
+const BlogTeaser = ({ teaserData, index }) => (
     <BlogTeaserWrapper>
-        <BlogTeaserDateBlock>
+        <BlogTeaserDateBlock index={index}>
             {teaserData.frontmatter.date}
         </BlogTeaserDateBlock>
         <BlogTeaserTitle>

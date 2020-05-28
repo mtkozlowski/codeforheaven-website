@@ -4,33 +4,13 @@ import Layout from "../layout/Layout"
 import BlogTeaser from "../components/blog-teaser/blog-teaser";
 import styled from 'styled-components';
 import { Helmet } from "react-helmet"
-import ContentPage from '../layout/ContentPage';
 import RegularSection from '../layout/RegularSection';
-import Logo from '../components/Logo';
 
-
-const BlogContainer = styled.div`
-    grid-area: content;
-`;
-
-const SubpageHeader = styled.a`
-    font-size: ${({theme}) => theme.font.regularTextSize};
-    margin: 0;
-
-    a {
-      color: #333;
-    }
-
-    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-      font-size: 22px;
-    }
-`;
-
-const PageHeader = styled.h1`
-    font-size: ${({theme}) => theme.font.largeHeaderSize};
-    margin: 0 0 80px;
-    line-height: 1;
-    text-indent: -4px;
+const StyledWrapper = styled.div`
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 1.33em;
+  box-shadow: 3px 3px 5px #353535;
 `;
 
 const IndexPage = ({
@@ -40,7 +20,7 @@ const IndexPage = ({
     }) => {
       const Posts = edges
         .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-        .map(edge => <BlogTeaser key={edge.node.id} teaserData={edge.node} />);
+        .map((edge, index) => <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />);
 
       return (
         <>
@@ -50,17 +30,15 @@ const IndexPage = ({
             <title>Code for Heaven - BLOG</title>
             <link rel="canonical" href="http://codeforheaven.com/blog" />
           </Helmet>
-          <Layout>
+          <Layout atHome={false}>
             <RegularSection>
-              <Logo />
-              <BlogContainer>
-                  <PageHeader>Blog</PageHeader>
+                <StyledWrapper>
                   {Posts}
-              </BlogContainer>
+                </StyledWrapper>
             </RegularSection>
         </Layout>
         </>
-              )
+        )
     }
 
 export default IndexPage

@@ -3,7 +3,7 @@ import {colors} from './colors';
 export const theme = {
     colors,
     font: {
-        family: "'Poppins', sans-serif;",
+        family: "Poppins, sans-serif;",
 
         largeHeaderSize: "94px",
         subHeaderSize: "48px",

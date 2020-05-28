@@ -1,7 +1,15 @@
 import styled from 'styled-components';
+import trianglify01 from '../trianglify-01.png';
+import trianglify02 from '../trianglify-02.png';
+import trianglify03 from '../trianglify-03.png';
+
+const trianglifies = [
+    trianglify01, trianglify02, trianglify03
+];
 
 const BlogTeaserDateBlock = styled.div`
     background-color: ${({theme}) => theme.colors.black};
+    background-image: url('${({index}) => trianglifies[index]}');
     color: ${({theme}) => theme.colors.white};
     font-size: ${({theme}) => theme.font.subHeaderSize};
     font-weight: 700;
@@ -17,6 +25,15 @@ const BlogTeaserDateBlock = styled.div`
     align-items: flex-end;
 
     position: absolute;
+
+    :before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #35353535;
+    }
 
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
         justify-content: center;

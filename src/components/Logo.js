@@ -4,27 +4,21 @@ import LogoSrc from '../components/code-for-heaven-logo.png';
 import {Link} from 'gatsby';
 
 const Wrapper = styled.div`
-    &.atHome {
-        margin-top: 12rem;
-    }
-
-    h1 {
-        visibility: hidden;
-        margin: 0;
-    }
+    width: 58%;
+    ${({atHome})  => atHome && `
+        width: 100%;
+    `}
 `;
 
 const Img = styled.img`
     display: block;
     max-width: 100%;
-    margin-right: 20px;
 `;
 
-const Logo = ({className}) => (
-    <Wrapper className={className}>
-        <h1>Code for Heaven</h1>
+const Logo = ({ atHome }) => (
+    <Wrapper atHome={atHome}>
         <Link to='/'>
-            <Img src={LogoSrc} alt="Code for Heaven Logo" />
+            <Img src={LogoSrc} alt="Code for Heaven Logo" title="Code for Heaven Logo" />
         </Link>
     </Wrapper>
 )
