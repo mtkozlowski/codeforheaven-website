@@ -1,16 +1,13 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../layout/Layout"
-import { Helmet } from "react-helmet"
-import ContentPage from "../layout/ContentPage"
-import PageHeader from "../components/typography/headers"
-import styled from 'styled-components';
+import React from "react";
+import Layout from "../layout/Layout";
+import { Helmet } from "react-helmet";
+import RegularSection from '../layout/RegularSection';
+import {LinkAsButton} from '../elements/Buttons';
+import Logo from '../components/Logo';
+import Cloud from '../components/Cloud';
+import cloudSrc from '../components/code-for-heaven-cloud.png';
 
-const Container = styled.div`
-    grid-area: content
-`;
-
-export default () => (
+const IndexPage = () => (
     <>
     <Helmet>
       <meta charSet="utf-8" />
@@ -18,15 +15,14 @@ export default () => (
       <title>Code for Heaven</title>
       <link rel="canonical" href="http://codeforheaven.com/" />
     </Helmet>
-    <Layout>
-      <ContentPage>
-          <Container>
-              <PageHeader>
-                  Code for<br/>Heaven
-              </PageHeader>
-              <Link to="/blog">Blog</Link>
-          </Container>
-      </ContentPage>
+    <Layout atHome={true}>
+      <RegularSection>
+              <Logo className="atHome" />
+              <LinkAsButton className="atHome" to="/blog">Blog</LinkAsButton>
+      </RegularSection>
+      <Cloud src={cloudSrc} />
     </Layout>
     </>
-  )
+  );
+
+export default IndexPage;

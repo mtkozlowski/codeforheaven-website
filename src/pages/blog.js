@@ -5,6 +5,8 @@ import BlogTeaser from "../components/blog-teaser/blog-teaser";
 import styled from 'styled-components';
 import { Helmet } from "react-helmet"
 import ContentPage from '../layout/ContentPage';
+import RegularSection from '../layout/RegularSection';
+import Logo from '../components/Logo';
 
 
 const BlogContainer = styled.div`
@@ -28,7 +30,7 @@ const PageHeader = styled.h1`
     font-size: ${({theme}) => theme.font.largeHeaderSize};
     margin: 0 0 80px;
     line-height: 1;
-    text-indent: -8px;
+    text-indent: -4px;
 `;
 
 const IndexPage = ({
@@ -49,12 +51,13 @@ const IndexPage = ({
             <link rel="canonical" href="http://codeforheaven.com/blog" />
           </Helmet>
           <Layout>
-            <ContentPage>
+            <RegularSection>
+              <Logo />
               <BlogContainer>
                   <PageHeader>Blog</PageHeader>
                   {Posts}
               </BlogContainer>
-            </ContentPage>
+            </RegularSection>
         </Layout>
         </>
               )

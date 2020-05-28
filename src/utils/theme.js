@@ -3,7 +3,7 @@ import {colors} from './colors';
 export const theme = {
     colors,
     font: {
-        family: "'Montserrat', sans-serif",
+        family: "'Poppins', sans-serif;",
 
         largeHeaderSize: "94px",
         subHeaderSize: "48px",
@@ -19,5 +19,7 @@ export const theme = {
         mobile: "640px",
         mobileMid: "480px",
         mobileVertical: "360px",
-    }
+    },
+
+    regularSection: '1080px',
 }
