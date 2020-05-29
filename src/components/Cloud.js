@@ -17,9 +17,11 @@ const StyledWrapper = styled.div`
             width: 100%;
             height: 100%;
             background-color: #FFFCFC;
-            opacity: .8;
+            opacity: .7;
         }
     `}
+
+
 
 `;
 
@@ -28,6 +30,13 @@ const CloudPic = styled.img`
     left: -6rem;
     bottom: -12rem;
     max-width: 100%;
+
+    ${({theme}) => theme.media.phone} {
+        max-width: unset;
+        width: 200%;
+        left: -100%;
+        bottom: -95px;
+    }
 `;
 const Cloud = ({atHome}) => (
     <StyledWrapper atHome={atHome} >

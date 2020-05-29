@@ -6,8 +6,11 @@ import BlogTeaserDateBlock from "./blog-teaser-date-block";
 
 const BlogTeaserWrapper = styled.div`
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    border-radius: 1.33rem;
+    box-shadow: 3px 3px 5px #ccc;
 
+    padding: 30px;
     position: relative;
 
     margin-bottom: 50px;
@@ -17,14 +20,17 @@ const BlogTeaserWrapper = styled.div`
         height: auto;
         flex-direction: column;
     }
+    ${({theme}) => theme.media.phone} {
+        height: auto;
+
+    }
 `;
 
 const BlogTeaserText = styled.p`
     flex: 1 1 auto;
 
-    font-size: ${({theme}) => theme.font.blogPostTeaserSize};
     line-height: 1.2;
-    margin: 0 0 1.4em 270px;
+    margin: 0 0 1.4em 240px;
     overflow: hidden;
     position: relative;
 
@@ -41,10 +47,10 @@ const BlogTeaserText = styled.p`
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
         margin-left: 200px;
     }
-    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
-        font-size: 18px;
+
+    ${({theme}) => theme.media.phone} {
         margin-left: 0px;
-        order: 3;
+        line-height: 1.2;
     }
 `;
 

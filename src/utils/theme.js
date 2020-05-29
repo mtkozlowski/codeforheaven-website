@@ -4,6 +4,7 @@ export const theme = {
     colors,
     font: {
         family: "Poppins, sans-serif;",
+        boldFontWeight: 700,
 
         largeHeaderSize: "94px",
         subHeaderSize: "48px",
@@ -13,6 +14,13 @@ export const theme = {
         /* MOBILE FONT SIZES */
         largeHeaderSize__Mobile: "72px",
     },
+
+    media: {
+        phone: '@media (max-width: 480px)',
+        littleTablet: '@media (max-width: 768px)',
+        tablet: '@media (max-width: 1080px)'
+    },
+
     responsive: {
         tablet: "1024px",
         tabletVertical: "768px",

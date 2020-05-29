@@ -7,10 +7,14 @@ import { Helmet } from "react-helmet"
 import RegularSection from '../layout/RegularSection';
 
 const StyledWrapper = styled.div`
-  padding: 1rem;
+  padding: 54px;
   background-color: #fff;
   border-radius: 1.33em;
-  box-shadow: 3px 3px 5px #353535;
+  box-shadow: 3px 3px 5px #ccc;
+
+  ${({theme}) => theme.media.phone} {
+      padding: 27px;
+  }
 `;
 
 const IndexPage = ({

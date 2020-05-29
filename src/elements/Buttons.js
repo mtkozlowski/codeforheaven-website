@@ -1,20 +1,26 @@
 import styled from 'styled-components';
-import { Link } from "gatsby";
 
-export const LinkAsButton = styled(Link)`
-    background-color: ${({theme}) => theme.colors.yellow};
-    border: 2px solid ${({theme}) => theme.colors.darkblue};
+export const Button = styled.button`
+    background-color: ${({ theme }) => theme.colors.yellow};
+    border: 2px solid ${({ theme }) => theme.colors.darkblue};
     border-radius: 1.33em;
-    color: ${({theme}) => theme.colors.dark};
-
+    color: ${({ theme }) => theme.colors.dark};
+    box-shadow: 3px 3px 3px #ccc;
 
     display: inline-block;
     padding: 0.4em 0.6em;
     text-decoration: none;
 
     &:hover, &:focus {
-        background-color: ${({theme}) => theme.colors.darkblue};
-        color: ${({theme}) => theme.colors.white};
+        background-color: ${({ theme }) => theme.colors.darkblue};
+        color: ${({ theme }) => theme.colors.white};
+        box-shadow: 1px 1px 3px #ccc;
     }
+`;
+
+export const LargeButton = styled(Button)`
+    align-self: flex-end;
+    font-size: 1.4em;
+    padding: 0.3em 1em;
 `;
 

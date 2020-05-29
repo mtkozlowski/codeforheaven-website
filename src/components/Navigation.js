@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
-import {LinkAsButton} from '../elements/Buttons';
+import {Button} from '../elements/Buttons';
 import Logo from '../components/Logo';
+import { Link } from "gatsby";
 
 const Nav = styled.nav`
     width: ${({theme}) => theme.regularSection};
@@ -11,11 +12,16 @@ const Nav = styled.nav`
     justify-content: space-between;
     transition: translate .9s ease-in-out;
 
+    ${({theme}) => theme.media.tablet} {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
     ${({atHome})  => atHome && `
         transform: translateY(10rem);
         flex-wrap: wrap;
 
-        ${LinkAsButton} {
+        ${Button} {
             margin-top: 3rem;
             margin-left: auto;
             align-self: flex-end;
@@ -23,12 +29,19 @@ const Nav = styled.nav`
             padding: 0.3em 1em;
         }
     `};
+
+    ${({theme}) => theme.media.tablet} {
+        margin-top: 0rem;
+        padding: 1rem;
+        width: 100%;
+        transform: translateY(0);
+    }
 `;
 
 const Navigation = ({ atHome }) => (
     <Nav atHome={atHome} >
-        <Logo  atHome={atHome} />
-        <LinkAsButton to="/blog" >Blog</LinkAsButton>
+        <Logo atHome={atHome} />
+        <Button as={Link} to="/blog" >Blog</Button>
     </Nav>
 );
 

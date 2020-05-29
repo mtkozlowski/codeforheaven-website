@@ -1,8 +1,6 @@
 import React from "react";
 import Layout from "../layout/Layout";
 import { Helmet } from "react-helmet";
-import RegularSection from '../layout/RegularSection';
-
 
 const IndexPage = () => (
     <>

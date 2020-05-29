@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import LogoSrc from '../components/code-for-heaven-logo.png';
+import MobileLogoSrc from '../components/code-for-heaven-mobile-logo.png';
 import {Link} from 'gatsby';
 
 const Wrapper = styled.div`
@@ -8,6 +9,10 @@ const Wrapper = styled.div`
     ${({atHome})  => atHome && `
         width: 100%;
     `}
+
+    ${({theme}) => theme.media.tablet} {
+        width: 58%;
+    }
 `;
 
 const Img = styled.img`
@@ -15,10 +20,29 @@ const Img = styled.img`
     max-width: 100%;
 `;
 
+const BrowserView = styled.div`
+    ${({theme}) => theme.media.phone} {
+        display: none;
+    }
+`;
+
+const MobileView = styled.div`
+    display: none;
+    ${({theme}) => theme.media.phone} {
+        display: block;
+    }
+`;
+
+
 const Logo = ({ atHome }) => (
     <Wrapper atHome={atHome}>
         <Link to='/'>
-            <Img src={LogoSrc} alt="Code for Heaven Logo" title="Code for Heaven Logo" />
+            <BrowserView>
+                <Img src={LogoSrc} alt="Code for Heaven Logo" title="Code for Heaven Logo" />
+            </BrowserView>
+            <MobileView>
+                <Img src={MobileLogoSrc} alt="Code for Heaven Logo" title="Code for Heaven Logo" />
+            </MobileView>
         </Link>
     </Wrapper>
 )

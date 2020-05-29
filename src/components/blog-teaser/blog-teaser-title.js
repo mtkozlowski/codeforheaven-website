@@ -1,21 +1,22 @@
 import styled from 'styled-components';
+import { H3 } from '../typography/headers';
 
-const BlogTeaserTitle = styled.h3`
+const BlogTeaserTitle = styled(H3)`
     flex: 0 1 60px;
 
-    font-size: ${({theme}) => theme.font.subHeaderSize};
     line-height: 1;
-    margin: 0 0 0 270px;
-    padding-bottom: 12px;
+    margin: 0 0 0 240px;
+    padding-bottom: 22px;
 
     a {color: ${({theme}) => theme.colors.dark};}
 
     @media(max-width: ${({theme}) => theme.responsive.mobile}) {
         margin-left: 200px;
     }
-    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
+
+    ${({theme}) => theme.media.phone} {
+        margin-top: 1em;
         margin-left: 0px;
-        font-size: 36px;
         line-height: 1.2;
     }
 `;
