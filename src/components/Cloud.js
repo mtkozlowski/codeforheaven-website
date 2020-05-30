@@ -20,9 +20,6 @@ const StyledWrapper = styled.div`
             opacity: .7;
         }
     `}
-
-
-
 `;
 
 const CloudPic = styled.img`

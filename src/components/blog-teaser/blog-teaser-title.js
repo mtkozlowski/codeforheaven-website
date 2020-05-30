@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H3 } from '../typography/headers';
+import { H3 } from '../typography/Headings';
 
 const BlogTeaserTitle = styled(H3)`
     flex: 0 1 60px;

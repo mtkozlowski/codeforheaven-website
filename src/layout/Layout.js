@@ -4,20 +4,44 @@ import {theme} from '../utils/theme';
 import GlobalStyle from './GlobalStyle';
 import Navigation from '../components/Navigation';
 import Cloud from '../components/Cloud';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
 
 const Main = styled.main`
-    margin-top: 10rem;
+    margin-top: 8rem;
+
+    ${({ theme }) => theme.media.phone} {
+        margin-top: 2rem;
+    }
 `;
 
-const Layout = ({children, atHome}) => (
+const Layout = ({children}) => (
     <ThemeProvider theme={theme}>
     <>
-        <GlobalStyle atHome={atHome} />
-        <Navigation atHome={atHome}/>
-            <Main>
-                {children}
-            </Main>
-        <Cloud atHome={atHome} />
+        <GlobalStyle/>
+        <Header>
+            <Logo />
+            <Navigation/>
+        </Header>
+        <Main>
+            {children}
+        </Main>
+        <Cloud />
+    </>
+    </ThemeProvider>
+);
+
+export const HomepageLayout = ({ children }) => (
+    <ThemeProvider theme={theme}>
+    <>
+        <GlobalStyle/>
+        <Header  atHome={true} >
+            <Logo atHome={true} />
+            <Navigation atHome={true}/>
+        </Header>
+        <Main>
+            {children}
+        </Main>
     </>
     </ThemeProvider>
 );

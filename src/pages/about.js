@@ -1,9 +1,10 @@
 import React from "react";
-import Header from "../components/header";
+import {H1} from "../components/typography/Headings";
 
-export default () => (
+const About = () => (
   <div style={{ color: `teal` }}>
-    <Header headerText="My header"/>
-    <p>Such wow. Very React.</p>
+    <H1>No about page yet.</H1>
   </div>
-)
+);
+
+export default About;

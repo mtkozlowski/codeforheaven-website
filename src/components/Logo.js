@@ -13,6 +13,10 @@ const Wrapper = styled.div`
     ${({theme}) => theme.media.tablet} {
         width: 58%;
     }
+    ${({theme}) => theme.media.phone} {
+        width: auto;
+        margin-right: 1rem;
+    }
 `;
 
 const Img = styled.img`

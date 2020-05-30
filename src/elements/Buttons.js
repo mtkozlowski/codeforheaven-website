@@ -16,10 +16,13 @@ export const Button = styled.button`
         color: ${({ theme }) => theme.colors.white};
         box-shadow: 1px 1px 3px #ccc;
     }
+
+    ${({theme}) => theme.media.phone} {
+        margin-top: 0 !important;
+    }
 `;
 
 export const LargeButton = styled(Button)`
-    align-self: flex-end;
     font-size: 1.4em;
     padding: 0.3em 1em;
 `;

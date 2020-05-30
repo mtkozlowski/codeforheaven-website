@@ -18,7 +18,8 @@ export const theme = {
     media: {
         phone: '@media (max-width: 480px)',
         littleTablet: '@media (max-width: 768px)',
-        tablet: '@media (max-width: 1080px)'
+        tablet: '@media (max-width: 1080px)',
+        desktop: '@media (min-width: 1080px)',
     },
 
     responsive: {

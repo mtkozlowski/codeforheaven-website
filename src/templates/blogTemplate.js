@@ -3,32 +3,10 @@ import { graphql } from "gatsby"
 import styled from 'styled-components';
 import Layout from "../layout/Layout"
 import { Link } from "gatsby"
-import ContentPage from '../layout/ContentPage';
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet";
+import RegularSection from "../layout/RegularSection";
+import { H1 } from "../components/typography/Headings";
 require("prismjs/themes/prism-coy.css");
-
-const Content = styled.div`
-    grid-area: content;
-`;
-const SubpageHeader = styled.h3`
-    font-size: ${({theme}) => theme.font.regularTextSize};
-    margin: 0;
-
-    a {
-      color: #333;
-    }
-
-    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-      font-size: 22px;
-    }
-`;
-
-const PageHeader = styled.h2`
-    font-size: ${({theme}) => theme.font.largeHeaderSize};
-    margin: 0 0 80px;
-    line-height: 1;
-    text-indent: -8px;
-`;
 
 const DivFlex = styled.div`
     display: flex;
@@ -37,6 +15,17 @@ const DivFlex = styled.div`
     @media(max-width: ${({theme}) => theme.responsive.mobileMid}) {
         flex-direction: column;
     }
+`;
+
+const StyledWrapper = styled.div`
+  padding: 54px;
+  background-color: #fff;
+  border-radius: 1.33em;
+  box-shadow: 3px 3px 5px #ccc;
+
+  ${({theme}) => theme.media.phone} {
+      padding: 27px;
+  }
 `;
 
 const PostTitle = styled.h1`
@@ -90,23 +79,20 @@ export default function Template({
         <link rel="canonical" href={"http://codeforheaven.com"+frontmatter.path} />
       </Helmet>
       <Layout>
-      <ContentPage className="blog-post-container">
-        <Content className="blog-post">
-          <SubpageHeader>
-            <Link to="/">Code for Heaven</Link>
-          </SubpageHeader>
-          <PageHeader>Blog</PageHeader>
+        <RegularSection>
+          <H1>Blog</H1>
           <Link to="/blog">Wróć do poprzedniej strony</Link>
-          <DivFlex>
-            <PostTitle>{frontmatter.title}</PostTitle>
-            <PostDateBlock>{frontmatter.date}</PostDateBlock>
-          </DivFlex>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </Content>
-      </ContentPage>
+          <StyledWrapper>
+            <DivFlex>
+              <PostTitle>{frontmatter.title}</PostTitle>
+              <PostDateBlock>{frontmatter.date}</PostDateBlock>
+            </DivFlex>
+            <div
+              className="blog-post-content"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </StyledWrapper>
+        </RegularSection>
       </Layout>
     </>
   )
