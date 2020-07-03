@@ -3,4 +3,8 @@
     "files.associations": {
         "*.js": "javascriptreact"
     },
+    "search.exclude": {
+        ".cache/**": true,
+        "public/**": true
+    },
 }

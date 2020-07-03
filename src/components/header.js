@@ -14,7 +14,7 @@ const Header = styled.header`
 
     @media (min-width: 1080px) {
         ${({atHome})  => atHome && `
-            transform: translateY(8rem);
+            transform: translateY(10vh);
         `};
     }
 

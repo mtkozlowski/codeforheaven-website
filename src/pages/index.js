@@ -18,7 +18,7 @@ const StyledWrapper = styled.div`
   ${H1} {
     color: ${({theme}) => theme.colors.darkestblue };
     line-height: 1.2;
-    margin: 0;
+    margin: 5rem 0 0;
   }
 `;
 
@@ -33,7 +33,6 @@ const IndexPage = () => (
   <HomepageLayout>
         <RegularSection>
           <StyledWrapper>
-            <H1>Welcome to my<br/>Code & Design Journal</H1>
           </StyledWrapper>
         </RegularSection>
       <Cloud atHome />

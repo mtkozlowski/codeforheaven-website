@@ -22,7 +22,6 @@ const BlogTeaserWrapper = styled.div`
     }
     ${({theme}) => theme.media.phone} {
         height: auto;
-
     }
 `;
 

@@ -22,6 +22,7 @@ const StyledWrapper = styled.div`
   background-color: #fff;
   border-radius: 1.33em;
   box-shadow: 3px 3px 5px #ccc;
+  margin-top: 1.5rem;
 
   ${({theme}) => theme.media.phone} {
       padding: 27px;
@@ -80,8 +81,7 @@ export default function Template({
       </Helmet>
       <Layout>
         <RegularSection>
-          <H1>Blog</H1>
-          <Link to="/blog">Wróć do poprzedniej strony</Link>
+          <Link to="/blog">Go to previous page</Link>
           <StyledWrapper>
             <DivFlex>
               <PostTitle>{frontmatter.title}</PostTitle>

@@ -45,7 +45,7 @@ const BlogTeaserDateBlock = styled.div`
     }
     ${({theme}) => theme.media.phone} {
         height: 125px;
-        width: 100%;
+        width: calc(100% + 60px);
 
         position: relative;
         justify-content: center;
@@ -53,6 +53,7 @@ const BlogTeaserDateBlock = styled.div`
         padding: 0 12px;
         order: 0;
         font-size: 24px;
+        margin: -30px -30px 0;
     }
 `;
 
