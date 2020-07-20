@@ -1,10 +1,10 @@
 {
-    "editor.formatOnSaveTimeout": null,
-    "files.associations": {
-        "*.js": "javascriptreact"
-    },
-    "search.exclude": {
-        ".cache/**": true,
-        "public/**": true
-    },
+  "editor.formatOnSaveTimeout": null,
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "search.exclude": {
+    ".cache/**": true,
+    "public/**": true
+  }
 }
