@@ -3,7 +3,8 @@ import {colors} from './colors';
 export const theme = {
     colors,
     font: {
-        family: "Poppins, sans-serif;",
+        import: "@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap')",
+        family: "'Source Sans Pro', sans-serif",
         boldFontWeight: 700,
 
         largeHeaderSize: "94px",

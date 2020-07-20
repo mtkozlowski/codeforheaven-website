@@ -1,8 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { Helmet } from "react-helmet";
-import { HomepageLayout } from "../style/organisms/Layout";
-import Cloud from '../style/components/Cloud';
+import Layout  from "../style/organisms/Layout";
 import { H1 } from '../style/atoms/Headings';
 import RegularSection from '../style/organisms/RegularSection';
 
@@ -30,13 +29,12 @@ const IndexPage = () => (
     <title>Code for Heaven</title>
     <link rel="canonical" href="http://codeforheaven.com/" />
   </Helmet>
-  <HomepageLayout>
-        <RegularSection>
-          <StyledWrapper>
-          </StyledWrapper>
-        </RegularSection>
-      <Cloud atHome />
-  </HomepageLayout>
+  <Layout>
+    <RegularSection>
+      <StyledWrapper>
+      </StyledWrapper>
+    </RegularSection>
+  </Layout>
   </>
 );
 

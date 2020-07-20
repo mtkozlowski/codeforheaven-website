@@ -1,6 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const Header = styled.header`
+import { H1 } from '../atoms/Headings';
+import Navigation from '../molecules/Navigation';
+
+const StyledHeader = styled.header`
     width: ${({theme}) => theme.regularSection};
     max-width: 100%;
     margin: 0 auto;
@@ -12,15 +16,26 @@ const Header = styled.header`
     padding: 1.6rem 0;
     transition: translate .9s ease-in-out;
 
-    @media (min-width: 1080px) {
-        ${({atHome})  => atHome && `
-            transform: translateY(10vh);
-        `};
-    }
-
     ${({theme}) => theme.media.tablet} {
         padding: 1.6rem 0.8rem;
     }
 `;
+
+const HeaderTagline = styled.p`
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    margin-top: -40px;
+`;
+
+const Header = () => (
+    <StyledHeader>
+        <div>
+        <H1>Code for Heaven</H1>
+        <HeaderTagline>
+            Front-end dev on his way to UX.
+        </HeaderTagline>
+        </div>
+        <Navigation/>
+    </StyledHeader>
+)
 
 export default Header;

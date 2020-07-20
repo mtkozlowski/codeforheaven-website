@@ -1,8 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
-import backgroundCover from './bg-t.png';
 
 const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    ${({theme}) => theme.font.import};
 
     *, *::before, *::after {box-sizing: border-box;}
     html, body {
@@ -15,9 +14,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: ${({theme}) => theme.font.regularTextSize};
         color: ${({theme}) => theme.colors.dark};
 
-        background-color: ${({theme}) => theme.colors.yellow};
-        background-image: url(${backgroundCover});
-        background-repeat: repeat;
         padding-top: 1px;
     }
 
@@ -33,8 +29,6 @@ const GlobalStyle = createGlobalStyle`
             max-width: 100%;
         }
     }
-
-    svg.icons-waterfall {fill: ${({theme}) => theme.colors.dark}}
 `;
 
 export default GlobalStyle;
