@@ -1,9 +1,8 @@
 import React from "react"
-import { Link } from "gatsby"
-import Layout from "../layout/Layout"
+import Layout from "../style/organisms/Layout"
 import {createGlobalStyle} from 'styled-components';
 import { Helmet } from "react-helmet"
-import ContentPage from "../layout/ContentPage"
+import ContentPage from "../style/organisms/ContentPage"
 
 const GlobalStyle = createGlobalStyle`
   .content {

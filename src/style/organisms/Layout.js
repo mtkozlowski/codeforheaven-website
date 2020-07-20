@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, {ThemeProvider, css} from 'styled-components';
-import {theme} from '../utils/theme';
+import {theme} from '../theme';
 import GlobalStyle from './GlobalStyle';
-import Navigation from '../components/Navigation';
+import Navigation from '../molecules/Navigation';
 import Cloud from '../components/Cloud';
-import Header from '../components/Header';
-import Logo from '../components/Logo';
-import {H1} from '../components/typography/Headings';
+import Header from './Header';
+import Logo from '../molecules/Logo';
+import {H1} from '../atoms/Headings';
 
 const Main = styled.main`
     margin-top: 8rem;

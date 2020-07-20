@@ -64,7 +64,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     createPage({
       path: `/posts/${edge.node.frontmatter.slug}`,
-      component: path.resolve("./src/templates/blogTemplate.js"),
+      component: path.resolve("./src/style/templates/blogTemplate.js"),
       context: {
         slug: edge.node.frontmatter.slug,
         previous,
@@ -76,7 +76,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   _.each(pageEdges, (edge, index) => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
-      component: path.resolve(`./src/templates/pageTemplate.js`),
+      component: path.resolve(`./src/style/templates/pageTemplate.js`),
       context: {
         slug: edge.node.frontmatter.slug
       }

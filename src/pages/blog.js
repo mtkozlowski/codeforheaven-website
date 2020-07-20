@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../layout/Layout"
-import BlogTeaser from "../components/blog-teaser/blog-teaser";
-import styled from 'styled-components';
 import { Helmet } from "react-helmet"
-import RegularSection from '../layout/RegularSection';
+import styled from 'styled-components';
+
+import Layout from "../style/organisms/Layout"
+import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser";
+import RegularSection from '../style/organisms/RegularSection';
 
 const StyledWrapper = styled.div`
   padding: 48px;

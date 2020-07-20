@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
-import { HomepageLayout } from "../layout/Layout";
 import { Helmet } from "react-helmet";
-import Cloud from '../components/Cloud';
-import { H1 } from '../components/typography/Headings';
-import RegularSection from '../layout/RegularSection';
+import { HomepageLayout } from "../style/organisms/Layout";
+import Cloud from '../style/components/Cloud';
+import { H1 } from '../style/atoms/Headings';
+import RegularSection from '../style/organisms/RegularSection';
 
 const StyledWrapper = styled.div`
   text-align: center;

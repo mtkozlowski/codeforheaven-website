@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
-import styled from 'styled-components';
-import Layout from "../layout/Layout"
-import { Link } from "gatsby"
 import { Helmet } from "react-helmet";
-import RegularSection from "../layout/RegularSection";
-import { H1 } from "../components/typography/Headings";
+import { graphql, Link } from "gatsby"
+import styled from 'styled-components';
+
+import Layout from "../organisms/Layout"
+import RegularSection from "../organisms/RegularSection";
 require("prismjs/themes/prism-coy.css");
 
 const DivFlex = styled.div`
@@ -67,11 +66,10 @@ align-items: center;
 `;
 
 export default function Template({
-  data
-}) {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-
+  data, // this prop will be injected by the GraphQL query below.
+  }) {
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = markdownRemark
   return (
     <>
       <Helmet>
@@ -99,7 +97,7 @@ export default function Template({
   )
 }
 export const pageQuery = graphql`
-  query BlogPostBySlug ($path: String!) {
+  query ProjectPostBySlug($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

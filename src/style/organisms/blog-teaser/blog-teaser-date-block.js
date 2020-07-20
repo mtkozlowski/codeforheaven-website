@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import trianglify01 from '../trianglify-01.png';
-import trianglify02 from '../trianglify-02.png';
-import trianglify03 from '../trianglify-03.png';
+import trianglify01 from './trianglify-01.png';
+import trianglify02 from './trianglify-02.png';
+import trianglify03 from './trianglify-03.png';
 
 const trianglifies = [
     trianglify01, trianglify02, trianglify03

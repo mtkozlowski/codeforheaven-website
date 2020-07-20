@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import React from 'react';
-import { LargeButton } from '../elements/Buttons';
 import { Link } from "gatsby";
+import styled from 'styled-components';
+import { LargeButton } from '../atoms/Buttons';
 
 const Nav = styled.nav`
     ${({theme}) => theme.media.phone} {
