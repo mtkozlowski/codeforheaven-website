@@ -1,19 +1,19 @@
 const path = require(`path`)
-const _ = require("lodash");
+const _ = require("lodash")
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
   if (_.get(node, "internal.type") === `MarkdownRemark`) {
-    const parent = getNode(_.get(node, "parent"));
+    const parent = getNode(_.get(node, "parent"))
 
     createNodeField({
       node,
       name: "collection",
-      value: _.get(parent, "sourceInstanceName")
-    });
+      value: _.get(parent, "sourceInstanceName"),
+    })
   }
-};
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
@@ -34,7 +34,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `);
+  `)
 
   // Handle errors
   if (results.errors) {
@@ -42,25 +42,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const { createPage } = actions;
+  const { createPage } = actions
 
-  const allEdges = results.data.allMarkdownRemark.edges;
+  const allEdges = results.data.allMarkdownRemark.edges
   const blogEdges = allEdges.filter(
     edge => edge.node.fields.collection === `posts`
-  );
+  )
   const pageEdges = allEdges.filter(
     edge => edge.node.fields.collection === `pages`
-  );
+  )
 
   _.each(blogEdges, (edge, index) => {
     const previous =
-      index === blogEdges.length - 1
-        ? null
-        : blogEdges[index + 1].node;
-    const next =
-      index === 0
-        ? null
-        : blogEdges[index - 1].node;
+      index === blogEdges.length - 1 ? null : blogEdges[index + 1].node
+    const next = index === 0 ? null : blogEdges[index - 1].node
 
     createPage({
       path: `/posts/${edge.node.frontmatter.slug}`,
@@ -68,18 +63,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: edge.node.frontmatter.slug,
         previous,
-        next
-      }
-    });
-  });
+        next,
+      },
+    })
+  })
 
   _.each(pageEdges, (edge, index) => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve(`./src/style/templates/pageTemplate.js`),
       context: {
-        slug: edge.node.frontmatter.slug
-      }
-    });
-  });
+        slug: edge.node.frontmatter.slug,
+      },
+    })
+  })
 }
