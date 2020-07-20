@@ -14,7 +14,6 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 1.6rem 0;
-    transition: translate .9s ease-in-out;
 
     ${({theme}) => theme.media.tablet} {
         padding: 1.6rem 0.8rem;
