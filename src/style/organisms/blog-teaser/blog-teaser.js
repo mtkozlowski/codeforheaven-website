@@ -1,37 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "gatsby";
+
 import BlogTeaserTitle from "./blog-teaser-title";
 import BlogTeaserDateBlock from "./blog-teaser-date-block";
+import StyledLink from '../../atoms/StyledLink';
 
 const BlogTeaserWrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    border-radius: 1.33rem;
-    box-shadow: 3px 3px 5px #ccc;
-
-    padding: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
 
     margin-bottom: 50px;
-    height: 250px;
-
-    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
-        height: auto;
-        flex-direction: column;
-    }
-    ${({theme}) => theme.media.phone} {
-        height: auto;
-    }
 `;
 
 const BlogTeaserText = styled.p`
     flex: 1 1 auto;
 
     line-height: 1.2;
-    margin: 0 0 1.4em 240px;
-    overflow: hidden;
+    margin: 0 0 1.4em;
     position: relative;
+    order: 3;
+
+    ${({theme}) => theme.media.phone} {
+        margin-top: 1em;
+    }
 
     &::after {
         text-align: right;
@@ -42,28 +36,19 @@ const BlogTeaserText = styled.p`
         height: 1.1em;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
     }
-
-    @media(max-width: ${({theme}) => theme.responsive.mobile}) {
-        margin-left: 200px;
-    }
-
-    ${({theme}) => theme.media.phone} {
-        margin-left: 0px;
-        line-height: 1.2;
-    }
 `;
 
 const BlogTeaser = ({ teaserData, index }) => (
     <BlogTeaserWrapper>
-        <BlogTeaserDateBlock index={index}>
-            {teaserData.frontmatter.date}
-        </BlogTeaserDateBlock>
         <BlogTeaserTitle>
-          <Link to={teaserData.frontmatter.path}>{teaserData.frontmatter.title}</Link>
+          <StyledLink to={teaserData.frontmatter.path}>{teaserData.frontmatter.title}</StyledLink>
         </BlogTeaserTitle>
         <BlogTeaserText>
           {teaserData.frontmatter.description}
         </BlogTeaserText>
+        <BlogTeaserDateBlock index={index}>
+            {teaserData.frontmatter.date}
+        </BlogTeaserDateBlock>
     </BlogTeaserWrapper>
 )
 

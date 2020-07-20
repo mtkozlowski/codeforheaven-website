@@ -1,17 +1,12 @@
 import React from 'react';
-import { Link } from "gatsby";
 import styled from 'styled-components';
-import { LargeButton } from '../atoms/Buttons';
+
+import StyledLink from '../atoms/StyledLink';
 
 const Nav = styled.nav`
     ${({theme}) => theme.media.phone} {
         margin-top: 0;
     }
-
-    ${({atHome})  => atHome && `
-        margin-top: 3rem;
-        margin-left: auto;
-    `};
 
     ${({theme}) => theme.media.tablet} {
         margin-top: 0;
@@ -20,7 +15,7 @@ const Nav = styled.nav`
 
 const Navigation = ({ atHome }) => (
     <Nav atHome={atHome} >
-        <LargeButton as={Link} to="/blog" >Blog</LargeButton>
+        {/* <StyledLink to="/blog" >Blog</StyledLink> */}
         {/* <LargeButton as={Link} to="/bookmarks" >Bookmarks</LargeButton> */}
     </Nav>
 );

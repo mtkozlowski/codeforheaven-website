@@ -18,6 +18,7 @@ export const colors = {
     blue: '#28ACED',
     darkblue: '#107EB6',
     darkestblue: '#0d6592',
+    grey: '#999999',
     lightgrey: '#F7F7F7',
 
     lightpink: `#F3BCF9`,

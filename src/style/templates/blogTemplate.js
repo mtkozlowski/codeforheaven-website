@@ -1,8 +1,10 @@
 import React from "react"
 import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import styled from 'styled-components';
 
+import { H2 } from '../atoms/Headings';
+import StyledLink from '../atoms/StyledLink';
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection";
 
@@ -10,60 +12,19 @@ require("prismjs/themes/prism-coy.css");
 
 const DivFlex = styled.div`
     display: flex;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 
-    @media(max-width: ${({theme}) => theme.responsive.mobileMid}) {
-        flex-direction: column;
-    }
-`;
-
-const StyledWrapper = styled.div`
-  padding: 54px;
-  background-color: #fff;
-  border-radius: 1.33em;
-  box-shadow: 3px 3px 5px #ccc;
-  margin-top: 1.5rem;
-
-  ${({theme}) => theme.media.phone} {
-      padding: 27px;
-  }
-`;
-
-const PostTitle = styled.h1`
-    font-size: ${({theme}) => theme.font.subHeaderSize};
-    line-height: 1;
-    margin: 0 0 0 20px;
-
-    order: 2;
-
-    a {color: ${({theme}) => theme.colors.dark};}
-
-    @media(max-width: ${({theme}) => theme.responsive.mobileMid}) {
-      margin-left: 0px;
-    }
-    @media(max-width: ${({theme}) => theme.responsive.mobileVertical}) {
-      font-size: 36px;
-      line-height: 1.2;
+    ${({theme}) => theme.media.phone} {
+        /* flex-direction: column; */
     }
 `;
 
 const PostDateBlock = styled.div`
-background-color: #111;
-color: ${({theme}) => theme.colors.white};
-font-size: ${({theme}) => theme.font.subHeaderSize};
-font-weight: 700;
-line-height: 1;
-
-max-width: 250px;
-
-padding: 0 12px;
-
-order: 1;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
+    color: ${({theme}) => theme.colors.grey};
+    font-family: ${({theme}) => theme.font.secondaryFamily};
+    letter-spacing: .2em;
 `;
 
 export default function Template({
@@ -82,17 +43,15 @@ export default function Template({
       </Helmet>
       <Layout>
         <RegularSection>
-          <Link to="/blog">Go to previous page</Link>
-          <StyledWrapper>
-            <DivFlex>
-              <PostTitle>{frontmatter.title}</PostTitle>
-              <PostDateBlock>{frontmatter.date}</PostDateBlock>
-            </DivFlex>
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </StyledWrapper>
+          <StyledLink to="/">Go to previous page</StyledLink>
+          <DivFlex>
+            <H2>{frontmatter.title}</H2>
+            <PostDateBlock>{frontmatter.date}</PostDateBlock>
+          </DivFlex>
+          <div
+            className="blog-post-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </RegularSection>
       </Layout>
     </>
@@ -103,7 +62,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
-        date(formatString: "DD/MM")
+        date(formatString: "MMMM DD, YYYY")
         path
         title
       }

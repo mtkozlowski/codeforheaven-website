@@ -9,9 +9,6 @@ import RegularSection from '../style/organisms/RegularSection';
 
 const StyledWrapper = styled.div`
   padding: 48px;
-  background-color: #fff;
-  border-radius: 1.33em;
-  box-shadow: 3px 3px 5px #ccc;
 
   ${({theme}) => theme.media.tablet} {
       padding: 27px;
@@ -35,7 +32,7 @@ const IndexPage = ({
             <title>Code for Heaven - BLOG</title>
             <link rel="canonical" href="http://codeforheaven.com/blog" />
           </Helmet>
-          <Layout atHome={false}>
+          <Layout>
             <RegularSection>
                 <StyledWrapper>
                   {Posts}

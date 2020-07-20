@@ -4,7 +4,8 @@ export const theme = {
     colors,
     font: {
         import: "@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap')",
-        family: "'Source Sans Pro', sans-serif",
+        primaryFamily: "'Source Sans Pro', sans-serif",
+        secondaryFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
         boldFontWeight: 700,
 
         largeHeaderSize: "94px",
@@ -21,6 +22,7 @@ export const theme = {
         littleTablet: '@media (max-width: 768px)',
         tablet: '@media (max-width: 1080px)',
         desktop: '@media (min-width: 1080px)',
+        regularSection: '@media (max-width: 42rem)',
     },
 
     responsive: {
@@ -31,5 +33,5 @@ export const theme = {
         mobileVertical: "360px",
     },
 
-    regularSection: '1080px',
+    regularSection: '42rem',
 }

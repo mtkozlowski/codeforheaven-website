@@ -6,8 +6,8 @@ const RegularSection =  styled.section`
     max-width: 100%;
     margin: 0 auto;
 
-    ${({theme}) => theme.media.tablet} {
-        width: 100%;
+    ${({theme}) => theme.media.regularSection} {
+        padding: 0 0.5rem;
     }
 `;
 

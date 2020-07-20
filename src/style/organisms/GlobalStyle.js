@@ -7,14 +7,14 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         min-height: 100vh;
         margin: 0;
+        font-family: ${({theme}) => theme.font.primaryFamily};
+        font-size: ${({theme}) => theme.font.regularTextSize};
+        color: ${({theme}) => theme.colors.dark};
     }
 
     body {
-        font-family: ${({theme}) => theme.font.family};
-        font-size: ${({theme}) => theme.font.regularTextSize};
-        color: ${({theme}) => theme.colors.dark};
-
         padding-top: 1px;
+        padding-bottom: 10rem;
     }
 
     pre {

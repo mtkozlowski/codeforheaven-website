@@ -5,7 +5,6 @@ import GlobalStyle from './GlobalStyle';
 import Header from './Header';
 
 const Main = styled.main`
-    margin-top: 8rem;
 
     ${({ theme }) => theme.media.phone} {
         margin-top: 2rem;

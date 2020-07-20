@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { H1 } from '../atoms/Headings';
 import Navigation from '../molecules/Navigation';
+import ResettedLink from '../atoms/ResettedLink';
 
 const StyledHeader = styled.header`
     width: ${({theme}) => theme.regularSection};
@@ -15,22 +16,24 @@ const StyledHeader = styled.header`
     align-items: center;
     padding: 1.6rem 0;
 
-    ${({theme}) => theme.media.tablet} {
-        padding: 1.6rem 0.8rem;
+    ${({theme}) => theme.media.regularSection} {
+        padding: 0 0.5rem;
     }
 `;
 
 const HeaderTagline = styled.p`
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: ${({theme}) => theme.font.secondaryFamily};
     margin-top: -40px;
 `;
 
 const Header = () => (
     <StyledHeader>
         <div>
-        <H1>Code for Heaven</H1>
+        <H1>
+            <ResettedLink to={'/'}>Code for Heaven</ResettedLink>
+        </H1>
         <HeaderTagline>
-            Front-end dev on his way to UX.
+            Frontend Dev on his way to UX.
         </HeaderTagline>
         </div>
         <Navigation/>

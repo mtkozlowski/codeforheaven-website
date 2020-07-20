@@ -1,27 +1,26 @@
 import React from "react";
+import { graphql } from "gatsby"
 import styled from 'styled-components';
 import { Helmet } from "react-helmet";
 import Layout  from "../style/organisms/Layout";
-import { H1 } from '../style/atoms/Headings';
+
 import RegularSection from '../style/organisms/RegularSection';
+import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser";
 
 const StyledWrapper = styled.div`
-  text-align: center;
   padding: 1rem 0;
-  margin-top: -8rem;
-
-  ${({ theme }) => theme.media.tablet} {
-
-  }
-
-  ${H1} {
-    color: ${({theme}) => theme.colors.darkestblue };
-    line-height: 1.2;
-    margin: 5rem 0 0;
-  }
 `;
 
-const IndexPage = () => (
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+  }) => {
+    const Posts = edges
+      .filter(edge => !!edge.node.frontmatter.date)
+      .map((edge, index) => <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />);
+
+  return (
   <>
   <Helmet>
     <meta charSet="utf-8" />
@@ -31,11 +30,34 @@ const IndexPage = () => (
   </Helmet>
   <Layout>
     <RegularSection>
-      <StyledWrapper>
-      </StyledWrapper>
+        <StyledWrapper>
+          {Posts}
+        </StyledWrapper>
     </RegularSection>
   </Layout>
   </>
-);
+  )
+};
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(
+      filter: {fields: {collection: {eq: "posts"}}},
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`
