@@ -67,11 +67,10 @@ align-items: center;
 `;
 
 export default function Template({
-  data
-}) {
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-
+  data, // this prop will be injected by the GraphQL query below.
+  }) {
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { frontmatter, html } = markdownRemark
   return (
     <>
       <Helmet>
@@ -99,7 +98,7 @@ export default function Template({
   )
 }
 export const pageQuery = graphql`
-  query BlogPostBySlug ($path: String!) {
+  query ProjectPostBySlug($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

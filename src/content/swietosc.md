@@ -3,6 +3,7 @@ path: "/blog/swietosc"
 date: "2019-09-28"
 title: "Czym jest chrześcijańska świętość?"
 description: "Pamiętam mojego przyjaciela Rexa podczas jednego z naszych wyjazdów misyjnych w Nowej Zelandii, gdy starał się opowiedzieć i zachwycić dzieci z 2 klasy szkoły podstawowej świętością."
+slug: "swietosc"
 ---
 Pamiętam mojego przyjaciela Rexa podczas jednego z naszych wyjazdów misyjnych w Nowej Zelandii, gdy starał się opowiedzieć i zachwycić dzieci z 2 klasy szkoły podstawowej świętością. On sam dla siebie bardzo wiele inspiracji czerpał z życia świętych, co w konsekwencji silnie motywowało go, do doskonalenia się w miłości na wszelkie możliwe sposoby.
 

@@ -1,13 +1,16 @@
 ---
-path: "/blog/flex-sticky-footer"
-date: "2019-10-11"
+path: "/posts/flex-sticky-footer"
+slug: "flex-sticky-footer"
+
 title: "Sticky footer using CSS Flexbox"
+date: "2019-10-11"
 description: "How to make your footer always keep to the bottom of your page, even when the rest of the content is shorter than view port?"
 tags: ["code"]
+
 language: "EN"
 ---
 
-This is what happened today. I was given a report from Google Search Console, that one of the content pages of our customers fails mobile validation due to its content being wider than viewport width. After short inspection, I found guilty element, which was... `<table>`. 
+This is what happened today. I was given a report from Google Search Console, that one of the content pages of our customers fails mobile validation due to its content being wider than viewport width. After short inspection, I found guilty element, which was... `<table>`.
 
 Since we already use bootstrap in our CSS code base, I wanted to solve this by using their responsive table solution. But it didn't work, no matter how hard I tried. After testing the table in excluded environment, I realized problem lays somewhere else among element's parents, or grand-grand-... parents. That's how I found that we had something called *sticky footer* in our styles.
 
