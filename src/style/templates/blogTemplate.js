@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import { H2 } from "../atoms/Headings"
+import { H2, H3 } from "../atoms/Headings"
 import StyledLink from "../atoms/StyledLink"
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
@@ -34,19 +34,22 @@ export default function Template({ data }) {
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{frontmatter.title} - Code for Heaven - BLOG</title>
-        <link
-          rel="canonical"
-          href={"http://codeforheaven.com" + frontmatter.path}
-        />
+        <link rel="canonical" href={"http://codeforheaven.com" + frontmatter.path} />
+        <meta charSet="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1'/>
+        <meta property="og:url" content={"http://codeforheaven.com" + frontmatter.path}/>
+        <meta property="og:title" content={frontmatter.title + " - Code for Heaven"} />
+        <meta property="og:description" content={frontmatter.description}/>
+        <meta property="og:image" content={frontmatter.facebookThumbnail} />
       </Helmet>
       <Layout>
         <RegularSection>
           <StyledLink to="/">Go to previous page</StyledLink>
+        </RegularSection>
+        <RegularSection>
           <DivFlex>
-            <H2>{frontmatter.title}</H2>
+            <H3 as={H2}>{frontmatter.title}</H3>
             <PostDateBlock>{frontmatter.date}</PostDateBlock>
           </DivFlex>
           <div
@@ -66,6 +69,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        description
+        facebookThumbnail
       }
     }
   }
