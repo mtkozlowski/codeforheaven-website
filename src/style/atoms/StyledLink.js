@@ -8,10 +8,10 @@ const StyledLink = styled(Link)`
     #ffd05d 0%,
     #f4a261 15%,
     #e76f51 30%,
-    #8338ec 44%,
-    #3a86ff 58%,
     #ff006e 44%,
-    #6dba82 58%,
+    #8338ec 58%,
+    #3a86ff 72%,
+    #6dba82 86%,
     #2a9d8f 100%
   );
   background-size: cover;
