@@ -5,9 +5,7 @@ import GlobalStyle from "./GlobalStyle"
 import Header from "./Header"
 
 const Main = styled.main`
-  ${({ theme }) => theme.media.phone} {
-    margin-top: 2rem;
-  }
+  margin-top: 2rem;
 `
 
 const Layout = ({ children }) => (

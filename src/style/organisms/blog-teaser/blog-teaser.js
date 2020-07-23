@@ -8,7 +8,7 @@ import StyledLink from "../../atoms/StyledLink"
 const BlogTeaserWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   position: relative;
 
@@ -16,10 +16,10 @@ const BlogTeaserWrapper = styled.div`
 `
 
 const BlogTeaserText = styled.p`
-  flex: 1 1 auto;
+  width: 100%;
 
   line-height: 1.2;
-  margin: 0 0 1.4em;
+  margin: 1em 0 0;
   position: relative;
   order: 3;
 

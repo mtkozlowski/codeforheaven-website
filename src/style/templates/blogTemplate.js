@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import { H2, H3 } from "../atoms/Headings"
+import { H1, H2 } from "../atoms/Headings"
 import StyledLink from "../atoms/StyledLink"
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
@@ -14,7 +14,7 @@ require("prismjs/themes/prism-coy.css")
 const DivFlex = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
 
   ${({ theme }) => theme.media.phone} {
@@ -22,7 +22,7 @@ const DivFlex = styled.div`
   }
 `
 
-const PostDateBlock = styled.div`
+const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
   font-family: ${({ theme }) => theme.font.secondaryFamily};
   letter-spacing: 0.2em;
@@ -50,7 +50,7 @@ export default function Template({ data }) {
         </RegularSection>
         <RegularSection>
           <DivFlex>
-            <H3 as={H2}>{frontmatter.title}</H3>
+            <H2 as={H1}>{frontmatter.title}</H2>
             <PostDateBlock>{frontmatter.date}</PostDateBlock>
           </DivFlex>
           <MDXRenderer>{mdx.body}</MDXRenderer>

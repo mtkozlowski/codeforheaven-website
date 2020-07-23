@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { H1 } from "../atoms/Headings"
+import { H1, H2 } from "../atoms/Headings"
 import Navigation from "../molecules/Navigation"
 import ResettedLink from "../atoms/ResettedLink"
 
@@ -17,24 +17,26 @@ const StyledHeader = styled.header`
   padding: 1.6rem 0;
 
   ${({ theme }) => theme.media.regularSection} {
-    padding: 0 0.5rem;
+    padding: 1rem 0.5rem 0;
   }
 `
 
 const HeaderTagline = styled.p`
   font-family: ${({ theme }) => theme.font.secondaryFamily};
-  margin-top: -40px;
+  margin-top: 0.5em;
+`
+
+const PageHeader = styled(H1)`
+  line-height: 1;
 `
 
 const Header = () => (
   <StyledHeader>
     <div>
-      <H1>
-        <ResettedLink to={"/"}>Code for Heaven</ResettedLink>
-      </H1>
-      <HeaderTagline>Frontend Dev on his way to UX.</HeaderTagline>
+      <PageHeader as={ResettedLink} to={"/"}>Code for Heaven</PageHeader>
+      <HeaderTagline>Frontend Creator on his way to UX.</HeaderTagline>
     </div>
-    <Navigation />
+    {/* <Navigation /> */}
   </StyledHeader>
 )
 

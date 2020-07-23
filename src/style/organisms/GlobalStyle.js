@@ -4,6 +4,11 @@ const GlobalStyle = createGlobalStyle`
     ${({ theme }) => theme.font.import};
 
     *, *::before, *::after {box-sizing: border-box;}
+
+    h1, h2, h3, h4, h5, h6, p, a {margin: 0;
+        * + & {margin-top: 1em}
+    }
+
     html, body {
         min-height: 100vh;
         margin: 0;
@@ -22,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
             overflow-x: scroll !important;
             max-width: 100%;
         }
+    }
+
+    img {
+        max-width: 100%;
     }
 
     .gatsby-highlight {

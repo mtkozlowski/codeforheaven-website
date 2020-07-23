@@ -7,10 +7,6 @@ import Layout from "../style/organisms/Layout"
 import RegularSection from "../style/organisms/RegularSection"
 import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
 
-const StyledWrapper = styled.div`
-  padding: 1rem 0;
-`
-
 const IndexPage = ({
   data: {
     allMdx: { edges },
@@ -32,7 +28,7 @@ const IndexPage = ({
       </Helmet>
       <Layout>
         <RegularSection>
-          <StyledWrapper>{Posts}</StyledWrapper>
+          {Posts}
         </RegularSection>
       </Layout>
     </>

@@ -1,12 +1,5 @@
 import styled from "styled-components"
 
-const PageHeader = styled.h1`
-  font-size: 120px;
-  margin: 0 0 80px;
-  line-height: 1;
-  color: ${({ theme }) => theme.colors.blue};
-`
-
 export const H1 = styled.h1`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 3rem;
@@ -36,5 +29,3 @@ export const H6 = styled.h6`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 0.8rem;
 `
-
-export default PageHeader
