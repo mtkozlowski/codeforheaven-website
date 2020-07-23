@@ -1,14 +1,11 @@
 ---
-path: "/posts/flex-sticky-footer"
-slug: "flex-sticky-footer"
-
 title: "Sticky footer using CSS Flexbox"
 date: "2019-10-11"
 description: "How to make your footer always keep to the bottom of your page, even when the rest of the content is shorter than view port?"
+slug: "/posts/flex-sticky-footer"
 tags: ["code"]
-facebookThumbnail: "dummy content"
-
 language: "EN"
+facebookThumbnail: "dummy content"
 ---
 
 This is what happened today. I was given a report from Google Search Console, that one of the content pages of our customers fails mobile validation due to its content being wider than viewport width. After short inspection, I found guilty element, which was... `<table>`.
