@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
 
 const IndexPage = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMdx: { edges },
   },
 }) => {
   const Posts = edges
@@ -43,7 +43,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(
+    allMdx(
       filter: { fields: { collection: { eq: "posts" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {

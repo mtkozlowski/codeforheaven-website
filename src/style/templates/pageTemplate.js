@@ -69,8 +69,8 @@ const PostDateBlock = styled.div`
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data // data.mdx holds our post data
+  const { frontmatter, body } = mdx
   return (
     <>
       <Helmet>
@@ -90,10 +90,6 @@ export default function Template({
               <PostTitle>{frontmatter.title}</PostTitle>
               <PostDateBlock>{frontmatter.date}</PostDateBlock>
             </DivFlex>
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
           </StyledWrapper>
         </RegularSection>
       </Layout>

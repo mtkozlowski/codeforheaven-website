@@ -1,10 +1,19 @@
 const path = require(`path`)
 const _ = require("lodash")
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty'
+    }
+  })
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
+  const nodeInternalType = _.get(node, "internal.type");
 
-  if (_.get(node, "internal.type") === `MarkdownRemark`) {
+  if (nodeInternalType === `MarkdownRemark` || nodeInternalType === 'Mdx') {
     const parent = getNode(_.get(node, "parent"))
 
     createNodeField({
@@ -12,13 +21,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: "collection",
       value: _.get(parent, "sourceInstanceName"),
     })
+
   }
 }
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -44,7 +54,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const { createPage } = actions
 
-  const allEdges = results.data.allMarkdownRemark.edges
+  const allEdges = results.data.allMdx.edges
   const blogEdges = allEdges.filter(
     edge => edge.node.fields.collection === `posts`
   )

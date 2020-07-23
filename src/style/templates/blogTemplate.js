@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { H2, H3 } from "../atoms/Headings"
 import StyledLink from "../atoms/StyledLink"
@@ -28,8 +29,8 @@ const PostDateBlock = styled.div`
 `
 
 export default function Template({ data }) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data
+  const { frontmatter } = mdx
 
   return (
     <>
@@ -52,10 +53,7 @@ export default function Template({ data }) {
             <H3 as={H2}>{frontmatter.title}</H3>
             <PostDateBlock>{frontmatter.date}</PostDateBlock>
           </DivFlex>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </RegularSection>
       </Layout>
     </>
