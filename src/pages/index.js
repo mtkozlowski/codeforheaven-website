@@ -52,7 +52,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
-            path
+            slug
             title
             description
           }

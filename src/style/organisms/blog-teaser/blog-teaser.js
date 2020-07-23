@@ -45,7 +45,7 @@ const BlogTeaserText = styled.p`
 const BlogTeaser = ({ teaserData, index }) => (
   <BlogTeaserWrapper>
     <BlogTeaserTitle>
-      <StyledLink to={teaserData.frontmatter.path}>
+      <StyledLink to={teaserData.frontmatter.slug}>
         {teaserData.frontmatter.title}
       </StyledLink>
     </BlogTeaserTitle>

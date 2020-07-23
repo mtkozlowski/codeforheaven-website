@@ -58,7 +58,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const next = index === 0 ? null : blogEdges[index - 1].node
 
     createPage({
-      path: `/posts/${edge.node.frontmatter.slug}`,
+      path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve("./src/style/templates/blogTemplate.js"),
       context: {
         slug: edge.node.frontmatter.slug,

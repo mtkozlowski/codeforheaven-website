@@ -79,7 +79,7 @@ export default function Template({
         <title>{frontmatter.title} - Code for Heaven - BLOG</title>
         <link
           rel="canonical"
-          href={"http://codeforheaven.com" + frontmatter.path}
+          href={"http://codeforheaven.com" + frontmatter.slug}
         />
       </Helmet>
       <Layout>
@@ -101,12 +101,12 @@ export default function Template({
   )
 }
 export const pageQuery = graphql`
-  query ProjectPostBySlug($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+  query ProjectPostBySlug($slug: String!) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         date(formatString: "DD/MM")
-        path
+        slug
         title
       }
     }
