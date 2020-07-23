@@ -90,7 +90,6 @@ export default function Template({
               <PostTitle>{frontmatter.title}</PostTitle>
               <PostDateBlock>{frontmatter.date}</PostDateBlock>
             </DivFlex>
-
           </StyledWrapper>
         </RegularSection>
       </Layout>

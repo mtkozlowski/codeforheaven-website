@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 const CenteredParagraph = styled.p`
-    text-align: center;
+  text-align: center;
 `
 
-export default CenteredParagraph;
+export default CenteredParagraph

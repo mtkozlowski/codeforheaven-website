@@ -4,16 +4,16 @@ const _ = require("lodash")
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     node: {
-      fs: 'empty'
-    }
+      fs: "empty",
+    },
   })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  const nodeInternalType = _.get(node, "internal.type");
+  const nodeInternalType = _.get(node, "internal.type")
 
-  if (nodeInternalType === `MarkdownRemark` || nodeInternalType === 'Mdx') {
+  if (nodeInternalType === `MarkdownRemark` || nodeInternalType === "Mdx") {
     const parent = getNode(_.get(node, "parent"))
 
     createNodeField({
@@ -21,17 +21,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: "collection",
       value: _.get(parent, "sourceInstanceName"),
     })
-
   }
 }
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMdx(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
             fields {

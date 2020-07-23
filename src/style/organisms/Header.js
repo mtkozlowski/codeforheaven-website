@@ -33,7 +33,9 @@ const PageHeader = styled(H1)`
 const Header = () => (
   <StyledHeader>
     <div>
-      <PageHeader as={ResettedLink} to={"/"}>Code for Heaven</PageHeader>
+      <PageHeader as={ResettedLink} to={"/"}>
+        Code for Heaven
+      </PageHeader>
       <HeaderTagline>Frontend Creator on his way to UX.</HeaderTagline>
     </div>
     {/* <Navigation /> */}

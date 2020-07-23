@@ -27,9 +27,7 @@ const IndexPage = ({
         <link rel="canonical" href="http://codeforheaven.com/" />
       </Helmet>
       <Layout>
-        <RegularSection>
-          {Posts}
-        </RegularSection>
+        <RegularSection>{Posts}</RegularSection>
       </Layout>
     </>
   )

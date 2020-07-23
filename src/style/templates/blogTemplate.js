@@ -36,12 +36,21 @@ export default function Template({ data }) {
     <>
       <Helmet>
         <title>{frontmatter.title} - Code for Heaven</title>
-        <link rel="canonical" href={"http://codeforheaven.com" + frontmatter.slug} />
+        <link
+          rel="canonical"
+          href={"http://codeforheaven.com" + frontmatter.slug}
+        />
         <meta charSet="utf-8" />
-        <meta name='viewport' content='width=device-width, initial-scale=1'/>
-        <meta property="og:url" content={"http://codeforheaven.com" + frontmatter.slug}/>
-        <meta property="og:title" content={frontmatter.title + " - Code for Heaven"} />
-        <meta property="og:description" content={frontmatter.description}/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          property="og:url"
+          content={"http://codeforheaven.com" + frontmatter.slug}
+        />
+        <meta
+          property="og:title"
+          content={frontmatter.title + " - Code for Heaven"}
+        />
+        <meta property="og:description" content={frontmatter.description} />
         <meta property="og:image" content={frontmatter.facebookThumbnail} />
       </Helmet>
       <Layout>
