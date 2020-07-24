@@ -1,5 +1,4 @@
 const path = require(`path`)
-const _ = require("lodash")
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -11,15 +10,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  const nodeInternalType = _.get(node, "internal.type")
+  const nodeInternalType = node.internal.type
 
   if (nodeInternalType === `MarkdownRemark` || nodeInternalType === "Mdx") {
-    const parent = getNode(_.get(node, "parent"))
+    const parent = getNode(node.parent)
 
     createNodeField({
       node,
       name: "collection",
-      value: _.get(parent, "sourceInstanceName"),
+      value: parent.sourceInstanceName
     })
   }
 }
@@ -27,7 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+      allMdx {
         edges {
           node {
             fields {
@@ -58,7 +57,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     edge => edge.node.fields.collection === `pages`
   )
 
-  _.each(blogEdges, (edge, index) => {
+  blogEdges.forEach((edge, index) => {
     const previous =
       index === blogEdges.length - 1 ? null : blogEdges[index + 1].node
     const next = index === 0 ? null : blogEdges[index - 1].node
@@ -74,7 +73,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  _.each(pageEdges, (edge, index) => {
+  pageEdges.forEach((edge) => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve(`./src/style/templates/pageTemplate.js`),

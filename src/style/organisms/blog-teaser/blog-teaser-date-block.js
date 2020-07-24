@@ -5,6 +5,8 @@ const BlogTeaserDateBlock = styled.div`
   font-family: ${({ theme }) => theme.font.secondaryFamily};
   letter-spacing: 0.2em;
   order: 2;
+  margin-left: auto;
+  margin-top: 0.3em;
 `
 
 export default BlogTeaserDateBlock

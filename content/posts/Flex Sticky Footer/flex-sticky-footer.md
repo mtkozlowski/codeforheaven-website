@@ -2,7 +2,7 @@
 title: "Sticky footer using CSS Flexbox"
 date: "2019-10-11"
 description: "How to make your footer always keep to the bottom of your page, even when the rest of the content is shorter than view port?"
-slug: "/posts/flex-sticky-footer"
+slug: "posts/flex-sticky-footer"
 tags: ["code"]
 language: "EN"
 facebookThumbnail: "dummy content"

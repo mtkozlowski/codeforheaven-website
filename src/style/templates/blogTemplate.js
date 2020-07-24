@@ -9,7 +9,7 @@ import StyledLink from "../atoms/StyledLink"
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
 
-require("prismjs/themes/prism-coy.css")
+require("prismjs/themes/prism.css")
 
 const DivFlex = styled.div`
   display: flex;
@@ -26,6 +26,8 @@ const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
   font-family: ${({ theme }) => theme.font.secondaryFamily};
   letter-spacing: 0.2em;
+  margin-left: auto;
+  margin-top: 0.3em;
 `
 
 export default function Template({ data }) {
@@ -38,20 +40,22 @@ export default function Template({ data }) {
         <title>{frontmatter.title} - Code for Heaven</title>
         <link
           rel="canonical"
-          href={"http://codeforheaven.com" + frontmatter.slug}
+          href={"http://codeforheaven.com/" + frontmatter.slug}
         />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:url"
-          content={"http://codeforheaven.com" + frontmatter.slug}
+          content={"http://codeforheaven.com/" + frontmatter.slug}
         />
         <meta
           property="og:title"
           content={frontmatter.title + " - Code for Heaven"}
         />
         <meta property="og:description" content={frontmatter.description} />
-        <meta property="og:image" content={frontmatter.facebookThumbnail} />
+        {frontmatter.facebookThumbnail
+          ? <meta property="og:image" content={frontmatter.facebookThumbnail} />
+          : ""}
       </Helmet>
       <Layout>
         <RegularSection>
