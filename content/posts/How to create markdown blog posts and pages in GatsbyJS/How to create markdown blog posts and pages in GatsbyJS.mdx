@@ -1,0 +1,204 @@
+---
+title: "How to create multiple types of markdown content in GatsbyJS"
+date: "2020-07-23"
+slug: "posts/how-to-create-markdown-blog-posts-and-pages-in-gatsbyjs"
+
+description: "Would you like to have different pages AND blog posts both created from markdown files? Read further!"
+
+tags: ['code', 'gatsby']
+---
+
+From the day one during designing my blog, I wanted to have multiple types of markdown content. I wanted to have pages next to my blog posts to share useful tools and valuable resource, and else. If you want to have the same feature too, please, follow the text.
+
+> **Disclaimer:** I have already moved to MDX markdown extensions, but it's very comparable to standard Markdown. If you want to learn more about transitioning, come tomorrow.
+
+## Get your files tree right
+
+First, you need to make some adjustments in your project's files. By default (if you started with starter kit), your file tree should look like this (it may vary depending on a package version, I'm pretty sure it looked differently when I started).
+
+```yaml
+content
+├───assets
+│     ...
+│
+└───blog
+   ├───hello-world
+   │     index.md
+   │     salty_egg.jpg
+   │
+   ├───my-second-post
+         index.md
+```
+
+Now, just add another folder in `content` folder. Use my file tree as a guide:
+
+```yaml
+content
+├───pages
+│  └───Useful tools
+│        useful-tools.md
+│
+└───posts
+   ├───Flex Sticky Footer
+   │     flex-sticky-footer.md
+   │
+   ├───How to create markdown blog posts and pages in GatsbyJS
+   │     How to create markdown blog posts and pages in GatsbyJS.mdx
+   │
+   └───It's nice to play, but I need a blog
+         blog-design-history.jpg
+         blog-design-history.mp4
+         It's nice to play, but I need a blog.mdx
+```
+
+When this is done, you can open go to the next point.
+
+## Update `gatsby-config.js`
+
+Open `gatsby-config.js` in your project's root folder. Inside, you may already have `gatsby-source-filesystem` plugin added to the project. If you don't, install it with:
+
+```
+npm install --save gatsby-source-filesystem
+```
+
+This plugin sources files (specified in a path property) as a data to your Gatsby applicaiton. I'll cover how you can utilize these data nodes to create pages in a next part. If you're interested in learning more visit [GatsbyJS documentation website](https://www.gatsbyjs.org/packages/gatsby-source-filesystem/).
+
+Once you have the plugin in your project, make sure that plugins array in `gatsby-config.js` looks like in a code block below. By doing so, you are creating two nodes collections: pages and posts. These names will be very relevant later, to filter all markdown data into different content categories.
+
+I advise you to give the `name` property same value as the corresponding folder's name. However it's more important to take the same value of the `name` property to the next point.
+
+<p class="codeblock-label">gatsby-config.js</p>
+
+```Javascript
+module.exports = {
+  plugins: [
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      extensions: [`.md`, `.mdx`],
+      gatsbyRemarkPlugins: [
+        ... here go all your plugins that would normally sit
+            under `gatsby-transform-remark`
+      ],
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `pages`,
+      path: `${__dirname}/content/pages`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `posts`,
+      path: `${__dirname}/content/posts`,
+    },
+  },
+}
+```
+
+## Update `gatsby-node.js`
+
+First, you need to update `onCreateNode` method, so each Markdown node from our filesystem gets a new field: `name`.
+
+<p class="codeblock-label">gatsby-node.js</p>
+
+```javascript
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  if (nodeInternalType === `MarkdownRemark` || nodeInternalType === "Mdx") {
+    const { createNodeField } = actions
+    const parent = getNode(node.parent)
+
+    createNodeField({
+      node,
+      name: "collection",
+      value: parent.sourceInstanceName
+    })
+  }
+}
+```
+
+The code above first checks if internal type of a node equals to `MarkdownRemark`. If so, it will get it's parent's `sourceInstanceName`, which is what we specified in a step before as a files collection's `name`, and assign it to the custom node field `collection`.
+
+In the next step, things will start to make sense, if they haven't already.
+
+<p class="codeblock-label">gatsby-node.js</p>
+
+```javascript
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const results = await graphql(`
+    {
+      allMdx {
+        edges {
+          node {
+            fields {
+              collection
+            }
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (results.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  const allEdges = results.data.allMdx.edges;
+  const blogEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `posts`
+  )
+  const pageEdges = allEdges.filter(
+    edge => edge.node.fields.collection === `pages`
+  )
+
+  const { createPage } = actions
+  blogEdges.forEach((edge, index) => {
+    createPage({
+      path: `/${edge.node.frontmatter.slug}`,
+      component: path.resolve("./src/style/templates/blogTemplate.js"),
+      context: {
+        slug: edge.node.frontmatter.slug,
+      },
+    })
+  })
+
+  pageEdges.forEach((edge) => {
+    createPage({
+      path: `/${edge.node.frontmatter.slug}`,
+      component: path.resolve(`./src/style/templates/pageTemplate.js`),
+      context: {
+        slug: edge.node.frontmatter.slug,
+      },
+    })
+  })
+}
+```
+
+With graphql query you will get all markdown nodes in your project. Then out of `allEdges` you're filtering out edges for blog posts and pages. Once, you've done that, `createPage` for each collection separately, utilizing appropriate template files.
+
+> **Important note**: in GatsbyJS tutorial you'll see a different way to create a slug for a page. I chose to give a slug property to each Markdown file in a frontmatter header, which looks like this:
+
+<p class="codeblock-label">How to create markdown blog posts and pages in GatsbyJS.md</p>
+
+```yaml
+---
+title: "How to create multiple types of markdown content in GatsbyJS"
+date: "2020-07-23"
+slug: "posts/how-to-create-markdown-blog-posts-and-pages-in-gatsbyjs"
+---
+```
+
+Whatever you choose, these informations (path, component and slug) are everything you need to succesfully create pages in two different collections. Obviously, you can scale this solution for more types if you want.
+
+Let me know, if that was heplful by connecting with [me via Twitter](https://twitter.com/mtkozlowski).
+
+And remember to
+
+## come tomorrow
