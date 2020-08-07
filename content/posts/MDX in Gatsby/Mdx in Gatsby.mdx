@@ -1,0 +1,104 @@
+---
+date: "2020-07-27"
+title: "MDX in Gatsby"
+slug: "posts/mdx-in-gatsby"
+description: "Upgrade Markdown with JS and components!"
+
+---
+
+In order to utilize functionality of Javascript code and React Components in your Markdown content (for example to present a button!), first you need to install appropriate plugin, so let's start in command line:
+
+```
+npm install @mdx-js/mdx @mdx-js/react gatsby-plugin-mdx
+npm remove gatsby-transformer-remark
+```
+
+Code above will install mdx plugins and remove `gatsby-transform-remark` plugin (the one that used to transform markdown into html), that is no longer needed. Then...
+
+## Edit `gatsby-config.js`
+
+In `gatsby-config.js` you need to replace `gatsby-transformer-remark` with `gatsby-plugin-mdx`. With one little details, this is almost it. To make it work, update `plugins` options to `gatsbyRemarkPlugins`. Here is my example:
+
+```
+{
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 756,
+            },
+          },
+        ],
+      },
+    },
+```
+
+As you can see, I added one more option: `extensions` this tells the MDX plugin to process files with both `.md` and `.mdx` extensions as by default it only works on the latter. So if you don't want to go after every blog post you've already created and change their extension, add same option, unless you want to start using MDX features in older posts. If you're ready here, then...
+
+## Edit `gatsby-node.js`
+
+First you need to change how `onCreateNode` filters markdown files. If you are left with old posts saved with `.md` extension, then you have to include both in the conditional. Otherwise go just with `"Mdx"` side of the alternative:
+
+```diff
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const nodeInternalType = node.internal.type
+
+-  if (node.internal.type === `MarkdownRemark`) {
++  if (nodeInternalType === `MarkdownRemark`
++      || nodeInternalType === "Mdx") {
+```
+
+Remember also to update graphql:
+
+```diff
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const results = await graphql(`
+    {
+-     allMarkdownRemark
++     allMdx
+```
+
+## Check other files, which use graphql
+
+Since you're not using `gatsby-transform-remark` plugin any more, you need to check all other files (like `blog.js`) and update their graphql queries so wherever they use `allMarkdownRemark` use `allMdx`.
+
+In files that only render one post (like `blogpostTemplate.js`) in graphql query change `markdownRemark` to `mdx` and property name `html` to `body`.
+
+```diff
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+-      html
++    mdx(frontmatter: { slug: { eq: $slug } }) {
++      body
+      frontmatter {
+```
+
+And finally, inside template render function add `MDXRenderer` component from `gatsby-plugin-mdx` plugin and change destructuring assignments inside the function.
+
+Rendering mdx requires different syntax than the one for classic markdown, so thankfully you can replace `dangerouslySetInnerHTML` with `mdx.body` wrapped with the new `MDXRenderer` component.
+
+```diff
++import { MDXRenderer } from "gatsby-plugin-mdx"
+
+export default function Template({ data }) {
+-  const { markdownRemark } = data
+-  const { frontmatter, html } = markdownRemark
++  const { mdx } = data
++  const { frontmatter } = mdx
+
+-          <div
+-            className="blog-post-content"
+-            dangerouslySetInnerHTML={{ __html: html }}
+-          />
++          <MDXRenderer>{mdx.body}</MDXRenderer>
+```
+
+## Final notes
+
+Remember that `.mdx` format follows JSX syntax, so some HTML attributes names will be required to spell differently (like `class` -> `className`).

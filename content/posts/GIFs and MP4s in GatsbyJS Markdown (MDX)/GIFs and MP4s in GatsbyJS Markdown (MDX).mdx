@@ -1,0 +1,97 @@
+---
+date: "2020-07-28"
+title: "GIFs and MP4s in GatsbyJS Markdown (MDX)"
+slug: "posts/gifs-and-mp4s-in-gatsbyjs-markdown-mdx"
+description: "Every blog post deserves a GIF!"
+
+---
+import StyledLink from '../../../src/style/atoms/StyledLink'
+
+Every good blog post presentation or conversation deserves an appropriate GIF. Let's face that. So in this short tutorial, I'm going to show you how you can include GIFs and MP4s into your markdown or rather MDX (given that you already have MDX inside your Gatsby website - if not, check <StyledLink to="/posts/mdx-in-gatsby">this blog post</StyledLink>).
+
+## Install required plugins
+
+Let's start again with a console:
+
+```
+npm install --save gatsby-remark-copy-linked-files
+```
+
+While it's being downloaded and installed you can make an update to your `gatsby-config.js`:
+
+```diff
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
++          `gatsby-remark-copy-linked-files`,
+        ],
+      },
+    },
+  ],
+}
+```
+
+This plugin takes care of URLs to your media or other files (like PDFs), when your website is being built and deployed to production. Super important.
+
+## Add your media to your blog post!
+
+After this little, simple step anything left to do is to include your media inside your blogpost. To do so, you will use HTML (or JSX) syntax and elements. Like in following example:
+
+### MP4
+
+```
+<p style="text-align: center">
+    <video autoplay loop muted playsinline poster="example-jpg.jpg">
+        <source src="example-webm.webm" type="video/webm" />
+        <source src="example-mp4.mp4" type="video/mp4" />
+    </video>
+</p>
+```
+
+<p style="text-align: center">
+    <video autoplay loop muted playsinline poster="example-jpg.jpg">
+        <source src="example-webm.webm" type="video/webm" />
+        <source src="example-mp4.mp4" type="video/mp4" />
+    </video>
+</p>
+
+Some explanation. `loop` and `autoplay` video tag's attribute are most likely self-explanatory. `playsinline` play important role on mobile devices and you rather have this turned on ([more read](https://css-tricks.com/what-does-playsinline-mean-in-web-video/)).
+
+Pay attention to source tags. Since you're typing in MDX file extension, you need to follow JSX syntax, thus they need to be self-enclosed tags. Otherwise Gatsby compiler will refuse to cooperate.
+
+I'm using here quite a new format: `webm` it provides much smaller files, but with quality compared to `mp4` format. If you follow this list syntax above, any browser that doesn't support `webm` format will use `mp4` file.
+
+For more details visit the links listed at the bottom of this blog post.
+
+### GIF
+
+```
+<p style="text-align: center">
+    <img src="example-gif.gif" alt="example gif">
+</p>
+```
+
+<p style="text-align: center">
+    <img src="example-gif.gif" alt="example gif">
+</p>
+
+You CAN use markdown syntax to display GIFs. It will look as follows:
+
+```
+![Alt text](example-gif.gif)
+```
+
+![Alt text](example-gif.gif)
+
+But, as you can see above, it will be rendered with default markdown paragraph alignment: to left side. Since I prefer my playable media (which are usually smaller than the grid) to be displayed in the middle, I use HTML syntax to put them in centered paragraph. Either way `gatsby-remark-copy-linked-files` does its job and makes URLs work.
+
+## Last but not least: be bandwidth-friendly!
+
+GIFs are super fun way to boost your message, draw attention or simply cheer your readers up. But!!! They are as well super heavy. For example: in the blogpost above the GIF I used weighs `1,875 KB`! That's a lot, it's the largest file in a Network tab if you sneak to your developer's tools. It looks terribly large compared to MP4 file I also used, which is only `478 KB` plus `20 KB` for a poster JPG file. **It's 3 times larger!** Please, don't do it to your visitors.
+
+Further read:
+- [Improve Animated GIF Performance With HTML5 Video @ Smashing Magazine](https://www.smashingmagazine.com/2018/11/gif-to-video/)
+- [Replace animated GIFs with video for faster page loads @ web.dev](https://web.dev/replace-gifs-with-videos/)
