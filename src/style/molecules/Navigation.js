@@ -21,8 +21,9 @@ const Nav = styled.nav`
 
 const Navigation = ({ atHome }) => (
   <Nav atHome={atHome}>
-    {/* <StyledLink to="/blog" >Blog</StyledLink> */}
-    {/* <LargeButton as={Link} to="/bookmarks" >Bookmarks</LargeButton> */}
+    <Link to="/" >Blog</Link>
+    <Link to="/valuable-resources" >Valuable resources</Link>
+    {/* <Link to="/useful-tools" >Useful tools</Link> */}
   </Nav>
 )
 
