@@ -5,8 +5,12 @@ const GlobalStyle = createGlobalStyle`
 
     *, *::before, *::after {box-sizing: border-box;}
 
-    h1, h2, h3, h4, h5, h6, p, a, .gatsby-highlight {margin: 0;
+    h1, h2, h3, h4, h5, h6, p, .gatsby-highlight {margin: 0;
         * + & {margin-top: 1.1em}
+    }
+
+    a {margin: 0;
+        &:hover {background-color: ${({ theme }) => theme.colors.lightgrey}}
     }
 
     html, body {
@@ -34,6 +38,14 @@ const GlobalStyle = createGlobalStyle`
 
     img {
         max-width: 100%;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    li + li {
+        margin-top: 1em;
     }
 
     .gatsby-highlight {

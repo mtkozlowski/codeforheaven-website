@@ -24,10 +24,16 @@ const StyledHeader = styled.header`
 const HeaderTagline = styled.p`
   font-family: ${({ theme }) => theme.font.secondaryFamily};
   margin-top: 0.5em;
+  ${({ theme }) => theme.media.phoneS} {
+    font-size: 0.95rem;
+  }
 `
 
 const PageHeader = styled(H1)`
   line-height: 1;
+  ${({ theme }) => theme.media.phoneS} {
+    font-size: 2.65rem;
+  }
 `
 
 const Header = () => (
@@ -38,7 +44,7 @@ const Header = () => (
       </PageHeader>
       <HeaderTagline>Frontend Creator on his way to UX.</HeaderTagline>
     </div>
-    {/* <Navigation /> */}
+    <Navigation />
   </StyledHeader>
 )
 

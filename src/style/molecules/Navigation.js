@@ -1,15 +1,21 @@
 import React from "react"
 import styled from "styled-components"
-
-import StyledLink from "../atoms/StyledLink"
+import { Link } from 'gatsby';
 
 const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+
   ${({ theme }) => theme.media.phone} {
-    margin-top: 0;
+    flex-direction: row;
+    margin-left: auto;
+    margin-top: 1em;
   }
 
-  ${({ theme }) => theme.media.tablet} {
-    margin-top: 0;
+  a {
+    padding: .6rem 0.6rem 0.5rem;
   }
 `
 
