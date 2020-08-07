@@ -9,10 +9,10 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
   const nodeInternalType = node.internal.type
 
   if (nodeInternalType === `MarkdownRemark` || nodeInternalType === "Mdx") {
+    const { createNodeField } = actions
     const parent = getNode(node.parent)
 
     createNodeField({
@@ -26,7 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMdx {
+      allMdx (filter: {frontmatter: {date: {ne: null}}}) {
         edges {
           node {
             fields {
