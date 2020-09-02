@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,

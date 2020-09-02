@@ -22,7 +22,7 @@ export default function Template({ data }) {
         <title>{frontmatter.title} - Code for Heaven - BLOG</title>
         <link
           rel="canonical"
-          href={"http://codeforheaven.com/" + frontmatter.slug}
+          href={"https://codeforheaven.com/" + frontmatter.slug}
         />
       </Helmet>
       <Layout>

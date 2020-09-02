@@ -28,7 +28,7 @@ export default () => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Kolędy</title>
-      <link rel="canonical" href="http://codeforheaven.com/koledy" />
+      <link rel="canonical" href="https://codeforheaven.com/koledy" />
     </Helmet>
     <Layout>
       <GlobalStyle />

@@ -5,7 +5,7 @@ description: "How to make your footer always keep to the bottom of your page, ev
 slug: "posts/flex-sticky-footer"
 tags: ["code"]
 language: "EN"
-facebookThumbnail: "dummy content"
+
 ---
 
 This is what happened today. I was given a report from Google Search Console, that one of the content pages of our customers fails mobile validation due to its content being wider than viewport width. After short inspection, I found guilty element, which was... `<table>`.

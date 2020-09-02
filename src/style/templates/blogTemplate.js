@@ -9,6 +9,8 @@ import StyledLink from "../atoms/StyledLink"
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
 
+import MyHelmet from '../components/MyHelmet';
+
 require("prismjs/themes/prism.css")
 
 const DivFlex = styled.div`
@@ -34,29 +36,19 @@ export default function Template({ data }) {
   const { mdx } = data
   const { frontmatter } = mdx
 
+  const externalScriptsUrls = frontmatter.externalScriptsUrls || [];
+  const facebookThumbnail = frontmatter.facebookThumbnail && frontmatter.facebookThumbnail.childImageSharp.fluid.src || "";
+  const myHelmetData = {
+    description: frontmatter.description,
+    externalScriptsUrls,
+    facebookThumbnail,
+    title: frontmatter.title,
+    slug: frontmatter.slug,
+  }
+
   return (
     <>
-      <Helmet>
-        <title>{frontmatter.title} - Code for Heaven</title>
-        <link
-          rel="canonical"
-          href={"http://codeforheaven.com/" + frontmatter.slug}
-        />
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          property="og:url"
-          content={"http://codeforheaven.com/" + frontmatter.slug}
-        />
-        <meta
-          property="og:title"
-          content={frontmatter.title + " - Code for Heaven"}
-        />
-        <meta property="og:description" content={frontmatter.description} />
-        {frontmatter.facebookThumbnail
-          ? <meta property="og:image" content={frontmatter.facebookThumbnail} />
-          : ""}
-      </Helmet>
+      <MyHelmet data={myHelmetData} />
       <Layout>
         <RegularSection>
           <StyledLink to="/">Go to previous page</StyledLink>
@@ -81,7 +73,14 @@ export const pageQuery = graphql`
         slug
         title
         description
-        facebookThumbnail
+        externalScriptsUrls
+        facebookThumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

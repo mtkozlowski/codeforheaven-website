@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
         * + & {margin-top: 1.1em}
     }
 
-    a {margin: 0;
+    a {margin: 0; color: ${({ theme }) => theme.colors.dark};
         &:hover {background-color: ${({ theme }) => theme.colors.lightgrey}}
     }
 
@@ -40,8 +40,8 @@ const GlobalStyle = createGlobalStyle`
         max-width: 100%;
     }
 
-    a {
-        color: inherit;
+    h2 a {
+        color: #454545
     }
 
     li + li {
