@@ -23,10 +23,12 @@ export default function MyHelmet({ data }) {
         <meta property="og:description" content={description} />
         <meta property="og:title" content={title + " - Code for Heaven"} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${domain}/${slug}`} />
+        <meta property="og:url" content={`${domain}/${slug}/`} />
         {facebookThumbnail
           ? <meta property="og:image" content={`${domain}${facebookThumbnail}`} />
           : ""}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         {externalScriptsUrls.map(url => <script async src={url}></script>)}
       </Helmet>
     )
