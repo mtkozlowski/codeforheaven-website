@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         min-height: 100vh;
         margin: 0;
+        font-display: swap;
         font-family: ${({ theme }) => theme.font.primaryFamily};
         font-size: ${({ theme }) => theme.font.regularTextSize};
         color: ${({ theme }) => theme.colors.dark};
