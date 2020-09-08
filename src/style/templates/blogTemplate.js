@@ -51,7 +51,7 @@ export default function Template({ data }) {
       <MyHelmet data={myHelmetData} />
       <Layout>
         <RegularSection>
-          <StyledLink to="/">Go to previous page</StyledLink>
+          <StyledLink to="/">Go to the home page</StyledLink>
         </RegularSection>
         <RegularSection>
           <DivFlex>
