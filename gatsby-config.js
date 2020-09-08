@@ -48,5 +48,14 @@ module.exports = {
         path: `${__dirname}/content/posts`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `source sans pro\:400,700`
+        ],
+        display: 'swap'
+      }
+    }
   ],
 }

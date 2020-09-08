@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-    ${({ theme }) => theme.font.import};
 
     *, *::before, *::after {box-sizing: border-box;}
 

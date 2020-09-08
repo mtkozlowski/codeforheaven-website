@@ -3,8 +3,6 @@ import { colors } from "./colors"
 export const theme = {
   colors,
   font: {
-    import:
-      "@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap')",
     primaryFamily: "'Source Sans Pro', sans-serif",
     secondaryFamily:
       "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
