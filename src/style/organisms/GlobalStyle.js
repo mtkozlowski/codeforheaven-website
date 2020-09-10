@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-
     *, *::before, *::after {box-sizing: border-box;}
 
     h1, h2, h3, h4, h5, h6, p, .gatsby-highlight {margin: 0;
@@ -15,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
     html, body {
         min-height: 100vh;
         margin: 0;
-        font-display: swap;
         font-family: ${({ theme }) => theme.font.primaryFamily};
         font-size: ${({ theme }) => theme.font.regularTextSize};
         color: ${({ theme }) => theme.colors.dark};
@@ -65,6 +63,20 @@ const GlobalStyle = createGlobalStyle`
         box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
 
         & + .gatsby-highlight {margin-top: 0;}
+    }
+    
+    .youtubeIframeWrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+    }
+
+    .youtubeIframeWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 `
 
