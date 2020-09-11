@@ -8,6 +8,7 @@ import { H1, H2 } from "../atoms/Headings"
 import StyledLink from "../atoms/StyledLink"
 import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
+import Contact from "../molecules/Contact"
 
 import MyHelmet from '../components/MyHelmet';
 
@@ -59,6 +60,7 @@ export default function Template({ data }) {
             <PostDateBlock>{frontmatter.date}</PostDateBlock>
           </DivFlex>
           <MDXRenderer>{mdx.body}</MDXRenderer>
+          <Contact />
         </RegularSection>
       </Layout>
     </>
