@@ -1,0 +1,56 @@
+---
+date: "2020-09-23"
+title: "My Gatsby Helmet - tags for Facebook's Open Graph"
+slug: "my-gatsby-helmet-tags-for-facebooks-open-graph"
+description: "How to use Helmet in Gatsby and remain DRY."
+---
+
+Helmet is a useful plugin for React/Gatsby which lets you control your document's head. If you haven't heard about it already, I strongly suggest you visiting [the plugin's website](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/). In this article, I'm going to share with you, how I turned it into a reusable component, that suits well to my blog needs.
+
+And here it is:
+
+```jsx
+export default function MyHelmet({ data }) {
+    const {
+        description = "",
+        domain = "https://codeforheaven.com",
+        externalScriptsUrls = [],
+        facebookThumbnail = "",
+        title = "",
+        slug = "",
+    } = data;
+
+    return (
+      <Helmet>
+        <title>{title} - Code for Heaven</title>
+
+        <link rel="canonical" href={`${domain}/${slug}`} />
+
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={title + " - Code for Heaven"} />
+        <meta property="og:type" content="article" />
+        {slug === ""
+          ? <meta property="og:url" content={`${domain}/`} />
+          : <meta property="og:url" content={`${domain}/${slug}/`} />
+        }
+        {facebookThumbnail
+          ? <meta property="og:image" content={`${domain}${facebookThumbnail}`} />
+          : ""}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        {externalScriptsUrls.map(url => <script async src={url}></script>)}
+      </Helmet>
+    )
+}
+```
+
+Running from the top. You can see simple destructuring of a `data` object, that was passed to `MyHelmet` element. For my purposes, I need properties, I will use to set values of open graph meta tags. Open graph meta tags are super-useful as they describe how a page will look like when posted on Facebook.
+
+Properties I included are the most basic and verified by Facebook's sharing debugger. If you, like me, are building your website from scratch, make sure to put them into all pages `<head>` sections.
+
+The benefits of these solutions are that I don't need to repeat strings, like my blog's domain. It proved its value when I added SSL to the domain and I only had to change it once.
+
+How would you change this snippet? What would you improve? Let me know and make sure to come back, as I expect myself to work on it further.
