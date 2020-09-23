@@ -15,7 +15,7 @@ const Nav = styled.nav`
   }
 
   a {
-    padding: .6rem 0.6rem 0.5rem;
+    padding: .3rem 0.6rem;
   }
 `
 
@@ -23,7 +23,7 @@ const Navigation = ({ atHome }) => (
   <Nav atHome={atHome}>
     <Link to="/" >Blog</Link>
     <Link to="/valuable-resources" >Valuable resources</Link>
-    {/* <Link to="/useful-tools" >Useful tools</Link> */}
+    <Link to="/useful-tools" >Useful tools</Link>
   </Nav>
 )
 
