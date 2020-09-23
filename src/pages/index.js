@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
-import { Helmet } from "react-helmet"
 import Layout from "../style/organisms/Layout"
 
 import RegularSection from "../style/organisms/RegularSection"
 import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
+import MyHelmet from '../style/components/MyHelmet';
+import facebookThumbnail from './facebookThumbnail.jpg';
 
 const IndexPage = ({
   data: {
@@ -17,15 +17,16 @@ const IndexPage = ({
     .map((edge, index) => (
       <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />
     ))
+  const myHelmetData = {
+    description: "Front-end Creator on his way to UX.",
+    facebookThumbnail,
+    title: "UX & Front end",
+  }
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Code for Heaven</title>
-        <link rel="canonical" href="https://codeforheaven.com/" />
-      </Helmet>
+      <MyHelmet data={myHelmetData} />
+
       <Layout>
         <RegularSection>{Posts}</RegularSection>
       </Layout>
