@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../style/organisms/Layout"
 import RegularSection from "../style/organisms/RegularSection"
 import MyHelmet from '../style/components/MyHelmet';
-import facebookThumbnail from './404-facebookThumbnail.jpg';
+import facebookThumbnail from './404/404-facebookThumbnail.jpg';
 import { Link } from 'gatsby';
 
 

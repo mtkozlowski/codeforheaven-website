@@ -5,7 +5,7 @@ import Layout from "../style/organisms/Layout"
 import RegularSection from "../style/organisms/RegularSection"
 import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
 import MyHelmet from '../style/components/MyHelmet';
-import facebookThumbnail from './facebookThumbnail.jpg';
+import facebookThumbnail from './index/facebookThumbnail.jpg';
 
 const IndexPage = ({
   data: {
