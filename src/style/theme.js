@@ -24,6 +24,8 @@ export const theme = {
     tablet: "@media (max-width: 1080px)",
     desktop: "@media (min-width: 1080px)",
     regularSection: "@media (max-width: 42rem)",
+    narrowSection: "@media (max-width: 34rem)",
+    wideSection: "@media (max-width: 80rem)",
   },
 
   responsive: {
@@ -34,5 +36,7 @@ export const theme = {
     mobileVertical: "360px",
   },
 
+  wideSection: "80rem",
   regularSection: "42rem",
+  narrowSection: "34rem",
 }

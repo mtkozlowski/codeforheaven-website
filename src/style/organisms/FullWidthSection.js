@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-const RegularSection = styled.section`
-  width: ${({ theme }) => theme.regularSection};
+const FullWidthSection = styled.section`
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
 
@@ -10,4 +10,4 @@ const RegularSection = styled.section`
   }
 `
 
-export default RegularSection
+export default FullWidthSection

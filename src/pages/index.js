@@ -7,6 +7,11 @@ import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
 import MyHelmet from '../style/components/MyHelmet';
 import facebookThumbnail from './index/facebookThumbnail.jpg';
 
+import {NarrowSection} from "../style/organisms/Sections"
+import {centered, flex, boxPadding } from "../style/organisms/Divs"
+
+import helloBoy from "../style/atoms/helloBoy.svg"
+
 const IndexPage = ({
   data: {
     allMdx: { edges },
@@ -28,6 +33,12 @@ const IndexPage = ({
       <MyHelmet data={myHelmetData} />
 
       <Layout>
+        <a href="https://letmeinux.com" target="_blank" css={[flex]} >
+        <RegularSection css={[centered, boxPadding]} style={{backgroundColor: "#212b38", marginBottom: "3rem"}}>
+            <img src={helloBoy} style={{maxHeight: "120px", marginRight: "1rem"}} />
+            <p style={{color: "#eee"}}>Witaj! Obchodzimy dzisiaj Międzynarodowy Dzień Podcastu. Szczególnie jeśli trafiłeś/aś tutaj z konferencji PyrCaster MDP 2020 i szukasz podcastu Let me in UX, który prowadzę, to śmiało kliknij, w TEN baner.</p>
+        </RegularSection>
+        </a>
         <RegularSection>{Posts}</RegularSection>
       </Layout>
     </>

@@ -26,7 +26,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMdx (filter: {frontmatter: {date: {ne: null}}}) {
+      allMdx (filter: {frontmatter: {date: {ne: null}}, fields: {collection: {ne: "pagesContent"}}}) {
         edges {
           node {
             fields {

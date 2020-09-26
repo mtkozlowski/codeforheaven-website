@@ -5,7 +5,7 @@ import { H1, H2 } from "../atoms/Headings"
 import Navigation from "../molecules/Navigation"
 import ResettedLink from "../atoms/ResettedLink"
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   width: ${({ theme }) => theme.regularSection};
   max-width: 100%;
   margin: 0 auto;
