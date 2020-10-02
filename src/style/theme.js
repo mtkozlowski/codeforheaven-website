@@ -23,7 +23,7 @@ export const theme = {
     littleTablet: "@media (max-width: 768px)",
     tablet: "@media (max-width: 1080px)",
     desktop: "@media (min-width: 1080px)",
-    regularSection: "@media (max-width: 42rem)",
+    regularSection: "@media (max-width: 43rem)",
     narrowSection: "@media (max-width: 34rem)",
     wideSection: "@media (max-width: 80rem)",
   },
@@ -37,6 +37,6 @@ export const theme = {
   },
 
   wideSection: "80rem",
-  regularSection: "42rem",
+  regularSection: "43rem",
   narrowSection: "34rem",
 }

@@ -30,6 +30,10 @@ export const col50 = css`
 
 export const boxPadding = css`
   padding: 6rem;
+  
+  ${({ theme }) => theme.media.regularSection} {
+    padding: 3rem;
+  }
 `;
 
 export const relativePosition = css`
