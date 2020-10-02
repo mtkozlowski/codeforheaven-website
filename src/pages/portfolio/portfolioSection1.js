@@ -1,6 +1,7 @@
 import React from "react"
-import styled from 'styled-components'
 import { Link } from 'gatsby';
+import styled, { ThemeProvider } from "styled-components"
+import { theme } from "../../style/theme"
 
 import { WideSection } from "../../style/organisms/Sections"
 import { H1, H2, H3, H4, H5, H6 } from "../../style/atoms/Headings"
@@ -18,7 +19,7 @@ const Container = styled.div`
     '. . . . . .'
     '. links links links links .';
   align-items: center;
-  
+
   h1, p {
     margin-top: 0;
     padding-left: 1rem;
@@ -32,6 +33,7 @@ const Img = styled.img`
 
 const PortfolioSection_1 = () => {
   return (
+    <ThemeProvider theme={theme}>
     <WideSection>
       <Container>
         <Breadcrumb>
@@ -56,6 +58,7 @@ const PortfolioSection_1 = () => {
         </div>
       </Container>
     </WideSection>
+    </ThemeProvider>
   )
 }
 

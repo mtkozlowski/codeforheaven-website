@@ -51,7 +51,7 @@ const Portfolio = () => {
           <PortfolioSection_1 />
         </div>
         <FullWidthSection id="mainsection">
-          <BadgesBelt  />
+          <BadgesBelt />
         </FullWidthSection>
         <FullWidthSection css={flex} style={{background: "#ccc"}}>
           <div css={[col50, relativePosition]} style={{backgroundColor: "#ffffffcc"}}>

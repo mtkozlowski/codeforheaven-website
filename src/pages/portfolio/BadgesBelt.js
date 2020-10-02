@@ -33,7 +33,7 @@ const BadgeImg = styled.img`
 `;
 
 const ChildrenWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: #fff;
   border-radius: 1rem;
   border: .3rem solid #444;
   display: none;
@@ -137,7 +137,7 @@ const BadgesBelt = () => {
         <Wings src={react} >
           <H4>React</H4>
           <p>
-            W React tworzę klienta mojej aplikacji biblijnej Szukaj Słowa. 
+            W React tworzę klienta mojej aplikacji biblijnej Szukaj Słowa.
           </p>
         </Wings>
         <Wings src={git} >
