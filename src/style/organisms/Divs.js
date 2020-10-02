@@ -18,8 +18,6 @@ export const textCentered = css`
   text-align: center;
 `;
 
-
-
 export const col50 = css`
   width: 50%;
 
@@ -30,7 +28,7 @@ export const col50 = css`
 
 export const boxPadding = css`
   padding: 6rem;
-  
+
   ${({ theme }) => theme.media.regularSection} {
     padding: 3rem;
   }
