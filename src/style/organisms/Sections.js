@@ -40,3 +40,8 @@ export const FullWidthSection = styled.section`
     padding: 0.5rem;
   }
 `;
+
+export const FullWidthInSection = styled.div`
+  margin: 0 calc(-50vw + 50%);
+  width: calc(100vw - 8px);
+`;
