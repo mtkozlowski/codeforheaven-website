@@ -1,18 +1,17 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
-import { H1, H2 } from "../../style/atoms/Headings"
+import { H1 } from "../../style/atoms/Headings"
 import MyHelmet from '../../style/components/MyHelmet';
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
-import { RegularSection, FullWidthSection, WideSection } from "../../style/organisms/Sections"
+import { RegularSection, WideSection } from "../../style/organisms/Sections"
 
 import podsumowanieWarsztatow from "./letMeInUx/podsumowanie-warsztatow.jpg"
-import naszeTwarze from "./letMeInUx/nasze-twarze.jpg"
+import naszeTwarze from "./letMeInUx/zdj-warszawa.jpg"
 
 import episode01 from "./letMeInUx/episodes/episode01.jpg"
-import episode04 from "./letMeInUx/episodes/episode04.jpg"
 import episode05 from "./letMeInUx/episodes/episode05.jpg"
 import episode06 from "./letMeInUx/episodes/episode06.jpg"
 import episode07 from "./letMeInUx/episodes/episode07.jpg"
