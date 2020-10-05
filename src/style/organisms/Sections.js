@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const NarrowSection = styled.section`
   width: ${({ theme }) => theme.narrowSection};
   max-width: 100%;
@@ -22,23 +21,13 @@ export const RegularSection = styled.section`
 `
 
 export const WideSection = styled.section`
-  width: 80rem;
+  width: ${({ theme }) => theme.wideSection};
   max-width: 100%;
   margin: 0 auto;
-
-  ${({ theme }) => theme.media.wideSection} {
-    padding: 0.5rem;
-  }
 `;
 
 export const FullWidthSection = styled.section`
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
 
-  ${({ theme }) => theme.media.regularSection} {
-    padding: 0.5rem;
-  }
 `;
 
 export const FullWidthInSection = styled.div`

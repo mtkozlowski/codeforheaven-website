@@ -45,7 +45,7 @@ export default function SzukajSlowa() {
         <Main>
           <RegularSection>
           <p style={{ textAlign: "center"}}>
-                <video autoplay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
+                <video autoPlay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
                   <source src={szukajSlowaWebM} type="video/webm" />
                   <source src={szukajSlowaMP4} type="video/mp4" />
               </video>

@@ -10,26 +10,25 @@ import git from "./BadgesBelt/git.svg"
 import react from "./BadgesBelt/react.svg"
 import gatsby from "./BadgesBelt/gatsby.svg"
 
-import { centered, viewportHigh, textCentered, col50, flex, boxPadding, relativePosition } from "../../style/organisms/Divs"
-import { H4, H6 } from "../../style/atoms/Headings"
+import { centered, viewportHigh } from "../../style/organisms/Divs"
+import { WideSection } from "../../style/organisms/Sections"
+import { H4 } from "../../style/atoms/Headings"
 
 const Wrapper = styled.div`
   background-color: #f7eccc;
-  ${centered}
-  ${viewportHigh}
 
-  display: flex;
   padding: 2rem;
   position: relative;
 `;
 
 const BadgesWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
 `;
 
 const BadgeImg = styled.img`
-  margin: 1rem;
-  height: 180px;
 `;
 
 const ChildrenWrapper = styled.div`
@@ -40,11 +39,10 @@ const ChildrenWrapper = styled.div`
   font-size: .9rem;
   line-height: 1.1;
   max-width: 320px;
-  width: 120%;
   padding: .4rem .4rem .3rem;
   position: absolute;
   top: 2rem;
-  left: -10%;
+  left: 0;
 
   z-index: 1;
 
@@ -54,7 +52,7 @@ const ChildrenWrapper = styled.div`
 const Badge = ({src, children}) => {
 
   return(
-    <div style={{position: "relative"}}>
+    <div style={{position: "relative", padding: "1rem", width: "20%", minWidth: "180px"}}>
       <BadgeImg src={src} />
       <ChildrenWrapper>
         {children}
@@ -63,19 +61,10 @@ const Badge = ({src, children}) => {
   );
 }
 
-const WingsWrapper = styled.div`
-
-`;
-
-const WingsImg = styled.img`
-  max-width: 200px;
-  display: block;
-`;
-
 const Wings = ({src, children}) => {
   return (
-    <div style={{position: "relative"}}>
-      <WingsImg src={src}/>
+    <div style={{position: "relative", padding: "1rem", width: "40%", minWidth: "280px"}}>
+      <img src={src}/>
       <ChildrenWrapper>
         {children}
       </ChildrenWrapper>
@@ -84,20 +73,27 @@ const Wings = ({src, children}) => {
 }
 
 const BadgesBelt = () => {
+  const Paragraph = styled.div`
+    flex-wrap: wrap;
+  `;
+
   return (
     <Wrapper>
-      <p style={{fontSize: "0.8rem", position: "absolute", top: "0", margin: "2rem auto 0"}}><i>Wskaż dowolną grafikę myszką, aby zobaczyć treść.</i></p>
-      <div style={{maxWidth: "360px", position: "relative"}}>
-        <img src={soldier} style={{ minHeight: "200px", maxHeight: "350px"}} />
+      <WideSection as={Paragraph} css={[centered, viewportHigh]}>
+      <p style={{fontSize: "0.8rem", position: "absolute", top: "1rem", margin: "0 auto 0"}}><i>Wskaż dowolną grafikę, aby zobaczyć treść.</i></p>
+      <div style={{maxWidth: "330px", position: "relative"}}>
+        <img src={soldier} style={{ minHeight: "200px" }} />
         <ChildrenWrapper>
           <p style={{padding: "0.4rem 1rem", textAlign: "center"}}>
             Na froncie potrzebni są najlepsi. Siłą każdego twórcy jest jego kreatywność i zdolność obserwacji. Jednak do sprawnego tworzenia, potrzebne są konkretne umiejętności.
           </p>
         </ChildrenWrapper>
-        <H4 style={{textAlign: "center", marginTop: "0"}}>🎶 <br /><i>I got soul,<br />
-        but I'm not a soldier</i></H4>
+        <H4 style={{textAlign: "center", marginTop: "0"}}>
+          🎶 <br /><i>I got soul,<br />
+          but I'm not a soldier</i>
+        </H4>
       </div>
-      <div>
+      <div style={{maxWidth: "950px"}}>
       <BadgesWrapper>
         <Badge src={javascript}>
           <H4>Javascript</H4>
@@ -117,8 +113,6 @@ const BadgesBelt = () => {
             Style mają moc. Nie tylko przykuwają wzrok, ale porządkują treść i sprawiają, że przyjemniej spędza się czas na stronie.
           </p>
         </Badge>
-      </BadgesWrapper>
-      <BadgesWrapper>
         <Badge src={gatsby}>
           <H4>GatsbyJS</H4>
           <p>
@@ -132,8 +126,7 @@ const BadgesBelt = () => {
           </p>
         </Badge>
       </BadgesWrapper>
-      </div>
-      <WingsWrapper>
+      <BadgesWrapper>
         <Wings src={react} >
           <H4>React</H4>
           <p>
@@ -146,8 +139,9 @@ const BadgesBelt = () => {
             Kontrola wersji, sprawny code review, branching i łatwa współpraca z innymi 🔫
           </p>
         </Wings>
-      </WingsWrapper>
-
+      </BadgesWrapper>
+      </div>
+      </WideSection>
     </Wrapper>
   )
 };

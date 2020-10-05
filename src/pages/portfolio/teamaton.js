@@ -81,7 +81,7 @@ export default function Teamaton() {
             <div style={{display: "flex",marginTop: "1rem", justifyContent: "space-between"}}>
               <div style={{width: "49%"}}>
                 <p style={{ textAlign: "center"}}>
-                  <video autoplay loop muted playsinline style={{width: "100%"}} >
+                  <video autoPlay loop muted playsinline style={{width: "100%"}} >
                     <source src={dashboardWebM} type="video/webm" />
                     <source src={dashboardMP4} type="video/mp4" />
                   </video>
@@ -90,7 +90,7 @@ export default function Teamaton() {
               </div>
               <div style={{width: "49%"}}>
                 <p style={{ textAlign: "center"}}>
-                  <video autoplay loop muted playsinline style={{width: "100%"}} >
+                  <video autoPlay loop muted playsinline style={{width: "100%"}} >
                     <source src={photoUploadWebM} type="video/webm" />
                     <source src={photoUploadMP4} type="video/mp4" />
                   </video>
@@ -106,7 +106,7 @@ export default function Teamaton() {
             </p>
             <p style={{ textAlign: "center"}}>
               <span style={{fontSize: "0.8rem"}}>Jak zmieniły się rozmiary istotnych zależności w portalu</span>
-                <video autoplay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
+                <video autoPlay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
                   <source src={fileSizesWebM} type="video/webm" />
                   <source src={fileSizesMP4} type="video/mp4" />
               </video>
@@ -125,7 +125,7 @@ export default function Teamaton() {
               Wszystko, nad czym pracowałem miało być wykorzystywane przez setki właścicieli portali oraz właścicieli wpisów na tych portalach. Mnożąc liczbę ludzi razy liczbę rodzajów treści powinniśmy otrzymać ogólne pojęcie o tym, jak uniwersalne musiały być to rozwiązania.
             </p>
             <p style={{ textAlign: "center"}}>
-              <video autoplay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
+              <video autoPlay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
                 <source src={CssGIFWebM} type="video/webm" />
                 <source src={CssGIFMP4} type="video/mp4" />
               </video>
@@ -157,6 +157,6 @@ export default function Teamaton() {
           </RegularSection>
         </Main>
   </ThemeProvider>
-  </> 
+  </>
   )
 }

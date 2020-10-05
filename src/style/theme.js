@@ -1,5 +1,10 @@
 import { colors } from "./colors"
 
+const baseFontSize = 18,
+narrowSection = `${34*baseFontSize}px`,
+regularSection = `${43*baseFontSize}px`,
+wideSection = `1280px`;
+
 export const theme = {
   colors,
   font: {
@@ -11,11 +16,15 @@ export const theme = {
     largeHeaderSize: "94px",
     subHeaderSize: "48px",
     blogPostTeaserSize: "24px",
-    regularTextSize: "18px",
+    regularTextSize: `calc(16px + 0.2vw)`,
 
     /* MOBILE FONT SIZES */
     largeHeaderSize__Mobile: "72px",
   },
+
+  narrowSection,
+  regularSection,
+  wideSection,
 
   media: {
     phone: "@media (max-width: 480px)",
@@ -23,9 +32,9 @@ export const theme = {
     littleTablet: "@media (max-width: 768px)",
     tablet: "@media (max-width: 1080px)",
     desktop: "@media (min-width: 1080px)",
-    regularSection: "@media (max-width: 43rem)",
-    narrowSection: "@media (max-width: 34rem)",
-    wideSection: "@media (max-width: 80rem)",
+    narrowSection: `@media (max-width: ${narrowSection})`,
+    regularSection: `@media (max-width: ${regularSection})`,
+    wideSection: `@media (max-width: ${wideSection})`,
   },
 
   responsive: {
@@ -36,7 +45,5 @@ export const theme = {
     mobileVertical: "360px",
   },
 
-  wideSection: "80rem",
-  regularSection: "43rem",
-  narrowSection: "34rem",
+
 }

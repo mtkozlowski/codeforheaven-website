@@ -64,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
 
         & + .gatsby-highlight {margin-top: 0;}
     }
-    
+
     .youtubeIframeWrapper {
         position: relative;
         padding-bottom: 56.25%; /* 16:9 */
