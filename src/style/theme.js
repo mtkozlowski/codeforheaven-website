@@ -1,9 +1,9 @@
 import { colors } from "./colors"
 
 const baseFontSize = 18,
-narrowSection = `${34*baseFontSize}px`,
-regularSection = `768px`,
-wideSection = `1280px`;
+  narrowSection = `${34 * baseFontSize}px`,
+  regularSection = `768px`,
+  wideSection = `1280px`
 
 export const theme = {
   colors,
@@ -45,6 +45,4 @@ export const theme = {
     mobileMid: "480px",
     mobileVertical: "360px",
   },
-
-
 }

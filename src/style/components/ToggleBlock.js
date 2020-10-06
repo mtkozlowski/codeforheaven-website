@@ -1,9 +1,9 @@
 import React from "react"
-import styled from "styled-components";
+import styled from "styled-components"
 
 import { H1, H2, H3, H4, H5, H6 } from "../atoms/Headings"
 
-const ToggleBlock = ({ToggleElement, toggleText, children}) => {
+const ToggleBlock = ({ ToggleElement, toggleText, children }) => {
   return (
     <>
       <ToggleElement>{toggleText}</ToggleElement>
@@ -12,4 +12,4 @@ const ToggleBlock = ({ToggleElement, toggleText, children}) => {
   )
 }
 
-export default ToggleBlock;
+export default ToggleBlock

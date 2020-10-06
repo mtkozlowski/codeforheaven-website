@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: "collection",
-      value: parent.sourceInstanceName
+      value: parent.sourceInstanceName,
     })
   }
 }
@@ -26,7 +26,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const results = await graphql(`
     {
-      allMdx (filter: {frontmatter: {date: {ne: null}}, fields: {collection: {ne: "pagesContent"}}}) {
+      allMdx(
+        filter: {
+          frontmatter: { date: { ne: null } }
+          fields: { collection: { ne: "pagesContent" } }
+        }
+      ) {
         edges {
           node {
             fields {
@@ -73,7 +78,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  pageEdges.forEach((edge) => {
+  pageEdges.forEach(edge => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve(`./src/style/templates/pageTemplate.js`),

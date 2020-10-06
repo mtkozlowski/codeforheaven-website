@@ -4,7 +4,7 @@ import styled from "styled-components"
 import BlogTeaserTitle from "./blog-teaser-title"
 import BlogTeaserDateBlock from "./blog-teaser-date-block"
 import StyledLink from "../../atoms/StyledLink"
-import { Link } from 'gatsby';
+import { Link } from "gatsby"
 
 const BlogTeaserWrapper = styled.div`
   display: flex;
@@ -46,11 +46,17 @@ const BlogTeaserText = styled.p`
 const BlogTeaser = ({ teaserData, index }) => (
   <BlogTeaserWrapper>
     <BlogTeaserTitle>
-      {index < 5
-        ? <StyledLink to={teaserData.frontmatter.slug} opacityValue={100 / index}> {teaserData.frontmatter.title} </StyledLink>
-        : <Link to={teaserData.frontmatter.slug} opacityValue={100 / index}> {teaserData.frontmatter.title} </Link>
-      }
-
+      {index < 5 ? (
+        <StyledLink to={teaserData.frontmatter.slug} opacityValue={100 / index}>
+          {" "}
+          {teaserData.frontmatter.title}{" "}
+        </StyledLink>
+      ) : (
+        <Link to={teaserData.frontmatter.slug} opacityValue={100 / index}>
+          {" "}
+          {teaserData.frontmatter.title}{" "}
+        </Link>
+      )}
     </BlogTeaserTitle>
     <BlogTeaserText>{teaserData.frontmatter.description}</BlogTeaserText>
     <BlogTeaserDateBlock index={index}>

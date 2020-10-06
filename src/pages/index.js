@@ -4,11 +4,11 @@ import Layout from "../style/organisms/Layout"
 
 import RegularSection from "../style/organisms/RegularSection"
 import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
-import MyHelmet from '../style/components/MyHelmet';
-import facebookThumbnail from './index/facebookThumbnail.jpg';
+import MyHelmet from "../style/components/MyHelmet"
+import facebookThumbnail from "./index/facebookThumbnail.jpg"
 
-import {NarrowSection} from "../style/organisms/Sections"
-import {centered, flex, boxPadding } from "../style/organisms/Divs"
+import { NarrowSection } from "../style/organisms/Sections"
+import { centered, flex, boxPadding } from "../style/organisms/Divs"
 
 import helloBoy from "../style/atoms/helloBoy.svg"
 

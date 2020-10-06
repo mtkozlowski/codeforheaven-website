@@ -35,7 +35,7 @@ const StyledLink = styled(Link)`
   transition: filter .1s cubic-bezier(0.42, 0, 0.64, 2.04);
 
   filter: contrast(85%) brightness(120%);
-   /* saturate(${ props => props.opacityValue}%); */
+   /* saturate(${props => props.opacityValue}%); */
 
   &:hover {
     filter: contrast(100%) brightness(100%);

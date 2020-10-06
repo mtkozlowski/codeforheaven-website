@@ -8,14 +8,14 @@ const TeamatonRotatingLogo = styled.div`
   }
 
   img:first-child {
-    transition: transform .8s ease;
+    transition: transform 0.8s ease;
     transform-origin: center;
   }
   &:hover {
     img:first-child {
-      transform: rotate(360deg)
+      transform: rotate(360deg);
     }
   }
-`;
+`
 
-export default TeamatonRotatingLogo;
+export default TeamatonRotatingLogo

@@ -2,7 +2,7 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 import { H1 } from "../../style/atoms/Headings"
-import MyHelmet from '../../style/components/MyHelmet';
+import MyHelmet from "../../style/components/MyHelmet"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
@@ -20,7 +20,7 @@ import episode09 from "./letMeInUx/episodes/episode09.jpg"
 
 const Main = styled.main`
   margin-top: 2rem;
-`;
+`
 
 const EpisodesContainer = styled.div`
   margin-top: 1rem;
@@ -40,7 +40,7 @@ const EpisodesContainer = styled.div`
 const EpisodeImg = styled.img`
   max-width: 100%;
   min-width: 360px;
-`;
+`
 
 export default function LetMeInUX() {
   const myHelmetData = {
@@ -50,8 +50,7 @@ export default function LetMeInUX() {
     facebookThumbnail: "",
     title: "Portfolio - Lednica2000 - Mateusz Kozłowski",
     slug: "portfolio/lednica",
-  };
-
+  }
 
   return (
     <>
@@ -71,43 +70,57 @@ export default function LetMeInUX() {
         </StyledHeader>
         <Main>
           <RegularSection>
-          <p>Podcast Let me in UX tworzę razem z Anią Michalik oraz Moniką Rybińską. W audycji staramy się opowiedzieć o wszystkim, co wiąże się z projektowaniem doświadczenia użytkownika. Ponieważ sami stawiamy pierwsze kroki w branży, nasze rozmowy są pełne zaciekawienia, świeżości, humoru.</p>
-<p>
-          <img src={podsumowanieWarsztatow} />
-
-</p>
-          <p>Każdy jakoś zaczynał, ale mimo tej świadomości, początki często są obezwładniające. Dlatego naszym słuchaczom chcemy dodawać otuchy i podrzucać ciekawe treści. W połowie września założyliśmy kanał w aplikacji Slack, na który zapraszamy wszystkich zainteresowanych wspólnym rozwijaniem się.</p>
-          <p>
-          <img src={naszeTwarze} />
-          </p>
-          <p>Przygotowanie każdego odcinka to okazja do zgłębienia kolejnego tematu. Najlepszym sposobem nauki jest próba wyjaśnienia czegoś drugiej osobie. Na spotkaniach redakcyjnych z ogromu artykułów, źródeł i natchnień staramy się wyłuskać to, co najważniejsze, aby nadać odcinkowi spójny charakter.</p>
-          <p>Prowadząc podcast realizuję swoje redaktorskie marzenia. W audycji pełnię rolę głównego gospodarza. </p>
+            <p>
+              Podcast Let me in UX tworzę razem z Anią Michalik oraz Moniką
+              Rybińską. W audycji staramy się opowiedzieć o wszystkim, co wiąże
+              się z projektowaniem doświadczenia użytkownika. Ponieważ sami
+              stawiamy pierwsze kroki w branży, nasze rozmowy są pełne
+              zaciekawienia, świeżości, humoru.
+            </p>
+            <p>
+              <img src={podsumowanieWarsztatow} />
+            </p>
+            <p>
+              Każdy jakoś zaczynał, ale mimo tej świadomości, początki często są
+              obezwładniające. Dlatego naszym słuchaczom chcemy dodawać otuchy i
+              podrzucać ciekawe treści. W połowie września założyliśmy kanał w
+              aplikacji Slack, na który zapraszamy wszystkich zainteresowanych
+              wspólnym rozwijaniem się.
+            </p>
+            <p>
+              <img src={naszeTwarze} />
+            </p>
+            <p>
+              Przygotowanie każdego odcinka to okazja do zgłębienia kolejnego
+              tematu. Najlepszym sposobem nauki jest próba wyjaśnienia czegoś
+              drugiej osobie. Na spotkaniach redakcyjnych z ogromu artykułów,
+              źródeł i natchnień staramy się wyłuskać to, co najważniejsze, aby
+              nadać odcinkowi spójny charakter.
+            </p>
+            <p>
+              Prowadząc podcast realizuję swoje redaktorskie marzenia. W audycji
+              pełnię rolę głównego gospodarza.{" "}
+            </p>
           </RegularSection>
           <WideSection>
             <EpisodesContainer>
               <a href="https://www.letmeinux.com/started-from-elementarz-ux-now-we-re-here">
-              <EpisodeImg src={episode01} alt=""/>
-
+                <EpisodeImg src={episode01} alt="" />
               </a>
               <a href="https://www.letmeinux.com/design-thinking-prawdziwe-historie">
-              <EpisodeImg src={episode05} alt=""/>
-
+                <EpisodeImg src={episode05} alt="" />
               </a>
               <a href="https://www.letmeinux.com/poznajemy-jezyki-programowania">
-              <EpisodeImg src={episode06} alt=""/>
-
+                <EpisodeImg src={episode06} alt="" />
               </a>
               <a href="https://www.letmeinux.com/customer-journey-na-wystawie">
-              <EpisodeImg src={episode07} alt=""/>
-
+                <EpisodeImg src={episode07} alt="" />
               </a>
               <a href="https://www.letmeinux.com/rozmowki-technologiczne-jak-sie-komunikujemy">
-              <EpisodeImg src={episode08} alt=""/>
-
+                <EpisodeImg src={episode08} alt="" />
               </a>
               <a href="https://www.letmeinux.com/czy-kazdy-asap-oznacza-fakap">
-              <EpisodeImg src={episode09} alt=""/>
-
+                <EpisodeImg src={episode09} alt="" />
               </a>
             </EpisodesContainer>
           </WideSection>

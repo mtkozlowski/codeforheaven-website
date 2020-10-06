@@ -8,9 +8,6 @@ import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
 import { H1, H2 } from "../atoms/Headings"
 
-
-
-
 export default function Template({ data }) {
   const { mdx } = data
   const { frontmatter } = mdx
@@ -27,8 +24,8 @@ export default function Template({ data }) {
       </Helmet>
       <Layout>
         <RegularSection>
-            <H2 as={H1}>{frontmatter.title}</H2>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+          <H2 as={H1}>{frontmatter.title}</H2>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </RegularSection>
       </Layout>
     </>

@@ -3,7 +3,7 @@ import styled from "styled-components"
 const RotatingSpan = styled.span`
   position: relative;
   span {
-    transition: transform .3s ease, opacity .1s ease;
+    transition: transform 0.3s ease, opacity 0.1s ease;
   }
 
   span:first-child {
@@ -28,6 +28,6 @@ const RotatingSpan = styled.span`
       transform: rotateX(0);
     }
   }
-`;
+`
 
-export default RotatingSpan;
+export default RotatingSpan

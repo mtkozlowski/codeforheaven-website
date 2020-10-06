@@ -10,7 +10,7 @@ import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
 import Contact from "../molecules/Contact"
 
-import MyHelmet from '../components/MyHelmet';
+import MyHelmet from "../components/MyHelmet"
 
 require("prismjs/themes/prism.css")
 
@@ -37,8 +37,11 @@ export default function Template({ data }) {
   const { mdx } = data
   const { frontmatter } = mdx
 
-  const externalScriptsUrls = frontmatter.externalScriptsUrls || [];
-  const facebookThumbnail = frontmatter.facebookThumbnail && frontmatter.facebookThumbnail.childImageSharp.fluid.src || "";
+  const externalScriptsUrls = frontmatter.externalScriptsUrls || []
+  const facebookThumbnail =
+    (frontmatter.facebookThumbnail &&
+      frontmatter.facebookThumbnail.childImageSharp.fluid.src) ||
+    ""
   const myHelmetData = {
     description: frontmatter.description,
     externalScriptsUrls,

@@ -6,57 +6,59 @@ import LinkedInLogo from "./LI-logo.png"
 import TwitterLogo from "./Twitter-logo.png"
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
 
-    H3 {
-      margin-top: 1em;
-      width: 100%;
-    }
-`;
+  h3 {
+    margin-top: 1em;
+    width: 100%;
+  }
+`
 
 export const LinkedInLink = styled.a`
-    background-image: url(${LinkedInLogo});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left top;
-    font-size: 0.01px;
-    width: 40px;
-    height: 40px;
-    margin: 8px 16px 8px 0;
+  background-image: url(${LinkedInLogo});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  font-size: 0.01px;
+  width: 40px;
+  height: 40px;
+  margin: 8px 16px 8px 0;
 
-    text-indent: -9600rem;
+  text-indent: -9600rem;
 
-    transition: transform ease-in-out .3s;
-    &:hover {
-      transform: scale(1.1)
-    }
-`;
+  transition: transform ease-in-out 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+`
 
 export const TwitterLink = styled.a`
-    background-image: url(${TwitterLogo});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left top;
-    font-size: 0.01px;
-    width: 40px;
-    height: 40px;
-    margin: 8px 16px 8px 0;
-    text-indent: -9600rem;
+  background-image: url(${TwitterLogo});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left top;
+  font-size: 0.01px;
+  width: 40px;
+  height: 40px;
+  margin: 8px 16px 8px 0;
+  text-indent: -9600rem;
 
-    transition: transform ease-in-out .3s;
-    &:hover {
-      transform: scale(1.1)
-    }
-`;
+  transition: transform ease-in-out 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+`
 
 const Contact = () => (
-    <Wrapper>
-      <H3>Enjoyed it? Great! Let's stay in touch.</H3>
-      <LinkedInLink href="//www.linkedin.com/in/mateusz-w-kozlowski/" >LinkedIn</LinkedInLink>
-      <TwitterLink href="//twitter.com/mtKozlowski" >Twitter</TwitterLink>
-    </Wrapper>
-  )
+  <Wrapper>
+    <H3>Enjoyed it? Great! Let's stay in touch.</H3>
+    <LinkedInLink href="//www.linkedin.com/in/mateusz-w-kozlowski/">
+      LinkedIn
+    </LinkedInLink>
+    <TwitterLink href="//twitter.com/mtKozlowski">Twitter</TwitterLink>
+  </Wrapper>
+)
 
-  export default Contact;
+export default Contact

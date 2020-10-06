@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from 'gatsby';
+import { Link } from "gatsby"
 
 const Nav = styled.nav`
   display: flex;
@@ -15,15 +15,15 @@ const Nav = styled.nav`
   }
 
   a {
-    padding: .3rem 0.6rem;
+    padding: 0.3rem 0.6rem;
   }
 `
 
 const Navigation = ({ atHome }) => (
   <Nav atHome={atHome}>
-    <Link to="/" >Blog</Link>
-    <Link to="/valuable-resources" >Valuable resources</Link>
-    <Link to="/useful-tools" >Useful tools</Link>
+    <Link to="/">Blog</Link>
+    <Link to="/valuable-resources">Valuable resources</Link>
+    <Link to="/useful-tools">Useful tools</Link>
   </Nav>
 )
 
