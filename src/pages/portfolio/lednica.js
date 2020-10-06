@@ -1,33 +1,58 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../../style/organisms/Layout"
-import RegularSection from "../../style/organisms/RegularSection"
-import FullWidthSection from "../../style/organisms/FullWidthSection"
+import { graphql } from "gatsby"
+import { RegularSection, FullWidthSection } from "../../style/organisms/Sections"
 import MyHelmet from '../../style/components/MyHelmet';
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import { H1, H2 } from "../../style/atoms/Headings"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import Img from "gatsby-image"
+import Footer from "../../style/organisms/Footer"
 
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
-import biurkoImg from "./teamaton/biurko.jpg"
 import lednica01 from "./lednica/lednica01.jpg"
-import filmCrew1 from "./lednica/film-crew-1.jpg"
-import filmCrew2 from "./lednica/film-crew-2.jpg"
-import filmCrew3 from "./lednica/film-crew-3.jpg"
-import filmCrew4 from "./lednica/film-crew-4.jpg"
-import warsztaty1 from "./lednica/warsztaty-1.jpg"
-import warsztaty2 from "./lednica/warsztaty-2.jpg"
-import warsztaty3 from "./lednica/warsztaty-3.jpg"
 
 const Main = styled.main`
   margin-top: 2rem;
 `
 
-export default function Teamaton() {
+const FourImagesContainer = styled.div`
+  background-color: "#fafafa";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.6rem; margin-top: 1rem; padding: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+
+  ${({ theme }) => theme.media.phone} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export default function Lednica({ data }) {
+
+  const {
+    Lednica01,
+    Lednica01Mobile,
+    Warsztaty1,
+    Warsztaty2,
+    Warsztaty3,
+    FilmCrew1,
+    FilmCrew2,
+    FilmCrew3,
+    FilmCrew4
+  } = data;
+
+  const sources = [
+    Lednica01.fluid,
+    {
+      ...Lednica01Mobile.fluid,
+      media: `(min-width: 480px)`,
+    },
+  ]
+
   const myHelmetData = {
     description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -56,10 +81,10 @@ export default function Teamaton() {
         </StyledHeader>
         <Main>
           <FullWidthSection>
-            <img src={lednica01} style={{height: "400px", objectFit: "cover", width: "100%"}} />
+            <Img fluid={Lednica01.fluid}/>
           </FullWidthSection>
           <RegularSection>
-            <p>
+            <p style={{marginTop: "1rem"}}>
             Przez lata włożyłem bardzo dużo serca w rozwój i organizację spotkań, które co roku gromadzą dziesiątki tysięcy młodych osób. Na studiach, razem z kolegą otworzyliśmy Grupę Promocji na nowoczesną obecność w Internecie: media społecznościowe i Youtube. Korzystając z amatorskiego <i>handycama</i> i bazarowych wersji oprogramowania tworzyliśmy treść, dzięki której chcieliśmy docierać do tysięcy naszych rówieśników już dawno obecnych w sieci.
             </p>
             <p>
@@ -80,24 +105,24 @@ export default function Teamaton() {
               <li>dbanie o wysoki poziom nagrań</li>
             </ul>
 
-<div style={{backgroundColor: "#fafafa", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "0.6rem", marginTop: "1rem", padding: "0.6rem", textAlign:"center", fontSize: "0.8rem",}}>
-    <div>
-        <img src={filmCrew1} />
-        <span>Praca na planie</span>
-    </div>
-    <div>
-        <img src={filmCrew4} />
-        <span>Plan spotu Kroki do Lednicy</span>
-    </div>
-    <div>
-        <img src={filmCrew2} />
-        <span>Najlepsi operatorzy w Poznaniu</span>
-    </div>
-    <div>
-        <img src={filmCrew3} />
-        <span>Operatorzy i aktorzy w jednym</span>
-    </div>
-</div>
+            <FourImagesContainer>
+                <div>
+                  <Img fluid={FilmCrew1.fluid} />
+                  <span>Praca na planie</span>
+                </div>
+                <div>
+                  <Img fluid={FilmCrew4.fluid} />
+                  <span>Plan spotu Kroki do Lednicy</span>
+                </div>
+                <div>
+                  <Img fluid={FilmCrew2.fluid} />
+                  <span>Najlepsi operatorzy w Poznaniu</span>
+                </div>
+                <div>
+                  <Img fluid={FilmCrew3.fluid} />
+                  <span>Operatorzy i aktorzy w jednym</span>
+                </div>
+            </FourImagesContainer>
 
 <H2 id="warsztat">Warsztat na początku roku</H2>
 <p>
@@ -109,7 +134,7 @@ Zależało mi, żeby nasza dyskusja wyglądała inaczej niż te podczas cotygodn
 </p>
 
 <p>
-Dla uporządkowania wszystkich nowych spostrzeżeń przeprowadziłem krótkie ćwiczenie, podczas którego min. stworzyliśmy podstawowe persony naszych odbiorców w sieci. Dzięki nim osiągnęliśmy wspólne zrozumienie naszych celów i przyjrzeliśmy się potrzebom ludzi, którzy odwiedzali nasze strony. Porozumienie i empatia wyzwoliły w nas falę nowych pomysłów. 
+Dla uporządkowania wszystkich nowych spostrzeżeń przeprowadziłem krótkie ćwiczenie, podczas którego min. stworzyliśmy podstawowe persony naszych odbiorców w sieci. Dzięki nim osiągnęliśmy wspólne zrozumienie naszych celów i przyjrzeliśmy się potrzebom ludzi, którzy odwiedzali nasze strony. Porozumienie i empatia wyzwoliły w nas falę nowych pomysłów.
 </p>
 
 <p>
@@ -118,16 +143,16 @@ Rezultatem tych zaimprowizowanych warsztatów było kilka kampanii na Facebooku 
 
 <div style={{backgroundColor: "#fafafa", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "0.6rem", marginTop: "1rem", padding: "0.6rem", textAlign:"center", fontSize: "0.8rem",}}>
     <div style={{gridRow: "1 / 3"}}>
-        <img src={warsztaty1} />
-        <span>Praca na planie</span>
+      <Img fluid={Warsztaty1.fluid} />
+      <span>Warsztaty dot. strategii w Social Media</span>
     </div>
     <div>
-        <img src={warsztaty2} />
-        <span>Plan spotu Kroki do Lednicy</span>
+      <Img fluid={Warsztaty2.fluid} />
+      <span>Warsztaty dla całego zespołu Biura Prasowego</span>
     </div>
     <div>
-        <img src={warsztaty3} />
-        <span>Najlepsi operatorzy w Poznaniu</span>
+      <Img fluid={Warsztaty3.fluid} />
+      <span>Warsztatowy icebreaker</span>
     </div>
 </div>
 
@@ -138,14 +163,74 @@ Nieco więcej o tym warsztacie opowiadam <a href="https://letmeinux.com/design-t
 <H2 id="www">Wsparcie techniczne nowo powstającej strony internetowej</H2>
 
 <p>
-W połowie bieżącego roku zespół pracujący nad nową stroną [Lednica2000.pl](http://lednica2000.pl) poprosił mnie o wsparcie i pomoc związane ze stackiem technologicznym, który chcieli wybrać. 
+W połowie bieżącego roku zespół pracujący nad nową stroną [Lednica2000.pl](http://lednica2000.pl) poprosił mnie o wsparcie i pomoc związane ze stackiem technologicznym, który chcieli wybrać.
 </p>
 <p>
 Prace są w tej chwili wstrzymane, ponieważ zespół składający się w większości z tegorocznych maturzystów nie wrócił jeszcze z wakacji.
 </p>
           </RegularSection>
         </Main>
+        <Footer>
+          <Breadcrumb style={{paddingLeft: "0"}}>
+            <li>
+              <CrumbLink to="/portfolio">Portfolio</CrumbLink>
+            </li>
+            <li>
+              <CrumbLink to="/portfolio/teamaton">Lednica2000</CrumbLink>
+            </li>
+          </Breadcrumb>
+        </Footer>
   </ThemeProvider>
   </>
   )
 }
+
+export const pageQuery = graphql`
+  query {
+    Lednica01: imageSharp(fluid: {originalName: {regex: "/lednica01.jpg/g"}}) {
+      fluid(maxHeight: 600, maxWidth: 1920) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    },
+    Lednica01Mobile: imageSharp(fluid: {originalName: {regex: "/lednica01.jpg/g"}}) {
+      fluid(maxHeight: 320, maxWidth: 480, cropFocus: EAST) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    },
+    Warsztaty1: imageSharp(fluid: {originalName: {regex: "/warsztaty-1.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    },
+    Warsztaty2: imageSharp(fluid: {originalName: {regex: "/warsztaty-2.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    },
+    Warsztaty3: imageSharp(fluid: {originalName: {regex: "/warsztaty-3.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    FilmCrew1: imageSharp(fluid: {originalName: {regex: "/film-crew-1.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    FilmCrew2: imageSharp(fluid: {originalName: {regex: "/film-crew-2.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    FilmCrew3: imageSharp(fluid: {originalName: {regex: "/film-crew-3.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    FilmCrew4: imageSharp(fluid: {originalName: {regex: "/film-crew-4.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+`

@@ -2,7 +2,7 @@ import { colors } from "./colors"
 
 const baseFontSize = 18,
 narrowSection = `${34*baseFontSize}px`,
-regularSection = `${43*baseFontSize}px`,
+regularSection = `768px`,
 wideSection = `1280px`;
 
 export const theme = {
@@ -34,6 +34,7 @@ export const theme = {
     desktop: "@media (min-width: 1080px)",
     narrowSection: `@media (max-width: ${narrowSection})`,
     regularSection: `@media (max-width: ${regularSection})`,
+    minRegularSection: `@media (min-width: ${regularSection})`,
     wideSection: `@media (max-width: ${wideSection})`,
   },
 

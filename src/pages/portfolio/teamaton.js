@@ -1,26 +1,19 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../../style/organisms/Layout"
-import { RegularSection, FullWidthSection } from "../../style/organisms/Sections"
+import { graphql } from "gatsby"
+import { RegularSection } from "../../style/organisms/Sections"
 import MyHelmet from '../../style/components/MyHelmet';
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
-import { Link } from 'gatsby';
-import { H1, H2 } from "../../style/atoms/Headings"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import { H1 } from "../../style/atoms/Headings"
+import Img from "gatsby-image"
 
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import Footer from "../../style/organisms/Footer"
 
-import biurkoImg from "./teamaton/biurko.jpg"
 import lightbulb from "../../style/atoms/icons/lightbulb.svg"
 
-import originalLogo from "./teamaton/original-logo.jpg"
-import drafts from "./teamaton/drafts.jpg"
-import suggestions from "./teamaton/suggestions.jpg"
-import suggestions2 from "./teamaton/suggestions-2.jpg"
-import coronaDrafts from "./teamaton/corona-drafts.jpg"
 import coronaDrafts2 from "./teamaton/corona-drafts-2.jpg"
 import coronaLogos from "./teamaton/corona-logos.jpg"
 import coronaHomepage from "./teamaton/corona-homepage.jpg"
@@ -43,7 +36,39 @@ const Callout = styled.p`
   padding: 2rem;
 `;
 
-export default function Teamaton() {
+const FourImagesContainer = styled.div`
+  background-color: "#fafafa";
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.6rem; margin-top: 1rem; padding: 0.6rem;
+  text-align: center;
+  font-size: 0.8rem;
+
+  ${({ theme }) => theme.media.phone} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const TwoVideosContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  font-size: 0.8rem;
+  text-align: center;
+
+  margin-top: 1rem;
+
+  ${({ theme }) => theme.media.minRegularSection} {
+    grid-template-columns: 1fr 1fr;
+  }
+
+`;
+
+export default function Teamaton({ data }) {
+  const {
+    CoronaDrafts  } = data;
+
   const myHelmetData = {
     description: "Portfolio - Teamaton - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -71,33 +96,29 @@ export default function Teamaton() {
         </StyledHeader>
         <Main>
           <RegularSection>
-            <Callout><img src={lightbulb} /> <i>Firma Teamaton tworzy aplikację pod nazwą <a href="discoverize.com">Discoverize</a>. Pozwala ona użytkownikowi stworzyć portal dowolnego rodzaju i dziedziny.</i></Callout>
+            <Callout><img src={lightbulb} /> <i>Firma Teamaton tworzy aplikację pod nazwą <a href="//discoverize.com">Discoverize</a>. Pozwala ona użytkownikowi stworzyć portal dowolnego rodzaju i dziedziny.</i></Callout>
             <p>
               Firma Teamaton zaprosiła mnie do współpracy tuż po tym, jak wróciłem z misji w Nowej Zelandii. Obdarzyli mnie dużym kredytem zaufania, ponieważ nie posiadałem żadnego informatycznego dyplomu. Moje portfolio zawierało przede wszystkim skrypty i aplikacje, które stworzyłem na swój własny użytek.
             </p>
             <p>
               Nie zawiodłem ich zaufania. Przez ostatnie trzy lata stworzyłem złożone rozwiązania i funkcjonalności takie jak panel statystyk lub nowoczesne narzędzie do przesyłania zdjęć.
             </p>
-            <div style={{display: "flex",marginTop: "1rem", justifyContent: "space-between"}}>
-              <div style={{width: "49%"}}>
-                <p style={{ textAlign: "center"}}>
-                  <video autoPlay loop muted playsinline style={{width: "100%"}} >
-                    <source src={dashboardWebM} type="video/webm" />
-                    <source src={dashboardMP4} type="video/mp4" />
-                  </video>
-                  <span style={{fontSize: "0.8rem"}}>Panel wraz z statystykami portalu</span>
-                </p>
+            <TwoVideosContainer>
+              <div>
+                <video autoPlay loop muted playsInline style={{width: "100%"}} >
+                  <source src={dashboardWebM} type="video/webm" />
+                  <source src={dashboardMP4} type="video/mp4" />
+                </video>
+                <span>Panel wraz z statystykami portalu</span>
               </div>
-              <div style={{width: "49%"}}>
-                <p style={{ textAlign: "center"}}>
-                  <video autoPlay loop muted playsinline style={{width: "100%"}} >
-                    <source src={photoUploadWebM} type="video/webm" />
-                    <source src={photoUploadMP4} type="video/mp4" />
-                  </video>
-                  <span span style={{fontSize: "0.8rem"}}>Pop-up umożliwiający dodanie zdjęcia użytkownikowi portalu</span>
-                </p>
+              <div>
+                <video autoPlay loop muted playsInline style={{width: "100%"}} >
+                  <source src={photoUploadWebM} type="video/webm" />
+                  <source src={photoUploadMP4} type="video/mp4" />
+                </video>
+                <span>Pop-up umożliwiający dodanie zdjęcia użytkownikowi portalu</span>
               </div>
-            </div>
+            </TwoVideosContainer>
             <p>
               Kiedy otrzymałem więcej odpowiedzialności za bazę stylów, zacząłem wprowadzać nowoczesne funkcjonalności jezyka CSS. Dzięki użyciu Flexboxa i Animacji CSS interfejs użytkownika aplikacji stał się bardziej responsywny i lżejszy.
             </p>
@@ -106,7 +127,7 @@ export default function Teamaton() {
             </p>
             <p style={{ textAlign: "center"}}>
               <span style={{fontSize: "0.8rem"}}>Jak zmieniły się rozmiary istotnych zależności w portalu</span>
-                <video autoPlay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
+                <video autoPlay loop muted playsInline style={{maxWidth: "600px", width: "100%", display: "block", margin: "0 auto"}} >
                   <source src={fileSizesWebM} type="video/webm" />
                   <source src={fileSizesMP4} type="video/mp4" />
               </video>
@@ -125,7 +146,7 @@ export default function Teamaton() {
               Wszystko, nad czym pracowałem miało być wykorzystywane przez setki właścicieli portali oraz właścicieli wpisów na tych portalach. Mnożąc liczbę ludzi razy liczbę rodzajów treści powinniśmy otrzymać ogólne pojęcie o tym, jak uniwersalne musiały być to rozwiązania.
             </p>
             <p style={{ textAlign: "center"}}>
-              <video autoPlay loop muted playsinline style={{maxWidth: "600px", display: "block", margin: "0 auto"}} >
+              <video autoPlay loop muted playsInline style={{maxWidth: "600px", width: "100%", display: "block", margin: "0 auto"}} >
                 <source src={CssGIFWebM} type="video/webm" />
                 <source src={CssGIFMP4} type="video/mp4" />
               </video>
@@ -136,13 +157,13 @@ export default function Teamaton() {
             <p>
               W trakcie swojej pracy zajmowałem się również wszelkimi problemami zgłaszanymi przez serwis Google Search Console, które dotyczyły użyteczności mobilnej. To zadanie nauczyło mnie wielu kwesti, o których nie dowiedziałbym się w tradycyjny sposób. Starałem się reagować najszybciej jak się da, żeby uchronić klientów przed utratą punków SEO, a użytkowników przed jakimikolwiek mobilnymi niedogodnościami.
             </p>
-            <div style={{backgroundColor: "#fafafa", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "0.6rem", marginTop: "1rem", padding: "0.6rem", textAlign:"center", fontSize: "0.8rem"}}>
+            <FourImagesContainer>
               <div>
                 <img src={coronaDrafts2} />
                 <span>Szkice do nowego logo</span>
               </div>
               <div>
-                <img src={coronaDrafts} />
+                <Img fluid={CoronaDrafts.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
               <div>
@@ -153,10 +174,38 @@ export default function Teamaton() {
                 <img src={coronaHomepage} />
                 <span>Projekt strony głównej portalu Corona Helden</span>
               </div>
-            </div>
+            </FourImagesContainer>
           </RegularSection>
         </Main>
+        <Footer>
+          <Breadcrumb style={{paddingLeft: "0"}}>
+            <li>
+              <CrumbLink to="/portfolio">Portfolio</CrumbLink>
+            </li>
+            <li>
+              <CrumbLink to="/portfolio/teamaton">Teamaton</CrumbLink>
+            </li>
+          </Breadcrumb>
+        </Footer>
   </ThemeProvider>
   </>
   )
 }
+
+export const pageQuery = graphql`
+  query {
+    CoronaDrafts: imageSharp(fluid: {originalName: {regex: "/corona-drafts.jpg/g"}}) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid
+      }
+    },
+    CoronaLogos: file(relativePath: {regex: "/corona-logos.jpg/g"}) {
+      childImageSharp {
+        fluid {
+          src
+        }
+      }
+    }
+  }
+`
+

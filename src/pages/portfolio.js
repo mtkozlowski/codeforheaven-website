@@ -8,7 +8,6 @@ import { Link } from 'gatsby';
 import { H2, H6 } from "../style/atoms/Headings"
 import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
 
-
 import BadgesBelt from "./portfolio/BadgesBelt"
 
 import PortfolioSection_1 from "./portfolio/portfolioSection1"

@@ -8,14 +8,15 @@ import TwitterLogo from "./Twitter-logo.png"
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
+    padding: 1rem 0;
 
     H3 {
-      margin-top: 1.6em;
+      margin-top: 1em;
       width: 100%;
     }
 `;
 
-const LinkedInLink = styled.a`
+export const LinkedInLink = styled.a`
     background-image: url(${LinkedInLogo});
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,13 +26,15 @@ const LinkedInLink = styled.a`
     height: 40px;
     margin: 8px 16px 8px 0;
 
+    text-indent: -9600rem;
+
     transition: transform ease-in-out .3s;
     &:hover {
       transform: scale(1.1)
     }
 `;
 
-const TwitterLink = styled.a`
+export const TwitterLink = styled.a`
     background-image: url(${TwitterLogo});
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,6 +43,7 @@ const TwitterLink = styled.a`
     width: 40px;
     height: 40px;
     margin: 8px 16px 8px 0;
+    text-indent: -9600rem;
 
     transition: transform ease-in-out .3s;
     &:hover {
