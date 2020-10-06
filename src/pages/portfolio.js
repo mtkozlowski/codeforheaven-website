@@ -22,7 +22,7 @@ import lednica01 from "./portfolio/lednica/lednica-logo.png"
 import teamaton01 from "./portfolio/teamaton/teamaton-logo.png"
 import teamaton02 from "./portfolio/teamaton/teamaton-new.png"
 import lmiux from "./portfolio/lmiux.jpg"
-import findIt from "./portfolio/find-it.png"
+import findIt from "./portfolio/find-it.jpg"
 
 const Main = styled.main`
   margin: 0;
