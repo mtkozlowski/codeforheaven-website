@@ -12,8 +12,6 @@ import Footer from "../../style/organisms/Footer"
 
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
-import lednica01 from "./lednica/lednica01.jpg"
-
 const Main = styled.main`
   margin-top: 2rem;
 `
@@ -22,7 +20,8 @@ const FourImagesContainer = styled.div`
   background-color: "#fafafa";
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0.6rem; margin-top: 1rem; padding: 0.6rem;
+  grid-gap: 0.6rem;
+  margin-top: 1rem;
   text-align: center;
   font-size: 0.8rem;
 
@@ -30,6 +29,19 @@ const FourImagesContainer = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+const WorkshopPhotosContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.6rem;
+  margin-top: 1rem;
+  text-align:center;
+  font-size: 0.8rem;
+
+  ${({ theme }) => theme.media.phone} {
+    grid-template-columns: 1fr;
+  }
+`
 
 export default function Lednica({ data }) {
 
@@ -45,13 +57,6 @@ export default function Lednica({ data }) {
     FilmCrew4
   } = data;
 
-  const sources = [
-    Lednica01.fluid,
-    {
-      ...Lednica01Mobile.fluid,
-      media: `(min-width: 480px)`,
-    },
-  ]
 
   const myHelmetData = {
     description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
@@ -124,37 +129,37 @@ export default function Lednica({ data }) {
                 </div>
             </FourImagesContainer>
 
-<H2 id="warsztat">Warsztat na początku roku</H2>
-<p>
-Nowy rok oznacza nowe pokłady entuzjazmu i zaangażowania. Chcąc je jak najlepiej spożytkować, spotkaliśmy się pewnego popołudnia, żeby popracować nad strategią naszej aktywności w Internecie.
-</p>
+            <H2 id="warsztat">Warsztat na początku roku</H2>
+            <p>
+            Nowy rok oznacza nowe pokłady entuzjazmu i zaangażowania. Chcąc je jak najlepiej spożytkować, spotkaliśmy się pewnego popołudnia, żeby popracować nad strategią naszej aktywności w Internecie.
+            </p>
 
-<p>
-Zależało mi, żeby nasza dyskusja wyglądała inaczej niż te podczas cotygodniowych spotkań całej grupy. Poprosiłem o statystyki oraz dane demograficzne z naszych profili na mediach społecznościowych. Dzięki odrobinie celnych pytań udało się nam przełamać krąg ciągle tych samych pomysłów i uwag.
-</p>
+            <p>
+            Zależało mi, żeby nasza dyskusja wyglądała inaczej niż te podczas cotygodniowych spotkań całej grupy. Poprosiłem o statystyki oraz dane demograficzne z naszych profili na mediach społecznościowych. Dzięki odrobinie celnych pytań udało się nam przełamać krąg ciągle tych samych pomysłów i uwag.
+            </p>
 
-<p>
-Dla uporządkowania wszystkich nowych spostrzeżeń przeprowadziłem krótkie ćwiczenie, podczas którego min. stworzyliśmy podstawowe persony naszych odbiorców w sieci. Dzięki nim osiągnęliśmy wspólne zrozumienie naszych celów i przyjrzeliśmy się potrzebom ludzi, którzy odwiedzali nasze strony. Porozumienie i empatia wyzwoliły w nas falę nowych pomysłów.
-</p>
+            <p>
+            Dla uporządkowania wszystkich nowych spostrzeżeń przeprowadziłem krótkie ćwiczenie, podczas którego min. stworzyliśmy podstawowe persony naszych odbiorców w sieci. Dzięki nim osiągnęliśmy wspólne zrozumienie naszych celów i przyjrzeliśmy się potrzebom ludzi, którzy odwiedzali nasze strony. Porozumienie i empatia wyzwoliły w nas falę nowych pomysłów.
+            </p>
 
-<p>
-Rezultatem tych zaimprowizowanych warsztatów było kilka kampanii na Facebooku zrealizowanych zarówno w bieżącym roku, jak i kolejnym. Wolontariusze uczestniczący w spotkaniu wspominali je jeszcze w kolejnych miesiącach, a utworzone przez nas persony stanowiły punkt odniesienia na zebraniach całej grupy.
-</p>
+            <p>
+            Rezultatem tych zaimprowizowanych warsztatów było kilka kampanii na Facebooku zrealizowanych zarówno w bieżącym roku, jak i kolejnym. Wolontariusze uczestniczący w spotkaniu wspominali je jeszcze w kolejnych miesiącach, a utworzone przez nas persony stanowiły punkt odniesienia na zebraniach całej grupy.
+            </p>
 
-<div style={{backgroundColor: "#fafafa", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "0.6rem", marginTop: "1rem", padding: "0.6rem", textAlign:"center", fontSize: "0.8rem",}}>
-    <div style={{gridRow: "1 / 3"}}>
-      <Img fluid={Warsztaty1.fluid} />
-      <span>Warsztaty dot. strategii w Social Media</span>
-    </div>
-    <div>
-      <Img fluid={Warsztaty2.fluid} />
-      <span>Warsztaty dla całego zespołu Biura Prasowego</span>
-    </div>
-    <div>
-      <Img fluid={Warsztaty3.fluid} />
-      <span>Warsztatowy icebreaker</span>
-    </div>
-</div>
+            <WorkshopPhotosContainer >
+                <div style={{gridRow: "1 / 3"}}>
+                  <Img fluid={Warsztaty1.fluid} />
+                  <span>Warsztaty dot. strategii w Social Media</span>
+                </div>
+                <div>
+                  <Img fluid={Warsztaty2.fluid} />
+                  <span>Warsztaty dla całego zespołu Biura Prasowego</span>
+                </div>
+                <div>
+                  <Img fluid={Warsztaty3.fluid} />
+                  <span>Warsztatowy icebreaker</span>
+                </div>
+            </WorkshopPhotosContainer>
 
 <p>
 Nieco więcej o tym warsztacie opowiadam <a href="https://letmeinux.com/design-thinking-prawdziwe-historie">w piątym odcinku podcastu LET ME IN UX</a>.
