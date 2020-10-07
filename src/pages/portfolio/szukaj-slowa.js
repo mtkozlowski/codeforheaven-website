@@ -57,7 +57,7 @@ export default function SzukajSlowa() {
                   maxWidth: "600px",
                   display: "block",
                   margin: "0 auto",
-                  width: "100%"
+                  width: "100%",
                 }}
               >
                 <source src={szukajSlowaWebM} type="video/webm" />

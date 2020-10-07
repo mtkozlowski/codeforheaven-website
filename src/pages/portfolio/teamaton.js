@@ -14,7 +14,6 @@ import Footer from "../../style/organisms/Footer"
 
 import lightbulb from "../../style/atoms/icons/lightbulb.svg"
 
-
 import dashboardWebM from "./teamaton/dashboard.webm"
 import dashboardMP4 from "./teamaton/dashboard.mp4"
 import fileSizesWebM from "./teamaton/fileSizes.webm"
@@ -76,7 +75,7 @@ export default function Teamaton({ data }) {
     CoronaLogos,
     CoronaHomepage,
     CoronaDrafts2,
-    FearOfConflict
+    FearOfConflict,
   } = data
 
   const myHelmetData = {
@@ -239,7 +238,9 @@ export default function Teamaton({ data }) {
                 <source src={CssGIFMP4} type="video/mp4" />
               </video>
             </p>
-            <H3>Zgodność z <em>dziedzictwem</em></H3>
+            <H3>
+              Zgodność z <em>dziedzictwem</em>
+            </H3>
             <p>
               Jak zapewne Państwo wiecie, wspólnota web developerów świętowała
               niedawno odejście do cyfrowej wieczności starej i wysłużonej
@@ -262,40 +263,55 @@ export default function Teamaton({ data }) {
             </p>
             <H3>Projektowanie logotypów i motywów graficznych</H3>
             <p>
-              Gdy klient zgłaszał się do nas bez gotowego projektu, moim pierwszym zadaniem było zazwyczaj przygotowanie projektu prostego logotypu i motywu graficznego portalu. Przykładowy proces wyglądał następująco:
+              Gdy klient zgłaszał się do nas bez gotowego projektu, moim
+              pierwszym zadaniem było zazwyczaj przygotowanie projektu prostego
+              logotypu i motywu graficznego portalu. Przykładowy proces wyglądał
+              następująco:
               <ul>
                 <li>Research branży - budowa skojarzeń</li>
                 <li>Dobór palety kolorów</li>
                 <li>Wybór fontów (max. 2)</li>
-                <li>Szkic logotypu, który po konsultacjach z klientem zamieniałem na projekt w krzywych (Adobe Illustrator, Affinity Designer, a jeszcze wcześniej Inkscape)</li>
-                <li>Zrealizowanie projektu w nowo utworzonym motywie graficznym</li>
+                <li>
+                  Szkic logotypu, który po konsultacjach z klientem zamieniałem
+                  na projekt w krzywych (Adobe Illustrator, Affinity Designer, a
+                  jeszcze wcześniej Inkscape)
+                </li>
+                <li>
+                  Zrealizowanie projektu w nowo utworzonym motywie graficznym
+                </li>
               </ul>
             </p>
             <FourImagesContainer>
-              <div style={{gridArea: "drafts"}}>
+              <div style={{ gridArea: "drafts" }}>
                 <Img fluid={CoronaDrafts2.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div style={{gridArea: "draft"}}>
+              <div style={{ gridArea: "draft" }}>
                 <Img fluid={CoronaDrafts.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div style={{gridArea: "suggestions"}}>
+              <div style={{ gridArea: "suggestions" }}>
                 <Img fluid={CoronaLogos.fluid} />
                 <span>Propozycje przesłane do klienta</span>
               </div>
-              <div style={{gridArea: "result"}}>
+              <div style={{ gridArea: "result" }}>
                 <Img fluid={CoronaHomepage.fluid} />
                 <span>Projekt strony głównej portalu Corona Helden</span>
               </div>
             </FourImagesContainer>
             <H3>Case study: mini search</H3>
-            <p>
-
-            </p>
+            <p></p>
             <H3>Sketchnoting</H3>
             <p>
-              <em>Last, but not least.</em> Moją wielką pasją jest nauka nowych rzeczy. Najbardziej lubię uczyć się, próbując opowiedzieć o tych nowych treściach innnym. Stąd też inne moje projekty, jak <a href="//codeforheaven.com">blog</a>, czy <a href="//letmeinux.com">podcast</a>. Do tego celu czasami wykorzystuję sketchnoting, nadając graficzny wymiar tekstowym treściom. Poniżej znajduje się przykład jednej z takich notatek, które sporządziłem przy okazji wewnętrznego szkolenia poświęconemu budowaniu zaangażowanego i odpowiedzialnego zespołu.
+              <em>Last, but not least.</em> Moją wielką pasją jest nauka nowych
+              rzeczy. Najbardziej lubię uczyć się, próbując opowiedzieć o tych
+              nowych treściach innnym. Stąd też inne moje projekty, jak{" "}
+              <a href="//codeforheaven.com">blog</a>, czy{" "}
+              <a href="//letmeinux.com">podcast</a>. Do tego celu czasami
+              wykorzystuję sketchnoting, nadając graficzny wymiar tekstowym
+              treściom. Poniżej znajduje się przykład jednej z takich notatek,
+              które sporządziłem przy okazji wewnętrznego szkolenia poświęconemu
+              budowaniu zaangażowanego i odpowiedzialnego zespołu.
             </p>
             <p>
               <Img fluid={FearOfConflict.fluid} />

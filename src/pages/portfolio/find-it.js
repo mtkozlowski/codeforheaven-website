@@ -7,8 +7,7 @@ import MyHelmet from "../../style/components/MyHelmet"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
-import {
-  RegularSection} from "../../style/organisms/Sections"
+import { RegularSection } from "../../style/organisms/Sections"
 import Img from "gatsby-image"
 import Footer from "../../style/organisms/Footer"
 
@@ -17,11 +16,7 @@ const Main = styled.main`
 `
 
 export default function FindIt({ data }) {
-
-  const {
-    BriefStaraAppka,
-    FindItBrief
-  } = data
+  const { BriefStaraAppka, FindItBrief } = data
 
   const myHelmetData = {
     description: "Portfolio - Find.it - Mateusz Kozłowski",
@@ -56,9 +51,12 @@ export default function FindIt({ data }) {
               projektu narodził się w naszej grupce warsztatowej na koniec
               konferencji Elementarz UX.
             </p>
-            <p style={{fontSize: "0.8rem", textAlign: "center"}}>
+            <p style={{ fontSize: "0.8rem", textAlign: "center" }}>
               <Img fluid={BriefStaraAppka.fluid} />
-              <span>Praca podczas warsztatów nad aplikacją, która dała impuls do stworzenia Find.it</span>
+              <span>
+                Praca podczas warsztatów nad aplikacją, która dała impuls do
+                stworzenia Find.it
+              </span>
             </p>
             <p>
               Od tamtej pory wspólnie pracujemy, aby zrealizować wizję, nad
@@ -80,9 +78,11 @@ export default function FindIt({ data }) {
               briefu. W tym celu, po tygodniach pracy zdalnej, spotkaliśmy się w
               Warszawie <em>na żywo</em>.
             </p>
-            <p style={{fontSize: "0.8rem", textAlign: "center"}}>
+            <p style={{ fontSize: "0.8rem", textAlign: "center" }}>
               <Img fluid={FindItBrief.fluid} />
-              <span>Brief aplikacji Find.it - podsumowaniem dotychczasowej pracy</span>
+              <span>
+                Brief aplikacji Find.it - podsumowaniem dotychczasowej pracy
+              </span>
             </p>
             <H2>Plany</H2>
             <p>
@@ -108,20 +108,20 @@ export default function FindIt({ data }) {
 }
 
 export const pageQuery = graphql`
-{
+  {
     BriefStaraAppka: imageSharp(
       fluid: { originalName: { regex: "/brief-stara-appka.jpg/g" } }
     ) {
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
+      }
     }
-  }
     FindItBrief: imageSharp(
       fluid: { originalName: { regex: "/find-it-brief.jpg/g" } }
     ) {
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
+      }
     }
   }
-}
 `
