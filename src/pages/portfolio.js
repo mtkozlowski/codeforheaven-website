@@ -230,7 +230,7 @@ const Portfolio = () => {
                   fontWeight: "700",
                 }}
               >
-                <p style={{lineHeight: "1.1"}}>Szukaj Słowa</p>
+                <p style={{ lineHeight: "1.1" }}>Szukaj Słowa</p>
               </LogoWrapper>
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}

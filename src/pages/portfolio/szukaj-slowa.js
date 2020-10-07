@@ -48,7 +48,11 @@ export default function SzukajSlowa() {
         <Main>
           <RegularSection>
             <p>
-            To mój autorski, fullstackowy projekt aplikacji przeznaczonej do wyszukiwania komentarzy biblijnych za pomocą specyficznych odnośników do wersetów, tzw. sigli. Projekt jest rozwijany wspólnie ze społecznością chrześcijan, którzy zgłaszali się na grupach w mediach społecznościowych.
+              To mój autorski, fullstackowy projekt aplikacji przeznaczonej do
+              wyszukiwania komentarzy biblijnych za pomocą specyficznych
+              odnośników do wersetów, tzw. sigli. Projekt jest rozwijany
+              wspólnie ze społecznością chrześcijan, którzy zgłaszali się na
+              grupach w mediach społecznościowych.
             </p>
             <p style={{ textAlign: "center" }}>
               <video

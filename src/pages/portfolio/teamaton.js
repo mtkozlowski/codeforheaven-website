@@ -307,39 +307,85 @@ export default function Teamaton({ data }) {
             </FourImagesContainer>
             <H3>Mini CASE STUDY: mini search</H3>
             <p>
-              W miarę upływu czasu dokładałem starań, aby wygląd portali nie odbiegał zbyt daleko od współczesnych standardów. Jednocześnie nie wszyscy właściciele portali chcieli aktualizacji wyglądu. Doprowadziło to do sytuacji, w której tzw. <em>mini search</em> był dostępny w 5 różnych wzorach. Back end renderował ten element w tej samej strukturze HTML i tym samym zestawem klas CSS. Było to ograniczenie, którego mówiąc kolokwialnie developerzy nie byli w stanie przeskoczyć. Dlatego ciężar wszelkiego rodzaju modyfikacji spoczął na stylach.
+              W miarę upływu czasu dokładałem starań, aby wygląd portali nie
+              odbiegał zbyt daleko od współczesnych standardów. Jednocześnie nie
+              wszyscy właściciele portali chcieli aktualizacji wyglądu.
+              Doprowadziło to do sytuacji, w której tzw. <em>mini search</em>{" "}
+              był dostępny w 5 różnych wzorach. Back end renderował ten element
+              w tej samej strukturze HTML i tym samym zestawem klas CSS. Było to
+              ograniczenie, którego mówiąc kolokwialnie developerzy nie byli w
+              stanie przeskoczyć. Dlatego ciężar wszelkiego rodzaju modyfikacji
+              spoczął na stylach.
             </p>
             <ImageCaptionParagraph>
               <Img fluid={Biurko.fluid} />
-              <span>Moja praca najczęściej zaczyna się poza laptopem, nad szybkim szkicami i mapami na papierze</span>
+              <span>
+                Moja praca najczęściej zaczyna się poza laptopem, nad szybkim
+                szkicami i mapami na papierze
+              </span>
             </ImageCaptionParagraph>
             <H4>Wymagania</H4>
             <p>
               <ul>
                 <li>uprościć bazę stylów</li>
-                <li>ułatwić testowanie front endu (ponad 60 działających portali)</li>
+                <li>
+                  ułatwić testowanie front endu (ponad 60 działających portali)
+                </li>
                 <li>niczego nie zepsuć</li>
                 <li>zapewnić łatwy dostęp do modyfikacji</li>
-                <li>stworzyć przejrzystą strukturę komponentów, czytelną dla innych developerów</li>
+                <li>
+                  stworzyć przejrzystą strukturę komponentów, czytelną dla
+                  innych developerów
+                </li>
               </ul>
             </p>
             <p>
-              W rezultacie chciałem otrzymać czystszy kod zarówno w plikach SCSS, jak i w skompilowanym <em>bundle'u</em>. Dotychczasową bolączką modyfikacji poszczególnych stylów była praktyka nadpisywania domyślnych właściwości za pomocą nowych deklaracji. Łatwość w użyciu SASSowych mixinów sprzyjała tej praktyce, jednak jej efektem był kompletny chaos w debuggerze styli dostępnym w narzędziach przeglądarki.
+              W rezultacie chciałem otrzymać czystszy kod zarówno w plikach
+              SCSS, jak i w skompilowanym <em>bundle'u</em>. Dotychczasową
+              bolączką modyfikacji poszczególnych stylów była praktyka
+              nadpisywania domyślnych właściwości za pomocą nowych deklaracji.
+              Łatwość w użyciu SASSowych mixinów sprzyjała tej praktyce, jednak
+              jej efektem był kompletny chaos w debuggerze styli dostępnym w
+              narzędziach przeglądarki.
             </p>
             <H4>Rozwiązanie</H4>
             <p>
-              Po analizie zastanej sytuacji, zdecydowałem że pierwszym krokiem będzie refaktoryzacja struktury HTMLu. Zależało mi na tym, aby blok wyszukiwania wyglądał znośnie nawet wtedy, gdy nie załadują się style. Chciałem, żeby Flexbox i CSS Grid były tzw. <em>progressive enhancement</em>, a nie rdzeniem układu. Niektóre elementy tych technologii nie były wówczas wspierane przez Internet Explorera 11, którego używała znaczna część naszych użytkowników.
+              Po analizie zastanej sytuacji, zdecydowałem że pierwszym krokiem
+              będzie refaktoryzacja struktury HTMLu. Zależało mi na tym, aby
+              blok wyszukiwania wyglądał znośnie nawet wtedy, gdy nie załadują
+              się style. Chciałem, żeby Flexbox i CSS Grid były tzw.{" "}
+              <em>progressive enhancement</em>, a nie rdzeniem układu. Niektóre
+              elementy tych technologii nie były wówczas wspierane przez
+              Internet Explorera 11, którego używała znaczna część naszych
+              użytkowników.
             </p>
             <p>
-              Po uporządkowaniu HTMLa okazało się, że potrzebuję dużo mniej styli, aby nadać wyszukiwarce oczekiwane kształty. Wykorzystując wspomniane technologie, zadbałem o to, aby poszczególne części były względem siebie wyrównane, a całość dopasowywała się do różnych rozmiarów ekranów.
+              Po uporządkowaniu HTMLa okazało się, że potrzebuję dużo mniej
+              styli, aby nadać wyszukiwarce oczekiwane kształty. Wykorzystując
+              wspomniane technologie, zadbałem o to, aby poszczególne części
+              były względem siebie wyrównane, a całość dopasowywała się do
+              różnych rozmiarów ekranów.
             </p>
-            <p>Podsumowując:
+            <p>
+              Podsumowując:
               <ul>
                 <li>wykorzystałem naturalne właściwości komponentów HTML</li>
-                <li>zamieniłem nadpisywanie na parametryzację możliwą w plikach bazowych każdego z motywów</li>
-                <li>nadając spójne i zrozumiałe nazwy zmiennych, ułatwiłem modyfikację w kolejnych miesiącach</li>
-                <li>uniknąłem walki o specyficzność selektorów - nie do uniknięcia przy nadpisywaniu</li>
-                <li>spójność wygenerowanych styli oszczędziła nam sporo czasu na testowaniu w przyszłości</li>
+                <li>
+                  zamieniłem nadpisywanie na parametryzację możliwą w plikach
+                  bazowych każdego z motywów
+                </li>
+                <li>
+                  nadając spójne i zrozumiałe nazwy zmiennych, ułatwiłem
+                  modyfikację w kolejnych miesiącach
+                </li>
+                <li>
+                  uniknąłem walki o specyficzność selektorów - nie do uniknięcia
+                  przy nadpisywaniu
+                </li>
+                <li>
+                  spójność wygenerowanych styli oszczędziła nam sporo czasu na
+                  testowaniu w przyszłości
+                </li>
               </ul>
             </p>
             <H3>Sketchnoting</H3>
@@ -411,9 +457,7 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFluid_withWebp
       }
     }
-    Biurko: imageSharp(
-      fluid: { originalName: { regex: "/biurko.jpg/g" } }
-    ) {
+    Biurko: imageSharp(fluid: { originalName: { regex: "/biurko.jpg/g" } }) {
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
       }

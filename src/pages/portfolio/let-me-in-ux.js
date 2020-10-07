@@ -110,7 +110,7 @@ export default function LetMeInUX() {
           </RegularSection>
           <WideSection>
             <p></p>
-            <ImageCaptionParagraph >
+            <ImageCaptionParagraph>
               Poniższe okładki są odnośnikami do poszczególnych odcinków
             </ImageCaptionParagraph>
             <EpisodesContainer>
