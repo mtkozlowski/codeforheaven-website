@@ -23,6 +23,7 @@ export const H4 = styled.h4`
 export const H5 = styled.h5`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 1rem;
+  text-transform: uppercase;
 `
 
 export const H6 = styled.h6`

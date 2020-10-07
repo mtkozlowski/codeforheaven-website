@@ -1,9 +1,14 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
-import { H1, H2 } from "../../style/atoms/Headings"
-import MyHelmet from "../../style/components/MyHelmet"
+
 import { theme } from "../../style/theme"
+
+import { H1, H2, H3, H5 } from "../../style/atoms/Headings"
+import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
+
+import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import MyHelmet from "../../style/components/MyHelmet"
+
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import {
@@ -48,13 +53,52 @@ export default function SzukajSlowa() {
         <Main>
           <RegularSection>
             <p>
-              To mój autorski, fullstackowy projekt aplikacji przeznaczonej do
-              wyszukiwania komentarzy biblijnych za pomocą specyficznych
-              odnośników do wersetów, tzw. sigli. Projekt jest rozwijany
-              wspólnie ze społecznością chrześcijan, którzy zgłaszali się na
-              grupach w mediach społecznościowych.
+              Pomysł zrodził się w mojej głowie, ponieważ Biblia jest jednym z
+              moich szczególnych zainteresowań. Pociąga mnie nie tylko ze
+              względu na swoje walory historyczne i literackie. Czytanie Bibli -
+              czy jak powinienem ją nazwać po chrześcijańsku - Słowa Bożego było
+              i jest dla mnie źródłem nadziei i otwartości, a jego poszczególne
+              fragmenty są dla mnie zachętą do tworzenia wokół siebie kultury
+              sprawiedliwości i równości.
             </p>
-            <p style={{ textAlign: "center" }}>
+            <p>
+              Gdy potrzebuję komuś szybko wytłumaczyć ogólne założenia tej
+              aplikacji nazywam ją biblijnym Pinterestem. Podobnie jak ta
+              platforma, Szukaj Słowa ma być bazą budowaną przez użytkowników -
+              dla użytkowników.
+            </p>
+            <H3>Założenia</H3>
+            <p>
+              <ul>
+                <li>
+                  użytkownicy powinni być w stanie wyszukiwać video komentarze
+                  na podstawie adresów fragmentów biblijnych (tzw. sigli)
+                </li>
+                <li>
+                  użytkownicy powinni móc dodawać nowe komentarze, a aplikacja
+                  powinna ściagać dodatkowe informacje, o ile to możliwe
+                </li>
+                <li>
+                  zadania CRON powinny aktualizować bazę o nowe odcinki znanych
+                  serii
+                </li>
+                <li>
+                  użytkownicy powinni móc zapisywać ulubione komentarze w
+                  playlisty
+                </li>
+              </ul>
+            </p>
+            <p>
+              Aplikacja powstaje z wykorzystaniem popularnych frameworków
+              Javascriptowych:
+              <ul>
+                <li>Front end: React</li>
+                <li>Back end: Express</li>
+              </ul>
+            </p>
+            <ImageCaptionParagraph>
+              Przyklad działania aplikacji w jej podstawowej funkcjonalności:
+              wyszukiwania komentarzy.
               <video
                 autoPlay
                 loop
@@ -70,10 +114,61 @@ export default function SzukajSlowa() {
                 <source src={szukajSlowaWebM} type="video/webm" />
                 <source src={szukajSlowaMP4} type="video/mp4" />
               </video>
-              <span style={{ fontSize: "0.8rem" }}>
-                Sposób działania aplikacji
-              </span>
+            </ImageCaptionParagraph>
+            <H2>Roadmap</H2>
+            <ImageCaptionParagraph>
+              Lista jest na bieżąco aktualizowana.
+            </ImageCaptionParagraph>
+            <p>
+              <ul>
+                <li>
+                  <s>stworzenie endpointów, dla operacji CRUD</s>
+                </li>
+                <li>
+                  <s>walidacja sigli</s>
+                </li>
+                <li>
+                  <s>konwersja sigli na objekt</s>
+                </li>
+                <li>
+                  <s>
+                    pobranie dodaktowych informacji o źródle dla linków
+                    pochodzących z Youtube&#x27;a
+                  </s>
+                </li>
+                <li>
+                  <s>wyświetlenie listy rezultatów</s>
+                </li>
+                <li>
+                  <s>wyświetlenie strony rezultatu</s>
+                </li>
+                <li>
+                  <s>routing</s>
+                </li>
+                <li>stworzenie panelu zarządzania</li>
+                <li>
+                  <s>stworzenie zadań CRON dla znanych serii</s>
+                </li>
+                <li>
+                  zaprojektowanie interfejsu użytkownika (+ testy, wdrożenie)
+                </li>
+                <li>
+                  <s>
+                    stworzenie ankiety poświęconej nawykom i potrzebom
+                    użytkowników
+                  </s>
+                </li>
+                <li>
+                  opublikowanie ankiety w różnych grupach chrześcijańskich
+                </li>
+                <li>zebranie i analiza wyników</li>
+                <li>zaplanowanie kolejnych funkcjonalności</li>
+                <li>zbieranie grupy testerów</li>
+                <li>testy</li>
+                <li>publikacja aplikacji</li>
+              </ul>
             </p>
+            <H5>Aplikacja jest intensywnie rozwijana, dlatego powyższą stronę będę uzupełniał o kolejne mikro-osiągnięcia. Zapraszam ponownie.</H5>
           </RegularSection>
         </Main>
         <Footer>
