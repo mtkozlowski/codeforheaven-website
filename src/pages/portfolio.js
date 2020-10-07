@@ -12,7 +12,7 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { theme } from "../style/theme"
 import GlobalStyle from "../style/organisms/GlobalStyle"
 import { Link } from "gatsby"
-import { H2, H6 } from "../style/atoms/Headings"
+import { H2, H3, H6 } from "../style/atoms/Headings"
 import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
 
 import BadgesBelt from "./portfolio/BadgesBelt"
@@ -51,6 +51,8 @@ const LogoWrapper = styled.div`
   ${boxPadding}
   ${relativePosition}
   ${centered}
+
+  min-height: 260px;
 `
 
 const TextWrapper = styled.div`
@@ -223,12 +225,12 @@ const Portfolio = () => {
               <LogoWrapper
                 style={{
                   background: "#ffdab9",
-                  fontSize: "6rem",
+                  fontSize: "calc(2.8rem + 2vw)",
                   fontFamily: "serif",
                   fontWeight: "700",
                 }}
               >
-                <p>Szukaj Słowa</p>
+                <p style={{lineHeight: "1.1"}}>Szukaj Słowa</p>
               </LogoWrapper>
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}

@@ -1,12 +1,18 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
-import { H1 } from "../../style/atoms/Headings"
-import MyHelmet from "../../style/components/MyHelmet"
+
 import { theme } from "../../style/theme"
+
+import { H1 } from "../../style/atoms/Headings"
+import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
+import MyHelmet from "../../style/components/MyHelmet"
+
+import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import { RegularSection, WideSection } from "../../style/organisms/Sections"
+import Footer from "../../style/organisms/Footer"
 
 import podsumowanieWarsztatow from "./letMeInUx/podsumowanie-warsztatow.jpg"
 import naszeTwarze from "./letMeInUx/zdj-warszawa.jpg"
@@ -25,21 +31,21 @@ const Main = styled.main`
 const EpisodesContainer = styled.div`
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+  grid-template-columns: 1fr;
 
-  ${({ theme }) => theme.media.wideSection} {
+  ${({ theme }) => theme.media.minPhone} {
     grid-template-columns: 1fr 1fr;
   }
 
-  ${({ theme }) => theme.media.littleTablet} {
-    grid-template-columns: 1fr;
+  ${({ theme }) => theme.media.minRegularSection} {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `
 
 const EpisodeImg = styled.img`
   max-width: 100%;
-  min-width: 360px;
+  min-width: 230px;
 `
 
 export default function LetMeInUX() {
@@ -103,6 +109,10 @@ export default function LetMeInUX() {
             </p>
           </RegularSection>
           <WideSection>
+            <p></p>
+            <ImageCaptionParagraph >
+              Poniższe okładki są odnośnikami do poszczególnych odcinków
+            </ImageCaptionParagraph>
             <EpisodesContainer>
               <a href="https://www.letmeinux.com/started-from-elementarz-ux-now-we-re-here">
                 <EpisodeImg src={episode01} alt="" />
@@ -125,6 +135,16 @@ export default function LetMeInUX() {
             </EpisodesContainer>
           </WideSection>
         </Main>
+        <Footer>
+          <Breadcrumb style={{ paddingLeft: "0" }}>
+            <li>
+              <CrumbLink to="/portfolio">Portfolio</CrumbLink>
+            </li>
+            <li>
+              <CrumbLink to="/portfolio/let-me-in-ux">Let me in UX</CrumbLink>
+            </li>
+          </Breadcrumb>
+        </Footer>
       </ThemeProvider>
     </>
   )

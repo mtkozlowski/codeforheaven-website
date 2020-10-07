@@ -80,7 +80,7 @@ export default function Lednica({ data }) {
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
             <li>
-              <CrumbLink to="/portfolio/teamaton">Lednica2000</CrumbLink>
+              <CrumbLink to="/portfolio/lednica">Lednica2000</CrumbLink>
             </li>
           </Breadcrumb>
         </StyledHeader>
@@ -224,7 +224,7 @@ export default function Lednica({ data }) {
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
             <li>
-              <CrumbLink to="/portfolio/teamaton">Lednica2000</CrumbLink>
+              <CrumbLink to="/portfolio/lednica">Lednica2000</CrumbLink>
             </li>
           </Breadcrumb>
         </Footer>
