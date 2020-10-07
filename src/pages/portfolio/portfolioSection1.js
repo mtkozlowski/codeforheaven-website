@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
+import { graphql, Link } from "gatsby"
 
 import { WideSection } from "../../style/organisms/Sections"
 import { H1 } from "../../style/atoms/Headings"
@@ -65,7 +66,7 @@ const Img = styled.img`
   border-radius: 50%;
 `
 
-const PortfolioSection_1 = () => {
+export default function PortfolioSection_1({ cvPdf }) {
   return (
     <ThemeProvider theme={theme}>
       <WideSection>
@@ -74,13 +75,15 @@ const PortfolioSection_1 = () => {
             Nazywam się Mateusz Kozłowski
           </H1>
           <p style={{ gridArea: "description" }}>
-            Robię świadomy front-end i dbam o jak najlepsze doświadczenia
+            Tworzę szeroko rozumiany front-end
+            <br />
+            Lubię tworzyć świadome treści
+            <br />
+            Dbam o jak najlepsze doświadczenia
             <br />
             Studiuję Psychologię na SWPS
             <br />
             Pracowałem w Polsce i za granicą
-            <br />
-            Nad dużymi i małymi projektami
           </p>
           <Breadcrumb>
             <li>
@@ -90,7 +93,7 @@ const PortfolioSection_1 = () => {
           <Img src={meImg} />
           <Links>
             <a
-              href="#CVwPDF"
+              href={cvPdf}
               style={{ marginTop: "2rem", gridArea: "CV", textAlign: "center" }}
             >
               pobierz CV w PDF
@@ -123,4 +126,3 @@ const PortfolioSection_1 = () => {
   )
 }
 
-export default PortfolioSection_1

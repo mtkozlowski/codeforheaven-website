@@ -1,4 +1,6 @@
 import React from "react"
+import { graphql, Link } from "gatsby"
+
 import {
   centered,
   viewportHigh,
@@ -11,7 +13,6 @@ import MyHelmet from "../style/components/MyHelmet"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { theme } from "../style/theme"
 import GlobalStyle from "../style/organisms/GlobalStyle"
-import { Link } from "gatsby"
 import { H2, H3, H6 } from "../style/atoms/Headings"
 import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
 
@@ -65,7 +66,7 @@ const LearnMoreLink = styled(Link)`
   display: block;
 `
 
-const Portfolio = () => {
+export default function Portfolio ({data}) {
   const myHelmetData = {
     description: "Portfolio - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -74,6 +75,8 @@ const Portfolio = () => {
     title: "Portfolio - Mateusz Kozłowski",
     slug: "portfolio",
   }
+
+  const { CvPdf } = data;
 
   return (
     <>
@@ -86,7 +89,7 @@ const Portfolio = () => {
             css={[centered, viewportHigh]}
             style={{ backgroundColor: "#fafafa" }}
           >
-            <PortfolioSection_1 />
+            <PortfolioSection_1 cvPdf={CvPdf.publicURL} />
           </div>
           <div>
             <p style={{ textAlign: "center", padding: "1rem 0" }}>
@@ -255,4 +258,10 @@ const Portfolio = () => {
   )
 }
 
-export default Portfolio
+export const sectionQuery = graphql`
+  query sectionQuery {
+    CvPdf: file(relativePath: { eq: "portfolio/Mateusz-Kozlowski-CV.pdf" }) {
+      publicURL
+    }
+  }
+`

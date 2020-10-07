@@ -72,9 +72,10 @@ export default function FindIt({ data }) {
             <H3>Ankieta</H3>
             <p>
               Po wstępnej dyskusji w naszym własnym gronie przyszedł czas na
-              poszerzenie horyzontów. Przygotowaliśmy <a href="https://forms.gle/oQujStkvY6pJy89B8">ankietę</a> i rozesłaliśmy ją
-              wśród znajomych oraz do grup gromadzących osoby z branży
-              kreatywnej i informatycznej.
+              poszerzenie horyzontów. Przygotowaliśmy{" "}
+              <a href="https://forms.gle/oQujStkvY6pJy89B8">ankietę</a> i
+              rozesłaliśmy ją wśród znajomych oraz do grup gromadzących osoby z
+              branży kreatywnej i informatycznej.
             </p>
             <ImageCaptionParagraph>
               <Img fluid={Ankieta.fluid} />
@@ -132,9 +133,7 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFluid_withWebp
       }
     }
-    Ankieta: imageSharp(
-      fluid: { originalName: { regex: "/ankieta.jpg/g" } }
-    ) {
+    Ankieta: imageSharp(fluid: { originalName: { regex: "/ankieta.jpg/g" } }) {
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
       }

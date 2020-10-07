@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import {
   RegularSection,
   FullWidthSection,
@@ -17,6 +17,13 @@ import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
 const Main = styled.main`
   margin-top: 2rem;
+`
+
+const Testimony = styled.div`
+  background-color: #f1f7f1;
+  padding: 1rem;
+  border: 1px solid #e7f1e7;
+  margin-top: 1rem;
 `
 
 const FourImagesContainer = styled.div`
@@ -49,7 +56,6 @@ const WorkshopPhotosContainer = styled.div`
 export default function Lednica({ data }) {
   const {
     Lednica01,
-    Lednica01Mobile,
     Warsztaty1,
     Warsztaty2,
     Warsztaty3,
@@ -57,6 +63,7 @@ export default function Lednica({ data }) {
     FilmCrew2,
     FilmCrew3,
     FilmCrew4,
+    WspolpracaLednica,
   } = data
 
   const myHelmetData = {
@@ -105,6 +112,24 @@ export default function Lednica({ data }) {
               wielu różnych projektów, które razem zrealizowaliśmy w pamięci
               szczególnie utkwiło mi tych kilka.
             </p>
+            <Testimony>
+              <p>
+                <em>
+                  Mateusz dobrze radzi sobie w warunkach stresu i napięcia
+                  czasowego - nie traci energii ani zapału, doprowadza projekty
+                  do końca. Współpraca z Mateuszem była zawsze bardzo owocna.
+                </em>
+              </p>
+              <p style={{ textAlign: "right", fontSize: "0.8rem" }}>
+                Dominika Chylewska
+                <br />
+                Koordynatorka Biura Prasowego w latach 2016 - 2017
+                <br />
+                <a href={WspolpracaLednica.publicURL}>
+                  Przeczytaj cały list polecający
+                </a>
+              </p>
+            </Testimony>
             <H2 id="spot">Spot "Ty wiesz, że Cię kocham"</H2>
             <p>
               W 2019 r. zespół video, którego byłem liderem, otrzymał niełatwe
@@ -205,16 +230,15 @@ export default function Lednica({ data }) {
             <H2 id="www">
               Wsparcie techniczne nowo powstającej strony internetowej
             </H2>
-
             <p>
-              W połowie bieżącego roku zespół pracujący nad nową stroną
-              [Lednica2000.pl](http://lednica2000.pl) poprosił mnie o wsparcie i
-              pomoc związane ze stackiem technologicznym, który chcieli wybrać.
-            </p>
-            <p>
-              Prace są w tej chwili wstrzymane, ponieważ zespół składający się w
-              większości z tegorocznych maturzystów nie wrócił jeszcze z
-              wakacji.
+              W połowie bieżącego roku zespół pracujący nad nową stroną{" "}
+              <a href="//lednica2000.pl">Lednica2000.pl</a> poprosił mnie o
+              wsparcie i pomoc związane ze stackiem technologicznym, który
+              chcieli wybrać. Byli zainteresowanie wykorzystaniem generatora
+              stron statycznych Gatsby, którego użyłem min. do stworzenia tego
+              portfolio oraz bloga. Dlatego doradzam wolontariuszom
+              programującym stronę w kwestiach technicznych oraz sprawach
+              designu - architektury informacji, dostępności i estetyki.
             </p>
           </RegularSection>
         </Main>
@@ -297,6 +321,11 @@ export const pageQuery = graphql`
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
+    }
+    WspolpracaLednica: file(
+      relativePath: { eq: "portfolio/lednica/Wspolpraca-Lednica2000.pdf" }
+    ) {
+      publicURL
     }
   }
 `

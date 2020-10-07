@@ -168,7 +168,10 @@ export default function SzukajSlowa() {
                 <li>publikacja aplikacji</li>
               </ul>
             </p>
-            <H5>Aplikacja jest intensywnie rozwijana, dlatego powyższą stronę będę uzupełniał o kolejne mikro-osiągnięcia. Zapraszam ponownie.</H5>
+            <H5>
+              Aplikacja jest intensywnie rozwijana, dlatego powyższą stronę będę
+              uzupełniał o kolejne mikro-osiągnięcia. Zapraszam ponownie.
+            </H5>
           </RegularSection>
         </Main>
         <Footer>
