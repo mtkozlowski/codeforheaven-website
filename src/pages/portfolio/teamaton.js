@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
-import { H1 } from "../../style/atoms/Headings"
+import { H1, H3 } from "../../style/atoms/Headings"
 import Img from "gatsby-image"
 
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
@@ -14,9 +14,6 @@ import Footer from "../../style/organisms/Footer"
 
 import lightbulb from "../../style/atoms/icons/lightbulb.svg"
 
-import coronaDrafts2 from "./teamaton/corona-drafts-2.jpg"
-import coronaLogos from "./teamaton/corona-logos.jpg"
-import coronaHomepage from "./teamaton/corona-homepage.jpg"
 
 import dashboardWebM from "./teamaton/dashboard.webm"
 import dashboardMP4 from "./teamaton/dashboard.mp4"
@@ -35,17 +32,26 @@ const Callout = styled.p`
 `
 
 const FourImagesContainer = styled.div`
-  background-color: "#fafafa";
+  background-color: #fafafa;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "drafts"
+    "draft"
+    "suggestions"
+    "result";
   grid-gap: 0.6rem;
   margin-top: 1rem;
   padding: 0.6rem;
   text-align: center;
   font-size: 0.8rem;
 
-  ${({ theme }) => theme.media.phone} {
-    grid-template-columns: 1fr;
+  ${({ theme }) => theme.media.minPhone} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "drafts draft"
+      "drafts suggestions"
+      "result result";
   }
 `
 
@@ -65,7 +71,13 @@ const TwoVideosContainer = styled.div`
 `
 
 export default function Teamaton({ data }) {
-  const { CoronaDrafts } = data
+  const {
+    CoronaDrafts,
+    CoronaLogos,
+    CoronaHomepage,
+    CoronaDrafts2,
+    FearOfConflict
+  } = data
 
   const myHelmetData = {
     description: "Portfolio - Teamaton - Mateusz Kozłowski",
@@ -144,6 +156,7 @@ export default function Teamaton({ data }) {
                 </span>
               </div>
             </TwoVideosContainer>
+            <H3>SASS, elastyczność i skalowalność</H3>
             <p>
               Kiedy otrzymałem więcej odpowiedzialności za bazę stylów, zacząłem
               wprowadzać nowoczesne funkcjonalności jezyka CSS. Dzięki użyciu
@@ -226,6 +239,7 @@ export default function Teamaton({ data }) {
                 <source src={CssGIFMP4} type="video/mp4" />
               </video>
             </p>
+            <H3>Zgodność z <em>dziedzictwem</em></H3>
             <p>
               Jak zapewne Państwo wiecie, wspólnota web developerów świętowała
               niedawno odejście do cyfrowej wieczności starej i wysłużonej
@@ -236,6 +250,7 @@ export default function Teamaton({ data }) {
               kreatywność i dociekliwość, ale dobrze, że można już z tym
               skończyć.
             </p>
+            <H3>Google Search Console Mobile Reports</H3>
             <p>
               W trakcie swojej pracy zajmowałem się również wszelkimi problemami
               zgłaszanymi przez serwis Google Search Console, które dotyczyły
@@ -245,24 +260,46 @@ export default function Teamaton({ data }) {
               utratą punków SEO, a użytkowników przed jakimikolwiek mobilnymi
               niedogodnościami.
             </p>
+            <H3>Projektowanie logotypów i motywów graficznych</H3>
+            <p>
+              Gdy klient zgłaszał się do nas bez gotowego projektu, moim pierwszym zadaniem było zazwyczaj przygotowanie projektu prostego logotypu i motywu graficznego portalu. Przykładowy proces wyglądał następująco:
+              <ul>
+                <li>Research branży - budowa skojarzeń</li>
+                <li>Dobór palety kolorów</li>
+                <li>Wybór fontów (max. 2)</li>
+                <li>Szkic logotypu, który po konsultacjach z klientem zamieniałem na projekt w krzywych (Adobe Illustrator, Affinity Designer, a jeszcze wcześniej Inkscape)</li>
+                <li>Zrealizowanie projektu w nowo utworzonym motywie graficznym</li>
+              </ul>
+            </p>
             <FourImagesContainer>
-              <div>
-                <img src={coronaDrafts2} />
+              <div style={{gridArea: "drafts"}}>
+                <Img fluid={CoronaDrafts2.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div>
+              <div style={{gridArea: "draft"}}>
                 <Img fluid={CoronaDrafts.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div>
-                <img src={coronaLogos} />
+              <div style={{gridArea: "suggestions"}}>
+                <Img fluid={CoronaLogos.fluid} />
                 <span>Propozycje przesłane do klienta</span>
               </div>
-              <div>
-                <img src={coronaHomepage} />
+              <div style={{gridArea: "result"}}>
+                <Img fluid={CoronaHomepage.fluid} />
                 <span>Projekt strony głównej portalu Corona Helden</span>
               </div>
             </FourImagesContainer>
+            <H3>Case study: mini search</H3>
+            <p>
+
+            </p>
+            <H3>Sketchnoting</H3>
+            <p>
+              <em>Last, but not least.</em> Moją wielką pasją jest nauka nowych rzeczy. Najbardziej lubię uczyć się, próbując opowiedzieć o tych nowych treściach innnym. Stąd też inne moje projekty, jak <a href="//codeforheaven.com">blog</a>, czy <a href="//letmeinux.com">podcast</a>. Do tego celu czasami wykorzystuję sketchnoting, nadając graficzny wymiar tekstowym treściom. Poniżej znajduje się przykład jednej z takich notatek, które sporządziłem przy okazji wewnętrznego szkolenia poświęconemu budowaniu zaangażowanego i odpowiedzialnego zespołu.
+            </p>
+            <p>
+              <Img fluid={FearOfConflict.fluid} />
+            </p>
           </RegularSection>
         </Main>
         <Footer>
@@ -283,17 +320,38 @@ export default function Teamaton({ data }) {
 export const pageQuery = graphql`
   query {
     CoronaDrafts: imageSharp(
+      fluid: { originalName: { regex: "/corona-draft.jpg/g" } }
+    ) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    CoronaLogos: imageSharp(
+      fluid: { originalName: { regex: "/corona-suggestions.jpg/g" } }
+    ) {
+      fluid(maxWidth: 480) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    CoronaHomepage: imageSharp(
+      fluid: { originalName: { regex: "/corona-result.jpg/g" } }
+    ) {
+      fluid(maxWidth: 768) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+    CoronaDrafts2: imageSharp(
       fluid: { originalName: { regex: "/corona-drafts.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
-        ...GatsbyImageSharpFluid
+        ...GatsbyImageSharpFluid_withWebp
       }
     }
-    CoronaLogos: file(relativePath: { regex: "/corona-logos.jpg/g" }) {
-      childImageSharp {
-        fluid {
-          src
-        }
+    FearOfConflict: imageSharp(
+      fluid: { originalName: { regex: "/fear-of-conflict.jpg/g" } }
+    ) {
+      fluid(maxWidth: 768) {
+        ...GatsbyImageSharpFluid_withWebp
       }
     }
   }

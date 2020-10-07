@@ -10,6 +10,7 @@ import {
   RegularSection,
   FullWidthSection,
 } from "../../style/organisms/Sections"
+import Footer from "../../style/organisms/Footer"
 
 import szukajSlowaWebM from "./szukajSlowa/szukajSlowa.webm"
 import szukajSlowaMP4 from "./szukajSlowa/szukajSlowa.mp4"
@@ -20,12 +21,12 @@ const Main = styled.main`
 
 export default function SzukajSlowa() {
   const myHelmetData = {
-    description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
+    description: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
     externalScriptsUrls: [],
     facebookThumbnail: "",
-    title: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    slug: "portfolio/lednica",
+    title: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
+    slug: "portfolio/szukaj-slowa",
   }
 
   return (
@@ -56,6 +57,7 @@ export default function SzukajSlowa() {
                   maxWidth: "600px",
                   display: "block",
                   margin: "0 auto",
+                  width: "100%"
                 }}
               >
                 <source src={szukajSlowaWebM} type="video/webm" />
@@ -67,6 +69,16 @@ export default function SzukajSlowa() {
             </p>
           </RegularSection>
         </Main>
+        <Footer>
+          <Breadcrumb style={{ paddingLeft: "0" }}>
+            <li>
+              <CrumbLink to="/portfolio">Portfolio</CrumbLink>
+            </li>
+            <li>
+              <CrumbLink to="/portfolio/szukaj-slowa">Szukaj Słowa</CrumbLink>
+            </li>
+          </Breadcrumb>
+        </Footer>
       </ThemeProvider>
     </>
   )

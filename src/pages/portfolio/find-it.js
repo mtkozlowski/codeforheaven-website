@@ -1,47 +1,35 @@
 import React from "react"
+import { graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
-import { H1, H2 } from "../../style/atoms/Headings"
+import { H1, H2, H3 } from "../../style/atoms/Headings"
 import MyHelmet from "../../style/components/MyHelmet"
 import { theme } from "../../style/theme"
 import GlobalStyle from "../../style/organisms/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import {
-  RegularSection,
-  FullWidthSection,
-} from "../../style/organisms/Sections"
-
-import cytat1 from "./findIt/cytat-1.jpg"
-import cytat2 from "./findIt/cytat-2.jpg"
-import cytat3 from "./findIt/cytat-3.jpg"
-import starybrief from "./findIt/brief-stara-appka.jpg"
-import findItBrief from "./findIt/find-it-brief.jpg"
+  RegularSection} from "../../style/organisms/Sections"
+import Img from "gatsby-image"
+import Footer from "../../style/organisms/Footer"
 
 const Main = styled.main`
   margin-top: 2rem;
 `
 
-const TrippleDiv = styled.div`
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`
+export default function FindIt({ data }) {
 
-const Img30 = styled.img`
-  width: 33%;
-  min-width: 200px;
-  max-width: 420px;
-`
+  const {
+    BriefStaraAppka,
+    FindItBrief
+  } = data
 
-export default function FindIt() {
   const myHelmetData = {
-    description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
+    description: "Portfolio - Find.it - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
     externalScriptsUrls: [],
     facebookThumbnail: "",
-    title: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    slug: "portfolio/lednica",
+    title: "Portfolio - Find.it - Mateusz Kozłowski",
+    slug: "portfolio/find-it",
   }
 
   return (
@@ -68,23 +56,23 @@ export default function FindIt() {
               projektu narodził się w naszej grupce warsztatowej na koniec
               konferencji Elementarz UX.
             </p>
-            <TrippleDiv>
-              <Img30 src={cytat1} />
-              <Img30 src={cytat2} />
-              <Img30 src={cytat3} />
-              <img src={starybrief} style={{ width: "100%" }} />
-            </TrippleDiv>
+            <p style={{fontSize: "0.8rem", textAlign: "center"}}>
+              <Img fluid={BriefStaraAppka.fluid} />
+              <span>Praca podczas warsztatów nad aplikacją, która dała impuls do stworzenia Find.it</span>
+            </p>
             <p>
               Od tamtej pory wspólnie pracujemy, aby zrealizować wizję, nad
               którą dyskutowaliśmy wieczorami. W pracy wykorzystujemy wszystko,
               o czym dowiedzieliśmy się w trakcie konferencji i warsztatów.
             </p>
+            <H3>Ankieta</H3>
             <p>
               Po wstępnej dyskusji w naszym własnym gronie przyszedł czas na
               poszerzenie horyzontów. Przygotowaliśmy ankietę i rozesłaliśmy ją
               wśród znajomych oraz do grup gromadzących osoby z branży
               kreatywnej i informatycznej.
             </p>
+            <H3>Brief</H3>
             <p>
               Na podstawie wyników ankiety, których liczba przerosła nasze
               oczekiwania, opracowaliśmy persony i zaplanowaliśmy kluczowe
@@ -92,11 +80,11 @@ export default function FindIt() {
               briefu. W tym celu, po tygodniach pracy zdalnej, spotkaliśmy się w
               Warszawie <em>na żywo</em>.
             </p>
-            {/* </RegularSection>
-          <FullWidthSection> */}
-            <img src={findItBrief} />
-            {/* </FullWidthSection>
-            <RegularSection> */}
+            <p style={{fontSize: "0.8rem", textAlign: "center"}}>
+              <Img fluid={FindItBrief.fluid} />
+              <span>Brief aplikacji Find.it - podsumowaniem dotychczasowej pracy</span>
+            </p>
+            <H2>Plany</H2>
             <p>
               Obecnie tworzymy pierwsze <em>low-fidelity wireframes</em>.
               Kolejnym etapem będzie przełożenie ich na interaktywne makiety. Z
@@ -104,7 +92,36 @@ export default function FindIt() {
             </p>
           </RegularSection>
         </Main>
+        <Footer>
+          <Breadcrumb style={{ paddingLeft: "0" }}>
+            <li>
+              <CrumbLink to="/portfolio">Portfolio</CrumbLink>
+            </li>
+            <li>
+              <CrumbLink to="/portfolio/find-it">Find.it</CrumbLink>
+            </li>
+          </Breadcrumb>
+        </Footer>
       </ThemeProvider>
     </>
   )
 }
+
+export const pageQuery = graphql`
+{
+    BriefStaraAppka: imageSharp(
+      fluid: { originalName: { regex: "/brief-stara-appka.jpg/g" } }
+    ) {
+      fluid(maxWidth: 768) {
+        ...GatsbyImageSharpFluid_withWebp
+    }
+  }
+    FindItBrief: imageSharp(
+      fluid: { originalName: { regex: "/find-it-brief.jpg/g" } }
+    ) {
+      fluid(maxWidth: 768) {
+        ...GatsbyImageSharpFluid_withWebp
+    }
+  }
+}
+`
