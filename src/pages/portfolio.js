@@ -66,7 +66,7 @@ const LearnMoreLink = styled(Link)`
   display: block;
 `
 
-export default function Portfolio ({data}) {
+export default function Portfolio({ data }) {
   const myHelmetData = {
     description: "Portfolio - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -76,7 +76,7 @@ export default function Portfolio ({data}) {
     slug: "portfolio",
   }
 
-  const { CvPdf } = data;
+  const { CvPdf } = data
 
   return (
     <>

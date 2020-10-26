@@ -125,4 +125,3 @@ export default function PortfolioSection_1({ cvPdf }) {
     </ThemeProvider>
   )
 }
-
