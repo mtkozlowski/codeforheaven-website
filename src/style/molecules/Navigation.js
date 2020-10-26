@@ -24,6 +24,7 @@ const Navigation = ({ atHome }) => (
     <Link to="/">Blog</Link>
     <Link to="/valuable-resources">Valuable resources</Link>
     <Link to="/useful-tools">Useful tools</Link>
+    <Link to="/portfolio">Portfolio [PL]</Link>
   </Nav>
 )
 
