@@ -110,7 +110,7 @@ export default function PortfolioSection_1({ cvPdf }) {
               <br />
             </a>
             <a
-              href="#kontakt"
+              href="mailto:mateusz@codeforheaven.com"
               style={{
                 marginTop: "2rem",
                 gridArea: "kontakt",
