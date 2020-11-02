@@ -67,16 +67,16 @@ const LearnMoreLink = styled(Link)`
 `
 
 export default function Portfolio({ data }) {
+  const { CvPdf, facebookThumbnail } = data
   const myHelmetData = {
-    description: "Portfolio - Mateusz Kozłowski",
+    description: "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
     domain: "https://codeforheaven.com",
     externalScriptsUrls: [],
-    facebookThumbnail: "",
+    facebookThumbnail: facebookThumbnail.publicURL,
     title: "Portfolio - Mateusz Kozłowski",
     slug: "portfolio",
   }
 
-  const { CvPdf } = data
 
   return (
     <>
@@ -261,6 +261,9 @@ export default function Portfolio({ data }) {
 export const sectionQuery = graphql`
   query sectionQuery {
     CvPdf: file(relativePath: { eq: "portfolio/Mateusz-Kozlowski-CV.pdf" }) {
+      publicURL
+    }
+    facebookThumbnail: file(relativePath: { eq: "portfolio/facebookThumbnail.jpg" }) {
       publicURL
     }
   }
