@@ -13,6 +13,7 @@ import MyHelmet from "../style/components/MyHelmet"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { theme } from "../style/theme"
 import GlobalStyle from "../style/organisms/GlobalStyle"
+import ResettedLink from "../style/atoms/ResettedLink"
 import { H2, H3, H6 } from "../style/atoms/Headings"
 import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
 
@@ -69,14 +70,14 @@ const LearnMoreLink = styled(Link)`
 export default function Portfolio({ data }) {
   const { CvPdf, facebookThumbnail } = data
   const myHelmetData = {
-    description: "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
+    description:
+      "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
     domain: "https://codeforheaven.com",
     externalScriptsUrls: [],
     facebookThumbnail: facebookThumbnail.publicURL,
     title: "Portfolio - Mateusz Kozłowski",
     slug: "portfolio",
   }
-
 
   return (
     <>
@@ -91,7 +92,7 @@ export default function Portfolio({ data }) {
           >
             <PortfolioSection_1 cvPdf={CvPdf.publicURL} />
           </div>
-          <div>
+          <div id="mainsection">
             <p style={{ textAlign: "center", padding: "1rem 0" }}>
               <iframe
                 width="100%"
@@ -103,7 +104,7 @@ export default function Portfolio({ data }) {
               ></iframe>
             </p>
           </div>
-          <section id="mainsection">
+          <section>
             <BadgesBelt />
             <PortfolioHomeSection style={{ background: "#ccc" }}>
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
@@ -120,7 +121,9 @@ export default function Portfolio({ data }) {
               </LogoWrapper>
               <TextWrapper style={{ backgroundColor: "#ffffffaa" }}>
                 <H2 id="teamaton">
-                  Projektowanie, realizacja, utrzymanie - Teamaton
+                  <ResettedLink to="/portfolio/teamaton">
+                    Projektowanie, realizacja, utrzymanie - Teamaton
+                  </ResettedLink>
                 </H2>
                 <H6>
                   <i>Poza to, co widać</i>
@@ -149,7 +152,11 @@ export default function Portfolio({ data }) {
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
               >
-                <H2 id="lednica">Zaangażowana kreacja - Lednica2000</H2>
+                <H2 id="lednica">
+                  <ResettedLink to="/portfolio/lednica">
+                    Zaangażowana kreacja - Lednica2000
+                  </ResettedLink>
+                </H2>
                 <H6>Warsztaty, promocja, edukacja</H6>
                 <p>
                   Współpracowałem przy tworzeniu tych wielkich spotkań młodzieży
@@ -181,7 +188,11 @@ export default function Portfolio({ data }) {
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
-                <H2 id="find-it">Projekt Find.it</H2>
+                <H2 id="find-it">
+                  <ResettedLink to="/portfolio/find-it">
+                    Projekt Find.it
+                  </ResettedLink>
+                </H2>
                 <p>
                   Warsztaty Elementarz UX zaowocowały powstaniem czteroosobowego
                   zespołu, w którym podjęliśmy się próby zaprojektowania
@@ -211,7 +222,11 @@ export default function Portfolio({ data }) {
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
-                <H2 id="let-me-in-ux">Podcast Let me in UX</H2>
+                <H2 id="let-me-in-ux">
+                  <ResettedLink to="/portfolio/let-me-in-ux">
+                    Podcast Let me in UX
+                  </ResettedLink>
+                </H2>
                 <H6>Od nas dla Was</H6>
                 <p>
                   Kiedy zacząłem bardziej interesować się tematyką projektowania
@@ -238,7 +253,13 @@ export default function Portfolio({ data }) {
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
-                <H2 id="szukaj-slowa">Aplikacja Szukaj Słowa</H2>
+                <H2 id="szukaj-slowa">
+                  <ResettedLink to="/portfolio/szukaj-slowa">
+                    Aplikacja Szukaj Słowa
+                  </ResettedLink>
+                </H2>
+                <H6>React, Node, Express i MongoDB</H6>
+
                 <p>
                   To mój autorski, fullstackowy projekt aplikacji przeznaczonej
                   do wyszukiwania komentarzy biblijnych za pomocą specyficznych
@@ -263,7 +284,9 @@ export const sectionQuery = graphql`
     CvPdf: file(relativePath: { eq: "portfolio/Mateusz-Kozlowski-CV.pdf" }) {
       publicURL
     }
-    facebookThumbnail: file(relativePath: { eq: "portfolio/facebookThumbnail.jpg" }) {
+    facebookThumbnail: file(
+      relativePath: { eq: "portfolio/facebookThumbnail.jpg" }
+    ) {
       publicURL
     }
   }
