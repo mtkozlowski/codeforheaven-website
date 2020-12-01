@@ -64,7 +64,7 @@ const LearnMoreLink = styled(Link)`
 `
 
 export default function Portfolio({ data }) {
-  const { CvPdf, facebookThumbnail, lednica01, teamaton01, teamaton02, lmiux, findIt } = data
+  const { CvPdf, facebookThumbnail, lednica01, teamaton01, teamaton02, lmiux, findIt, myProfilePhoto } = data
   const myHelmetData = {
     description:
       "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
@@ -74,7 +74,6 @@ export default function Portfolio({ data }) {
     title: "Portfolio - Mateusz Kozłowski",
     slug: "portfolio",
   }
-
   return (
     <>
       <MyHelmet data={myHelmetData} />
@@ -86,7 +85,7 @@ export default function Portfolio({ data }) {
             css={[centered, viewportHigh]}
             style={{ backgroundColor: "#fafafa" }}
           >
-            <PortfolioSection_1 cvPdf={CvPdf.publicURL} />
+            <PortfolioSection_1 cvPdf={CvPdf.publicURL} myProfilePhoto={myProfilePhoto}/>
           </div>
           <div id="mainsection">
             <p style={{ textAlign: "center", padding: "1rem 0" }}>
@@ -300,6 +299,9 @@ export const sectionQuery = graphql`
       publicURL
     }
     findIt: file(name: { eq: "findIt"}) {
+      publicURL
+    },
+    myProfilePhoto: file(name: {eq: "myProfilePhoto"}) {
       publicURL
     }
   }

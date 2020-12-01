@@ -14,15 +14,7 @@ import { StyledHeader } from "../../style/organisms/Header"
 import { RegularSection, WideSection } from "../../style/organisms/Sections"
 import Footer from "../../style/organisms/Footer"
 
-import podsumowanieWarsztatow from "./letMeInUx/podsumowanie-warsztatow.jpg"
-import naszeTwarze from "./letMeInUx/zdj-warszawa.jpg"
-
-import episode01 from "./letMeInUx/episodes/episode01.jpg"
-import episode05 from "./letMeInUx/episodes/episode05.jpg"
-import episode06 from "./letMeInUx/episodes/episode06.jpg"
-import episode07 from "./letMeInUx/episodes/episode07.jpg"
-import episode08 from "./letMeInUx/episodes/episode08.jpg"
-import episode09 from "./letMeInUx/episodes/episode09.jpg"
+import { graphql } from "gatsby"
 
 const Main = styled.main`
   margin-top: 2rem;
@@ -48,7 +40,17 @@ const EpisodeImg = styled.img`
   min-width: 230px;
 `
 
-export default function LetMeInUX() {
+export default function LetMeInUX({data}) {
+  const {
+    episode01,
+    episode05,
+    episode06,
+    episode07,
+    episode08,
+    episode09,
+    podsumowanieWarsztatow,
+    naszeTwarze
+  } = data;
   const myHelmetData = {
     description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -84,7 +86,7 @@ export default function LetMeInUX() {
               zaciekawienia, świeżości, humoru.
             </p>
             <p>
-              <img src={podsumowanieWarsztatow} />
+              <img src={podsumowanieWarsztatow.publicURL} />
             </p>
             <p>
               Każdy jakoś zaczynał, ale mimo tej świadomości, początki często są
@@ -94,7 +96,7 @@ export default function LetMeInUX() {
               wspólnym rozwijaniem się.
             </p>
             <p>
-              <img src={naszeTwarze} />
+              <img src={naszeTwarze.publicURL} />
             </p>
             <p>
               Przygotowanie każdego odcinka to okazja do zgłębienia kolejnego
@@ -115,22 +117,22 @@ export default function LetMeInUX() {
             </ImageCaptionParagraph>
             <EpisodesContainer>
               <a href="https://www.letmeinux.com/started-from-elementarz-ux-now-we-re-here">
-                <EpisodeImg src={episode01} alt="" />
+                <EpisodeImg src={episode01.publicURL} alt="" />
               </a>
               <a href="https://www.letmeinux.com/design-thinking-prawdziwe-historie">
-                <EpisodeImg src={episode05} alt="" />
+                <EpisodeImg src={episode05.publicURL} alt="" />
               </a>
               <a href="https://www.letmeinux.com/poznajemy-jezyki-programowania">
-                <EpisodeImg src={episode06} alt="" />
+                <EpisodeImg src={episode06.publicURL} alt="" />
               </a>
               <a href="https://www.letmeinux.com/customer-journey-na-wystawie">
-                <EpisodeImg src={episode07} alt="" />
+                <EpisodeImg src={episode07.publicURL} alt="" />
               </a>
               <a href="https://www.letmeinux.com/rozmowki-technologiczne-jak-sie-komunikujemy">
-                <EpisodeImg src={episode08} alt="" />
+                <EpisodeImg src={episode08.publicURL} alt="" />
               </a>
               <a href="https://www.letmeinux.com/czy-kazdy-asap-oznacza-fakap">
-                <EpisodeImg src={episode09} alt="" />
+                <EpisodeImg src={episode09.publicURL} alt="" />
               </a>
             </EpisodesContainer>
           </WideSection>
@@ -149,3 +151,32 @@ export default function LetMeInUX() {
     </>
   )
 }
+
+export const query = graphql`
+{
+  episode01: file(name: {eq: "letMeInUx__episode01"}) {
+    publicURL
+  },
+  episode05: file(name: {eq: "letMeInUx__episode05"}) {
+    publicURL
+  },
+  episode06: file(name: {eq: "letMeInUx__episode06"}) {
+    publicURL
+  },
+  episode07: file(name: {eq: "letMeInUx__episode07"}) {
+    publicURL
+  },
+  episode08: file(name: {eq: "letMeInUx__episode08"}) {
+    publicURL
+  },
+  episode09: file(name: {eq: "letMeInUx__episode09"}) {
+    publicURL
+  },
+  podsumowanieWarsztatow: file(name: {eq: "letMeInUx__podsumowanie-warsztatow"}) {
+    publicURL
+  },
+  naszeTwarze: file(name: {eq: "letMeInUx__zdj-warszawa"}) {
+    publicURL
+  }
+}
+`;

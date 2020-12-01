@@ -18,16 +18,6 @@ import { RegularSection } from "../../style/organisms/Sections"
 import { StyledHeader } from "../../style/organisms/Header"
 import Footer from "../../style/organisms/Footer"
 
-import lightbulb from "../../style/atoms/icons/lightbulb.svg"
-import dashboardWebM from "./teamaton/dashboard.webm"
-import dashboardMP4 from "./teamaton/dashboard.mp4"
-import fileSizesWebM from "./teamaton/fileSizes.webm"
-import fileSizesMP4 from "./teamaton/fileSizes.mp4"
-import CssGIFWebM from "./teamaton/tenor.webm"
-import CssGIFMP4 from "./teamaton/tenor.mp4"
-import photoUploadWebM from "./teamaton/photoUpload.webm"
-import photoUploadMP4 from "./teamaton/photoUpload.mp4"
-
 const Main = styled.main``
 
 const Callout = styled.p`
@@ -82,6 +72,15 @@ export default function Teamaton({ data }) {
     CoronaDrafts2,
     FearOfConflict,
     Biurko,
+    lightbulb,
+    dashboardWebM,
+    dashboardMP4,
+    fileSizesWebM,
+    fileSizesMP4,
+    CssGIFWebM,
+    CssGIFMP4,
+    photoUploadWebM,
+    photoUploadMP4
   } = data
 
   const myHelmetData = {
@@ -112,7 +111,7 @@ export default function Teamaton({ data }) {
         <Main>
           <RegularSection>
             <Callout>
-              <img src={lightbulb} />{" "}
+              <img src={lightbulb.publicURL} />{" "}
               <i>
                 Firma Teamaton tworzy aplikację pod nazwą{" "}
                 <a href="//discoverize.com">Discoverize</a>. Pozwala ona
@@ -140,8 +139,8 @@ export default function Teamaton({ data }) {
                   playsInline
                   style={{ width: "100%" }}
                 >
-                  <source src={dashboardWebM} type="video/webm" />
-                  <source src={dashboardMP4} type="video/mp4" />
+                  <source src={dashboardWebM.publicURL} type="video/webm" />
+                  <source src={dashboardMP4.publicURL} type="video/mp4" />
                 </video>
                 <span>Panel wraz z statystykami portalu</span>
               </div>
@@ -153,8 +152,8 @@ export default function Teamaton({ data }) {
                   playsInline
                   style={{ width: "100%" }}
                 >
-                  <source src={photoUploadWebM} type="video/webm" />
-                  <source src={photoUploadMP4} type="video/mp4" />
+                  <source src={photoUploadWebM.publicURL} type="video/webm" />
+                  <source src={photoUploadMP4.publicURL} type="video/mp4" />
                 </video>
                 <span>
                   Pop-up umożliwiający dodanie zdjęcia użytkownikowi portalu
@@ -194,8 +193,8 @@ export default function Teamaton({ data }) {
                   margin: "0 auto",
                 }}
               >
-                <source src={fileSizesWebM} type="video/webm" />
-                <source src={fileSizesMP4} type="video/mp4" />
+                <source src={fileSizesWebM.publicURL} type="video/webm" />
+                <source src={fileSizesMP4.publicURL} type="video/mp4" />
               </video>
             </ImageCaptionParagraph>
             <p>
@@ -240,8 +239,8 @@ export default function Teamaton({ data }) {
                   margin: "0 auto",
                 }}
               >
-                <source src={CssGIFWebM} type="video/webm" />
-                <source src={CssGIFMP4} type="video/mp4" />
+                <source src={CssGIFWebM.publicURL} type="video/webm" />
+                <source src={CssGIFMP4.publicURL} type="video/mp4" />
               </video>
             </ImageCaptionParagraph>
             <H3>
@@ -273,20 +272,20 @@ export default function Teamaton({ data }) {
               pierwszym zadaniem było zazwyczaj przygotowanie projektu prostego
               logotypu i motywu graficznego portalu. Przykładowy proces wyglądał
               następująco:
-              <ul>
-                <li>Research branży - budowa skojarzeń</li>
-                <li>Dobór palety kolorów</li>
-                <li>Wybór fontów (max. 2)</li>
-                <li>
-                  Szkic logotypu, który po konsultacjach z klientem zamieniałem
-                  na projekt w krzywych (Adobe Illustrator, Affinity Designer, a
-                  jeszcze wcześniej Inkscape)
-                </li>
-                <li>
-                  Zrealizowanie projektu w nowo utworzonym motywie graficznym
-                </li>
-              </ul>
             </p>
+            <ul>
+              <li>Research branży - budowa skojarzeń</li>
+              <li>Dobór palety kolorów</li>
+              <li>Wybór fontów (max. 2)</li>
+              <li>
+                Szkic logotypu, który po konsultacjach z klientem zamieniałem
+                na projekt w krzywych (Adobe Illustrator, Affinity Designer, a
+                jeszcze wcześniej Inkscape)
+              </li>
+              <li>
+                Zrealizowanie projektu w nowo utworzonym motywie graficznym
+              </li>
+            </ul>
             <FourImagesContainer>
               <div style={{ gridArea: "drafts" }}>
                 <Img fluid={CoronaDrafts2.fluid} />
@@ -325,7 +324,7 @@ export default function Teamaton({ data }) {
               </span>
             </ImageCaptionParagraph>
             <H4>Wymagania</H4>
-            <p>
+            <div>
               <ul>
                 <li>uprościć bazę stylów</li>
                 <li>
@@ -338,7 +337,7 @@ export default function Teamaton({ data }) {
                   innych developerów
                 </li>
               </ul>
-            </p>
+            </div>
             <p>
               W rezultacie chciałem otrzymać czystszy kod zarówno w plikach
               SCSS, jak i w skompilowanym <em>bundle'u</em>. Dotychczasową
@@ -366,7 +365,7 @@ export default function Teamaton({ data }) {
               były względem siebie wyrównane, a całość dopasowywała się do
               różnych rozmiarów ekranów.
             </p>
-            <p>
+            <div>
               Podsumowując:
               <ul>
                 <li>wykorzystałem naturalne właściwości komponentów HTML</li>
@@ -387,7 +386,7 @@ export default function Teamaton({ data }) {
                   testowaniu w przyszłości
                 </li>
               </ul>
-            </p>
+            </div>
             <H3>Sketchnoting</H3>
             <p>
               <em>Last, but not least.</em> Moją wielką pasją jest nauka nowych
@@ -400,9 +399,9 @@ export default function Teamaton({ data }) {
               które sporządziłem przy okazji wewnętrznego szkolenia poświęconemu
               budowaniu zaangażowanego i odpowiedzialnego zespołu.
             </p>
-            <p>
+            <div>
               <Img fluid={FearOfConflict.fluid} />
-            </p>
+            </div>
           </RegularSection>
         </Main>
         <Footer>
@@ -461,6 +460,33 @@ export const pageQuery = graphql`
       fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
       }
+    }
+    lightbulb: file(name: {eq: "biurko"}) {
+      publicURL
+    }
+    dashboardWebM: file(name: {eq: "dashboard"}, extension: {eq: "webm"}) {
+      publicURL
+    }
+    dashboardMP4: file(name: {eq: "dashboard"}, extension: {eq: "mp4"}) {
+      publicURL
+    }
+    fileSizesWebM: file(name: {eq: "fileSizes"}, extension: {eq: "webm"}) {
+      publicURL
+    }
+    fileSizesMP4: file(name: {eq: "fileSizes"}, extension: {eq: "mp4"}) {
+      publicURL
+    }
+    CssGIFWebM: file(name: {eq: "tenor"}, extension: {eq: "webm"}) {
+      publicURL
+    }
+    CssGIFMP4: file(name: {eq: "tenor"}, extension: {eq: "mp4"}) {
+      publicURL
+    }
+    photoUploadWebM: file(name: {eq: "photoUpload"}, extension: {eq: "webm"}) {
+      publicURL
+    }
+    photoUploadMP4: file(name: {eq: "photoUpload"}, extension: {eq: "mp4"}) {
+      publicURL
     }
   }
 `

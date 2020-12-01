@@ -7,8 +7,6 @@ import { WideSection } from "../../style/organisms/Sections"
 import { H1 } from "../../style/atoms/Headings"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
-import meImg from "./portfolioSection1/me.jpg"
-
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -66,7 +64,7 @@ const Img = styled.img`
   border-radius: 50%;
 `
 
-export default function PortfolioSection_1({ cvPdf }) {
+export default function PortfolioSection_1({ cvPdf, myProfilePhoto }) {
   return (
     <ThemeProvider theme={theme}>
       <WideSection>
@@ -90,7 +88,7 @@ export default function PortfolioSection_1({ cvPdf }) {
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
           </Breadcrumb>
-          <Img src={meImg} />
+          <Img src={myProfilePhoto.publicURL} />
           <Links>
             <a
               href={cvPdf}

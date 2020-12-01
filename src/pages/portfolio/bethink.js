@@ -23,9 +23,6 @@ import { H2, H3, H4, H6 } from "../../style/atoms/Headings"
 import Footer from "../../style/organisms/Footer"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
-import boySvg from "./bethink/boy.svg"
-import girlSvg from "./bethink/girl.svg"
-
 const Main = styled.main`
   margin: 0;
 `
@@ -191,7 +188,7 @@ const BoySvg = styled.img`
 `
 
 export default function Bethink({data}) {
-  const { pracaKomiks } = data;
+  const { pracaKomiks, boySvg, girlSvg } = data;
   const myHelmetData = {
     description: "",
     domain: "https://codeforheaven.com",
@@ -219,8 +216,8 @@ export default function Bethink({data}) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-                <GirlSvg src={girlSvg} style={{ flexGrow: "1" }} />
-                <BoySvg src={boySvg} style={{ flexGrow: "1" }} />
+                <GirlSvg src={girlSvg.publicURL} style={{ flexGrow: "1" }} />
+                <BoySvg src={boySvg.publicURL} style={{ flexGrow: "1" }} />
               </div>
             </WideSection>
           </div>
@@ -274,7 +271,7 @@ export default function Bethink({data}) {
           <section id="main-section">
             <PortfolioHomeSection style={{ background: "#ccc" }}>
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
-                <img src={girlSvg} style={{ flexGrow: "1" }} />
+                <img src={girlSvg.publicURL} style={{ flexGrow: "1" }} />
               </LogoWrapper>
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
@@ -302,11 +299,11 @@ export default function Bethink({data}) {
               </TextWrapper>
             </PortfolioHomeSection>
             <section>
-              {/* <Img fluid={pracaKomiks.fluid}/> */}
+              <Img fluid={pracaKomiks.fluid}/>
             </section>
             <PortfolioHomeSection style={{ background: "rgb(224, 194, 174)" }}>
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
-                <img src={boySvg} style={{ flexGrow: "1" }} />
+                <img src={boySvg.publicURL} style={{ flexGrow: "1" }} />
               </LogoWrapper>
               <TextWrapper
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
@@ -362,15 +359,21 @@ export default function Bethink({data}) {
 
 export const pageQuery = graphql`
   query {
-    pracaKomiks: imageSharp(
-      fixed: { originalName: { regex: "/praca-komiks.jpg/g" } }
-    ) {
-      fluid(maxWidth: 1920, cropFocus: CENTER, srcSetBreakpoints: [480, 640, 960, 1920]) {
+    pracaKomiks: file(name: {eq: "bethink__komiks"}) {
+      childImageSharp {
+        fluid(maxWidth: 1920, cropFocus: CENTER, srcSetBreakpoints: [480, 640, 960, 1920]) {
         ...GatsbyImageSharpFluid_withWebp
-      }
-      fixed(height: 690, cropFocus: CENTER) {
+        }
+        fixed(height: 690, cropFocus: CENTER) {
         ...GatsbyImageSharpFixed_withWebp
+        }
       }
+    },
+    boySvg: file(name: {eq: "bethink__boy"}) {
+      publicURL
+    }
+    girlSvg: file(name: {eq: "bethink__girl"}) {
+      publicURL
     }
   }
 `
