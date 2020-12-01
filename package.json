@@ -18,6 +18,7 @@
     "@mdx-js/runtime": "^1.6.21",
     "babel-plugin-styled-components": "^1.12.0",
     "basic-ftp": "^4.6.3",
+    "dotenv": "^8.2.0",
     "ftp-deploy": "^2.3.8",
     "gatsby": "^2.27.5",
     "gatsby-image": "^2.6.0",
@@ -30,6 +31,7 @@
     "gatsby-remark-copy-linked-files": "^2.5.0",
     "gatsby-remark-images": "^3.6.0",
     "gatsby-remark-prismjs": "^3.8.0",
+    "gatsby-source-datocms": "^2.5.7",
     "gatsby-source-filesystem": "^2.6.1",
     "gatsby-transformer-remark": "^2.11.1",
     "gatsby-transformer-sharp": "^2.7.0",
@@ -40,6 +42,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
+    "slugify": "^1.4.6",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
