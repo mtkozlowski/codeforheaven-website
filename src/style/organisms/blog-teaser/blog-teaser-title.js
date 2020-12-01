@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { H2 } from "../../atoms/Headings"
+import { H3 } from "../../atoms/Headings"
 
-const BlogTeaserTitle = styled(H2)`
+const BlogTeaserTitle = styled(H3)`
   font-size: 1.5rem;
   line-height: 1;
   margin-right: auto;

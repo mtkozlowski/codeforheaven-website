@@ -31,6 +31,8 @@ const HeaderTagline = styled.p`
 
 const PageHeader = styled(H1)`
   line-height: 1;
+  font-weight: 700;
+  letter-spacing: -4px;
   ${({ theme }) => theme.media.phoneS} {
     font-size: 2.65rem;
   }

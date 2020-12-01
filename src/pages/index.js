@@ -12,11 +12,11 @@ const IndexPage = ({
     file: { childImageSharp },
   },
 }) => {
-  const Posts = edges
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map((edge, index) => (
+
+  const Posts = edges.map((edge, index) => (
       <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />
     ))
+
   const myHelmetData = {
     description: "Front-end Creator on his way to UX.",
     facebookThumbnail: childImageSharp.fixed.src,
@@ -39,14 +39,17 @@ export default IndexPage
 export const pageQuery = graphql`
   query {
     allMdx(
-      filter: { fields: { collection: { eq: "posts" } } }
+      filter: {
+        fields: { collection: { eq: "posts" } },
+        frontmatter: { date: { ne: null } }
+      }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
         node {
           id
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD.MM.YYYY")
             slug
             title
             description
