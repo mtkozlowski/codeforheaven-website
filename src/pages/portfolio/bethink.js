@@ -187,8 +187,8 @@ const BoySvg = styled.img`
   }
 `
 
-export default function Bethink({data}) {
-  const { pracaKomiks, boySvg, girlSvg } = data;
+export default function Bethink({ data }) {
+  const { pracaKomiks, boySvg, girlSvg } = data
   const myHelmetData = {
     description: "",
     domain: "https://codeforheaven.com",
@@ -253,10 +253,11 @@ export default function Bethink({data}) {
                 Szukam miejsca, w&nbsp;którym mógłbym rozwijać się UXowo
                 i&nbsp;robić dobrą robotę. Myślę, że praca nad platformą
                 edukacyjną to doskonała okazja. Żeby dowiedzieć się trochę
-                więcej o&nbsp;Więcej&nbsp;niż&nbsp;LEK, zrobiłem malutkie badania UXowe wśród
-                swoich znajomych -&nbsp;studentów medycyny i&nbsp;absolwentów. Nie,
-                nie powstanie z&nbsp;tego raport. Raczej myślę, że z&nbsp;tego,
-                co tu się zapowiada będzie jakiś mały komiks.
+                więcej o&nbsp;Więcej&nbsp;niż&nbsp;LEK, zrobiłem malutkie
+                badania UXowe wśród swoich znajomych -&nbsp;studentów medycyny
+                i&nbsp;absolwentów. Nie, nie powstanie z&nbsp;tego raport.
+                Raczej myślę, że z&nbsp;tego, co tu się zapowiada będzie jakiś
+                mały komiks.
               </p>
               <p>
                 Dziękuję, że poświęciliście swój czas na obejrzenie tego wideo.
@@ -299,7 +300,7 @@ export default function Bethink({data}) {
               </TextWrapper>
             </PortfolioHomeSection>
             <section>
-              <Img fluid={pracaKomiks.fluid}/>
+              <Img fluid={pracaKomiks.fluid} />
             </section>
             <PortfolioHomeSection style={{ background: "rgb(224, 194, 174)" }}>
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
@@ -359,20 +360,24 @@ export default function Bethink({data}) {
 
 export const pageQuery = graphql`
   query {
-    pracaKomiks: file(name: {eq: "bethink__komiks"}) {
+    pracaKomiks: file(name: { eq: "bethink__komiks" }) {
       childImageSharp {
-        fluid(maxWidth: 1920, cropFocus: CENTER, srcSetBreakpoints: [480, 640, 960, 1920]) {
-        ...GatsbyImageSharpFluid_withWebp
+        fluid(
+          maxWidth: 1920
+          cropFocus: CENTER
+          srcSetBreakpoints: [480, 640, 960, 1920]
+        ) {
+          ...GatsbyImageSharpFluid_withWebp
         }
         fixed(height: 690, cropFocus: CENTER) {
-        ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
-    },
-    boySvg: file(name: {eq: "bethink__boy"}) {
+    }
+    boySvg: file(name: { eq: "bethink__boy" }) {
       publicURL
     }
-    girlSvg: file(name: {eq: "bethink__girl"}) {
+    girlSvg: file(name: { eq: "bethink__girl" }) {
       publicURL
     }
   }

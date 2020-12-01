@@ -21,7 +21,6 @@ import BadgesBelt from "../components/BadgesBelt/BadgesBelt"
 
 import PortfolioSection_1 from "./portfolio/portfolioSection1"
 
-
 const Main = styled.main`
   margin: 0;
 `
@@ -64,7 +63,16 @@ const LearnMoreLink = styled(Link)`
 `
 
 export default function Portfolio({ data }) {
-  const { CvPdf, facebookThumbnail, lednica01, teamaton01, teamaton02, lmiux, findIt, myProfilePhoto } = data
+  const {
+    CvPdf,
+    facebookThumbnail,
+    lednica01,
+    teamaton01,
+    teamaton02,
+    lmiux,
+    findIt,
+    myProfilePhoto,
+  } = data
   const myHelmetData = {
     description:
       "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
@@ -85,7 +93,10 @@ export default function Portfolio({ data }) {
             css={[centered, viewportHigh]}
             style={{ backgroundColor: "#fafafa" }}
           >
-            <PortfolioSection_1 cvPdf={CvPdf.publicURL} myProfilePhoto={myProfilePhoto}/>
+            <PortfolioSection_1
+              cvPdf={CvPdf.publicURL}
+              myProfilePhoto={myProfilePhoto}
+            />
           </div>
           <div id="mainsection">
             <p style={{ textAlign: "center", padding: "1rem 0" }}>
@@ -278,30 +289,30 @@ export const sectionQuery = graphql`
   query sectionQuery {
     CvPdf: file(name: { eq: "Mateusz-Kozlowski-CV" }) {
       publicURL
-    },
+    }
     facebookThumbnail: file(name: { eq: "fbThumb-portfolio" }) {
       childImageSharp {
-        fixed (width:1200, height:628) {
+        fixed(width: 1200, height: 628) {
           src
         }
       }
-    },
-    lednica01: file(name: { eq: "lednica__logo"}) {
+    }
+    lednica01: file(name: { eq: "lednica__logo" }) {
       publicURL
     }
-    teamaton01: file(name: { eq: "teamaton-logo"}) {
+    teamaton01: file(name: { eq: "teamaton-logo" }) {
       publicURL
     }
-    teamaton02: file(name: { eq: "teamaton-new"}) {
+    teamaton02: file(name: { eq: "teamaton-new" }) {
       publicURL
     }
-    lmiux: file(name: { eq: "lmiux"}) {
+    lmiux: file(name: { eq: "lmiux" }) {
       publicURL
     }
-    findIt: file(name: { eq: "findIt"}) {
+    findIt: file(name: { eq: "findIt" }) {
       publicURL
-    },
-    myProfilePhoto: file(name: {eq: "myProfilePhoto"}) {
+    }
+    myProfilePhoto: file(name: { eq: "myProfilePhoto" }) {
       publicURL
     }
   }

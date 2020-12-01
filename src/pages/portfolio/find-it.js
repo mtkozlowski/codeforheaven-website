@@ -119,24 +119,24 @@ export default function FindIt({ data }) {
 
 export const pageQuery = graphql`
   {
-    BriefStaraAppka: file(name: {eq: "findIt__brief-stara-appka"}) {
+    BriefStaraAppka: file(name: { eq: "findIt__brief-stara-appka" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
-        ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
-    FindItBrief: file(name: {eq: "findIt__brief"}) {
+    FindItBrief: file(name: { eq: "findIt__brief" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
-        ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
-    Ankieta: file(name: {eq: "findIt__ankieta"}) {
+    Ankieta: file(name: { eq: "findIt__ankieta" }) {
       childImageSharp {
         fluid(maxWidth: 768) {
-        ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

@@ -12,17 +12,15 @@ import MyHelmet from "../../style/components/MyHelmet"
 
 import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
-import {
-  RegularSection,
-} from "../../style/organisms/Sections"
+import { RegularSection } from "../../style/organisms/Sections"
 import Footer from "../../style/organisms/Footer"
 
 const Main = styled.main`
   margin-top: 2rem;
 `
 
-export default function SzukajSlowa({data}) {
-  const {szukajSlowaWebM, szukajSlowaMP4} = data;
+export default function SzukajSlowa({ data }) {
+  const { szukajSlowaWebM, szukajSlowaMP4 } = data
   const myHelmetData = {
     description: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -188,12 +186,18 @@ export default function SzukajSlowa({data}) {
 }
 
 export const query = graphql`
-{
-  szukajSlowaWebM: file(name: {eq: "szukajSlowa"}, extension: {eq: "webm"}) {
-    publicURL
-  },
-  szukajSlowaMP4: file(name: {eq: "szukajSlowa"}, extension: {eq: "mp4"}) {
-    publicURL
+  {
+    szukajSlowaWebM: file(
+      name: { eq: "szukajSlowa" }
+      extension: { eq: "webm" }
+    ) {
+      publicURL
+    }
+    szukajSlowaMP4: file(
+      name: { eq: "szukajSlowa" }
+      extension: { eq: "mp4" }
+    ) {
+      publicURL
+    }
   }
-}
 `

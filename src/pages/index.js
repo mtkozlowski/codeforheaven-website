@@ -9,7 +9,7 @@ import MyHelmet from "../style/components/MyHelmet"
 const IndexPage = ({
   data: {
     allMdx: { edges },
-    file: { childImageSharp }
+    file: { childImageSharp },
   },
 }) => {
   const Posts = edges
@@ -54,9 +54,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    file (name: { eq: "fbThumb-index" }) {
+    file(name: { eq: "fbThumb-index" }) {
       childImageSharp {
-        fixed (width:1200, height:628) {
+        fixed(width: 1200, height: 628) {
           src
         }
       }

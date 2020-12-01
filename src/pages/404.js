@@ -4,7 +4,7 @@ import RegularSection from "../style/organisms/RegularSection"
 import MyHelmet from "../style/components/MyHelmet"
 import { graphql, Link } from "gatsby"
 
-const NothingFound = ({data}) => {
+const NothingFound = ({ data }) => {
   const myHelmetData = {
     description: "Front-end Creator on his way to UX.",
     facebookThumbnail: data.file.childImageSharp.fixed.src,
@@ -25,15 +25,16 @@ const NothingFound = ({data}) => {
   )
 }
 
-export const query = graphql`{
-  file(name: {eq: "fbThumb-404"}) {
-    childImageSharp {
-      fixed (width:1200, height:628) {
-        src
+export const query = graphql`
+  {
+    file(name: { eq: "fbThumb-404" }) {
+      childImageSharp {
+        fixed(width: 1200, height: 628) {
+          src
+        }
       }
     }
   }
-}
-`;
+`
 
 export default NothingFound

@@ -40,7 +40,7 @@ const EpisodeImg = styled.img`
   min-width: 230px;
 `
 
-export default function LetMeInUX({data}) {
+export default function LetMeInUX({ data }) {
   const {
     episode01,
     episode05,
@@ -49,8 +49,8 @@ export default function LetMeInUX({data}) {
     episode08,
     episode09,
     podsumowanieWarsztatow,
-    naszeTwarze
-  } = data;
+    naszeTwarze,
+  } = data
   const myHelmetData = {
     description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -153,30 +153,32 @@ export default function LetMeInUX({data}) {
 }
 
 export const query = graphql`
-{
-  episode01: file(name: {eq: "letMeInUx__episode01"}) {
-    publicURL
-  },
-  episode05: file(name: {eq: "letMeInUx__episode05"}) {
-    publicURL
-  },
-  episode06: file(name: {eq: "letMeInUx__episode06"}) {
-    publicURL
-  },
-  episode07: file(name: {eq: "letMeInUx__episode07"}) {
-    publicURL
-  },
-  episode08: file(name: {eq: "letMeInUx__episode08"}) {
-    publicURL
-  },
-  episode09: file(name: {eq: "letMeInUx__episode09"}) {
-    publicURL
-  },
-  podsumowanieWarsztatow: file(name: {eq: "letMeInUx__podsumowanie-warsztatow"}) {
-    publicURL
-  },
-  naszeTwarze: file(name: {eq: "letMeInUx__zdj-warszawa"}) {
-    publicURL
+  {
+    episode01: file(name: { eq: "letMeInUx__episode01" }) {
+      publicURL
+    }
+    episode05: file(name: { eq: "letMeInUx__episode05" }) {
+      publicURL
+    }
+    episode06: file(name: { eq: "letMeInUx__episode06" }) {
+      publicURL
+    }
+    episode07: file(name: { eq: "letMeInUx__episode07" }) {
+      publicURL
+    }
+    episode08: file(name: { eq: "letMeInUx__episode08" }) {
+      publicURL
+    }
+    episode09: file(name: { eq: "letMeInUx__episode09" }) {
+      publicURL
+    }
+    podsumowanieWarsztatow: file(
+      name: { eq: "letMeInUx__podsumowanie-warsztatow" }
+    ) {
+      publicURL
+    }
+    naszeTwarze: file(name: { eq: "letMeInUx__zdj-warszawa" }) {
+      publicURL
+    }
   }
-}
-`;
+`

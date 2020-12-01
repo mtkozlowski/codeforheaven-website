@@ -80,7 +80,7 @@ export default function Teamaton({ data }) {
     CssGIFWebM,
     CssGIFMP4,
     photoUploadWebM,
-    photoUploadMP4
+    photoUploadMP4,
   } = data
 
   const myHelmetData = {
@@ -278,8 +278,8 @@ export default function Teamaton({ data }) {
               <li>Dobór palety kolorów</li>
               <li>Wybór fontów (max. 2)</li>
               <li>
-                Szkic logotypu, który po konsultacjach z klientem zamieniałem
-                na projekt w krzywych (Adobe Illustrator, Affinity Designer, a
+                Szkic logotypu, który po konsultacjach z klientem zamieniałem na
+                projekt w krzywych (Adobe Illustrator, Affinity Designer, a
                 jeszcze wcześniej Inkscape)
               </li>
               <li>
@@ -461,31 +461,55 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFluid_withWebp
       }
     }
-    lightbulb: file(name: {eq: "icon__lightbulb"}) {
+    lightbulb: file(name: { eq: "icon__lightbulb" }) {
       publicURL
     }
-    dashboardWebM: file(name: {eq: "teamaton__dashboard"}, extension: {eq: "webm"}) {
+    dashboardWebM: file(
+      name: { eq: "teamaton__dashboard" }
+      extension: { eq: "webm" }
+    ) {
       publicURL
     }
-    dashboardMP4: file(name: {eq: "teamaton__dashboard"}, extension: {eq: "mp4"}) {
+    dashboardMP4: file(
+      name: { eq: "teamaton__dashboard" }
+      extension: { eq: "mp4" }
+    ) {
       publicURL
     }
-    fileSizesWebM: file(name: {eq: "teamaton__fileSizes"}, extension: {eq: "webm"}) {
+    fileSizesWebM: file(
+      name: { eq: "teamaton__fileSizes" }
+      extension: { eq: "webm" }
+    ) {
       publicURL
     }
-    fileSizesMP4: file(name: {eq: "teamaton__fileSizes"}, extension: {eq: "mp4"}) {
+    fileSizesMP4: file(
+      name: { eq: "teamaton__fileSizes" }
+      extension: { eq: "mp4" }
+    ) {
       publicURL
     }
-    CssGIFWebM: file(name: {eq: "teamaton__CssGif"}, extension: {eq: "webm"}) {
+    CssGIFWebM: file(
+      name: { eq: "teamaton__CssGif" }
+      extension: { eq: "webm" }
+    ) {
       publicURL
     }
-    CssGIFMP4: file(name: {eq: "teamaton__CssGif"}, extension: {eq: "mp4"}) {
+    CssGIFMP4: file(
+      name: { eq: "teamaton__CssGif" }
+      extension: { eq: "mp4" }
+    ) {
       publicURL
     }
-    photoUploadWebM: file(name: {eq: "teamaton__photoUpload"}, extension: {eq: "webm"}) {
+    photoUploadWebM: file(
+      name: { eq: "teamaton__photoUpload" }
+      extension: { eq: "webm" }
+    ) {
       publicURL
     }
-    photoUploadMP4: file(name: {eq: "teamaton__photoUpload"}, extension: {eq: "mp4"}) {
+    photoUploadMP4: file(
+      name: { eq: "teamaton__photoUpload" }
+      extension: { eq: "mp4" }
+    ) {
       publicURL
     }
   }

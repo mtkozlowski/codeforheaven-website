@@ -322,9 +322,7 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFluid_withWebp
       }
     }
-    WspolpracaLednica: file(
-      name: { eq: "Wspolpraca-Lednica2000" }
-    ) {
+    WspolpracaLednica: file(name: { eq: "Wspolpraca-Lednica2000" }) {
       publicURL
     }
   }
