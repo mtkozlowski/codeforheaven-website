@@ -461,7 +461,7 @@ export const pageQuery = graphql`
         ...GatsbyImageSharpFluid_withWebp
       }
     }
-    lightbulb: file(name: {eq: "biurko"}) {
+    lightbulb: file(name: {eq: "icon__lightbulb"}) {
       publicURL
     }
     dashboardWebM: file(name: {eq: "teamaton__dashboard"}, extension: {eq: "webm"}) {
