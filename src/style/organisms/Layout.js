@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../theme"
-import GlobalStyle from "./GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import Header from "./Header"
 
 const Main = styled.main`

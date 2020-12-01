@@ -12,7 +12,7 @@ import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
 import MyHelmet from "../../style/components/MyHelmet"
 
-import GlobalStyle from "../../style/organisms/GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import { RegularSection } from "../../style/organisms/Sections"
 import Footer from "../../style/organisms/Footer"
@@ -58,7 +58,7 @@ export default function FindIt({ data }) {
               konferencji Elementarz UX.
             </p>
             <ImageCaptionParagraph>
-              <Img fluid={BriefStaraAppka.fluid} />
+              <Img fluid={BriefStaraAppka.childImageSharp.fluid} />
               <span>
                 Praca podczas warsztatów nad aplikacją, która dała impuls do
                 stworzenia Find.it
@@ -78,7 +78,7 @@ export default function FindIt({ data }) {
               branży kreatywnej i informatycznej.
             </p>
             <ImageCaptionParagraph>
-              <Img fluid={Ankieta.fluid} />
+              <Img fluid={Ankieta.childImageSharp.fluid} />
             </ImageCaptionParagraph>
             <H3>Brief</H3>
             <p>
@@ -89,7 +89,7 @@ export default function FindIt({ data }) {
               Warszawie <em>na żywo</em>.
             </p>
             <ImageCaptionParagraph>
-              <Img fluid={FindItBrief.fluid} />
+              <Img fluid={FindItBrief.childImageSharp.fluid} />
               <span>
                 Brief aplikacji Find.it - podsumowaniem dotychczasowej pracy
               </span>
@@ -119,23 +119,25 @@ export default function FindIt({ data }) {
 
 export const pageQuery = graphql`
   {
-    BriefStaraAppka: imageSharp(
-      fluid: { originalName: { regex: "/brief-stara-appka.jpg/g" } }
-    ) {
-      fluid(maxWidth: 768) {
+    BriefStaraAppka: file(name: {eq: "findIt__brief-stara-appka"}) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
+        }
       }
     }
-    FindItBrief: imageSharp(
-      fluid: { originalName: { regex: "/find-it-brief.jpg/g" } }
-    ) {
-      fluid(maxWidth: 768) {
+    FindItBrief: file(name: {eq: "findIt__brief"}) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
+        }
       }
     }
-    Ankieta: imageSharp(fluid: { originalName: { regex: "/ankieta.jpg/g" } }) {
-      fluid(maxWidth: 768) {
+    Ankieta: file(name: {eq: "findIt__ankieta"}) {
+      childImageSharp {
+        fluid(maxWidth: 768) {
         ...GatsbyImageSharpFluid_withWebp
+        }
       }
     }
   }

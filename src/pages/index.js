@@ -5,16 +5,11 @@ import Layout from "../style/organisms/Layout"
 import RegularSection from "../style/organisms/RegularSection"
 import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
 import MyHelmet from "../style/components/MyHelmet"
-import facebookThumbnail from "./index/facebookThumbnail.jpg"
-
-import { NarrowSection } from "../style/organisms/Sections"
-import { centered, flex, boxPadding } from "../style/organisms/Divs"
-
-import helloBoy from "../style/atoms/helloBoy.svg"
 
 const IndexPage = ({
   data: {
     allMdx: { edges },
+    file: { childImageSharp }
   },
 }) => {
   const Posts = edges
@@ -24,7 +19,7 @@ const IndexPage = ({
     ))
   const myHelmetData = {
     description: "Front-end Creator on his way to UX.",
-    facebookThumbnail,
+    facebookThumbnail: childImageSharp.fixed.src,
     title: "UX & Front end",
   }
 
@@ -56,6 +51,13 @@ export const pageQuery = graphql`
             title
             description
           }
+        }
+      }
+    }
+    file (name: { eq: "fbThumb-index" }) {
+      childImageSharp {
+        fixed (width:1200, height:628) {
+          src
         }
       }
     }

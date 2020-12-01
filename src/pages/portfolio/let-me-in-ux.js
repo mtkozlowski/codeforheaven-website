@@ -9,7 +9,7 @@ import MyHelmet from "../../style/components/MyHelmet"
 
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 
-import GlobalStyle from "../../style/organisms/GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import { RegularSection, WideSection } from "../../style/organisms/Sections"
 import Footer from "../../style/organisms/Footer"

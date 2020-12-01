@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import {
   RegularSection,
   FullWidthSection,
@@ -7,7 +7,7 @@ import {
 import MyHelmet from "../../style/components/MyHelmet"
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
-import GlobalStyle from "../../style/organisms/GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import { H1, H2 } from "../../style/atoms/Headings"
 import Img from "gatsby-image"
@@ -260,7 +260,7 @@ export default function Lednica({ data }) {
 export const pageQuery = graphql`
   query {
     Lednica01: imageSharp(
-      fluid: { originalName: { regex: "/lednica01.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__hero.jpg/g" } }
     ) {
       fluid(maxHeight: 600, maxWidth: 1920) {
         ...GatsbyImageSharpFluid_withWebp
@@ -274,56 +274,56 @@ export const pageQuery = graphql`
       }
     }
     Warsztaty1: imageSharp(
-      fluid: { originalName: { regex: "/warsztaty-1.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__warsztaty-1.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     Warsztaty2: imageSharp(
-      fluid: { originalName: { regex: "/warsztaty-2.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__warsztaty-2.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     Warsztaty3: imageSharp(
-      fluid: { originalName: { regex: "/warsztaty-3.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__warsztaty-3.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     FilmCrew1: imageSharp(
-      fluid: { originalName: { regex: "/film-crew-1.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__film-crew-1.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     FilmCrew2: imageSharp(
-      fluid: { originalName: { regex: "/film-crew-2.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__film-crew-2.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     FilmCrew3: imageSharp(
-      fluid: { originalName: { regex: "/film-crew-3.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__film-crew-3.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     FilmCrew4: imageSharp(
-      fluid: { originalName: { regex: "/film-crew-4.jpg/g" } }
+      fluid: { originalName: { regex: "/lednica__film-crew-4.jpg/g" } }
     ) {
       fluid(maxWidth: 480) {
         ...GatsbyImageSharpFluid_withWebp
       }
     }
     WspolpracaLednica: file(
-      relativePath: { eq: "portfolio/lednica/Wspolpraca-Lednica2000.pdf" }
+      name: { eq: "Wspolpraca-Lednica2000" }
     ) {
       publicURL
     }

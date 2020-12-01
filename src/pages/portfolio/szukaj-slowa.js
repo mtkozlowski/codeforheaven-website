@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
+import { graphql } from "gatsby"
 
 import { theme } from "../../style/theme"
 
@@ -9,22 +10,19 @@ import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
 import MyHelmet from "../../style/components/MyHelmet"
 
-import GlobalStyle from "../../style/organisms/GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { StyledHeader } from "../../style/organisms/Header"
 import {
   RegularSection,
-  FullWidthSection,
 } from "../../style/organisms/Sections"
 import Footer from "../../style/organisms/Footer"
-
-import szukajSlowaWebM from "./szukajSlowa/szukajSlowa.webm"
-import szukajSlowaMP4 from "./szukajSlowa/szukajSlowa.mp4"
 
 const Main = styled.main`
   margin-top: 2rem;
 `
 
-export default function SzukajSlowa() {
+export default function SzukajSlowa({data}) {
+  const {szukajSlowaWebM, szukajSlowaMP4} = data;
   const myHelmetData = {
     description: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
     domain: "https://codeforheaven.com",
@@ -111,8 +109,8 @@ export default function SzukajSlowa() {
                   width: "100%",
                 }}
               >
-                <source src={szukajSlowaWebM} type="video/webm" />
-                <source src={szukajSlowaMP4} type="video/mp4" />
+                <source src={szukajSlowaWebM.publicURL} type="video/webm" />
+                <source src={szukajSlowaMP4.publicURL} type="video/mp4" />
               </video>
             </ImageCaptionParagraph>
             <H2>Roadmap</H2>
@@ -188,3 +186,14 @@ export default function SzukajSlowa() {
     </>
   )
 }
+
+export const query = graphql`
+{
+  szukajSlowaWebM: file(name: {eq: "szukajSlowa"}, extension: {eq: "webm"}) {
+    publicURL
+  },
+  szukajSlowaMP4: file(name: {eq: "szukajSlowa"}, extension: {eq: "mp4"}) {
+    publicURL
+  }
+}
+`

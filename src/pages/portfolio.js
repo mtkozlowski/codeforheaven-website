@@ -12,19 +12,15 @@ import {
 import MyHelmet from "../style/components/MyHelmet"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { theme } from "../style/theme"
-import GlobalStyle from "../style/organisms/GlobalStyle"
+import GlobalStyle from "../assets/styles/GlobalStyle"
 import ResettedLink from "../style/atoms/ResettedLink"
 import { H2, H3, H6 } from "../style/atoms/Headings"
 import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
 
-import BadgesBelt from "./portfolio/BadgesBelt"
+import BadgesBelt from "../components/BadgesBelt/BadgesBelt"
 
 import PortfolioSection_1 from "./portfolio/portfolioSection1"
-import lednica01 from "./portfolio/lednica/lednica-logo.png"
-import teamaton01 from "./portfolio/teamaton/teamaton-logo.png"
-import teamaton02 from "./portfolio/teamaton/teamaton-new.png"
-import lmiux from "./portfolio/lmiux.jpg"
-import findIt from "./portfolio/find-it.jpg"
+
 
 const Main = styled.main`
   margin: 0;
@@ -68,7 +64,7 @@ const LearnMoreLink = styled(Link)`
 `
 
 export default function Portfolio({ data }) {
-  const { CvPdf, facebookThumbnail } = data
+  const { CvPdf, facebookThumbnail, lednica01, teamaton01, teamaton02, lmiux, findIt } = data
   const myHelmetData = {
     description:
       "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
@@ -110,11 +106,11 @@ export default function Portfolio({ data }) {
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
                 <TeamatonRotatingLogo>
                   <img
-                    src={teamaton01}
+                    src={teamaton01.publicURL}
                     style={{ display: "inline-block", marginRight: "20px" }}
                   />
                   <img
-                    src={teamaton02}
+                    src={teamaton02.publicURL}
                     style={{ display: "inline-block", width: "70%" }}
                   />
                 </TeamatonRotatingLogo>
@@ -145,7 +141,7 @@ export default function Portfolio({ data }) {
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
                 <img
-                  src={lednica01}
+                  src={lednica01.publicURL}
                   style={{ width: "60%", minWidth: "240px" }}
                 />
               </LogoWrapper>
@@ -174,7 +170,7 @@ export default function Portfolio({ data }) {
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
                 <img
-                  src={findIt}
+                  src={findIt.publicURL}
                   style={{
                     position: "absolute",
                     top: "0",
@@ -208,7 +204,7 @@ export default function Portfolio({ data }) {
                 style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
               >
                 <img
-                  src={lmiux}
+                  src={lmiux.publicURL}
                   style={{
                     position: "absolute",
                     top: "0",
@@ -281,12 +277,29 @@ export default function Portfolio({ data }) {
 
 export const sectionQuery = graphql`
   query sectionQuery {
-    CvPdf: file(relativePath: { eq: "portfolio/Mateusz-Kozlowski-CV.pdf" }) {
+    CvPdf: file(name: { eq: "Mateusz-Kozlowski-CV" }) {
+      publicURL
+    },
+    facebookThumbnail: file(name: { eq: "fbThumb-portfolio" }) {
+      childImageSharp {
+        fixed (width:1200, height:628) {
+          src
+        }
+      }
+    },
+    lednica01: file(name: { eq: "lednica__logo"}) {
       publicURL
     }
-    facebookThumbnail: file(
-      relativePath: { eq: "portfolio/facebookThumbnail.jpg" }
-    ) {
+    teamaton01: file(name: { eq: "teamaton-logo"}) {
+      publicURL
+    }
+    teamaton02: file(name: { eq: "teamaton-new"}) {
+      publicURL
+    }
+    lmiux: file(name: { eq: "lmiux"}) {
+      publicURL
+    }
+    findIt: file(name: { eq: "findIt"}) {
       publicURL
     }
   }

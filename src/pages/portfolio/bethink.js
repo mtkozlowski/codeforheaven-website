@@ -18,7 +18,7 @@ import {
 import MyHelmet from "../../style/components/MyHelmet"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { theme } from "../../style/theme"
-import GlobalStyle from "../../style/organisms/GlobalStyle"
+import GlobalStyle from "../../assets/styles/GlobalStyle"
 import { H2, H3, H4, H6 } from "../../style/atoms/Headings"
 import Footer from "../../style/organisms/Footer"
 import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
@@ -302,7 +302,7 @@ export default function Bethink({data}) {
               </TextWrapper>
             </PortfolioHomeSection>
             <section>
-              <Img fluid={pracaKomiks.fluid}/>
+              {/* <Img fluid={pracaKomiks.fluid}/> */}
             </section>
             <PortfolioHomeSection style={{ background: "rgb(224, 194, 174)" }}>
               <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
