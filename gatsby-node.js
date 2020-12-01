@@ -1,4 +1,5 @@
-const path = require(`path`)
+const path = require(`path`);
+const slugify = require('slugify');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -8,35 +9,30 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const nodeInternalType = node.internal.type
-
-  if (nodeInternalType === `MarkdownRemark` || nodeInternalType === "Mdx") {
-    const { createNodeField } = actions
-    const parent = getNode(node.parent)
-
-    createNodeField({
-      node,
-      name: "collection",
-      value: parent.sourceInstanceName,
-    })
-  }
-}
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+
   const results = await graphql(`
     {
+      allDatoCmsArticle {
+        nodes {
+          id
+          title
+        }
+      }
+      allDatoCmsPage {
+        nodes {
+          id
+          title
+        }
+      }
       allMdx(
         filter: {
           frontmatter: { date: { ne: null } }
-          fields: { collection: { ne: "pagesContent" } }
         }
       ) {
         edges {
           node {
-            fields {
-              collection
-            }
             frontmatter {
               slug
             }
@@ -46,45 +42,47 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-  // Handle errors
-  if (results.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
 
-  const { createPage } = actions
+  const cmsArticles = results.data.allDatoCmsArticle.nodes.map(el => ({
+    slug: slugify(el.title, {lower: true, strict: true }),
+    id: el.id
+  }));
 
-  const allEdges = results.data.allMdx.edges
-  const blogEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `posts`
-  )
-  const pageEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `pages`
-  )
+  cmsArticles.forEach(edge => {
+    createPage({
+      path: `/${edge.slug}`,
+      component: path.resolve(`./src/style/templates/articleTemplate.js`),
+      context: {
+        id: edge.id
+      },
+    })
+  })
 
-  blogEdges.forEach((edge, index) => {
-    const previous =
-      index === blogEdges.length - 1 ? null : blogEdges[index + 1].node
-    const next = index === 0 ? null : blogEdges[index - 1].node
+  const cmsPages = results.data.allDatoCmsPage.nodes.map(el => ({
+    slug: slugify(el.title, {lower: true, strict: true }),
+    id: el.id
+  }));
 
+  cmsPages.forEach(edge => {
+    createPage({
+      path: `/${edge.slug}`,
+      component: path.resolve(`./src/style/templates/pageTemplate.js`),
+      context: {
+        id: edge.id
+      },
+    })
+  })
+
+  const blogEdges = results.data.allMdx.edges
+  blogEdges.forEach(edge => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
       component: path.resolve("./src/style/templates/blogTemplate.js"),
       context: {
         slug: edge.node.frontmatter.slug,
-        previous,
-        next,
       },
     })
   })
 
-  pageEdges.forEach(edge => {
-    createPage({
-      path: `/${edge.node.frontmatter.slug}`,
-      component: path.resolve(`./src/style/templates/pageTemplate.js`),
-      context: {
-        slug: edge.node.frontmatter.slug,
-      },
-    })
-  })
+
 }

@@ -40,7 +40,6 @@ export const pageQuery = graphql`
   query {
     allMdx(
       filter: {
-        fields: { collection: { eq: "posts" } },
         frontmatter: { date: { ne: null } }
       }
       sort: { order: DESC, fields: [frontmatter___date] }

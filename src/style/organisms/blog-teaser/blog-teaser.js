@@ -47,12 +47,12 @@ const BlogTeaser = ({ teaserData, index }) => (
   <BlogTeaserWrapper>
     <BlogTeaserTitle>
       {index < 5 ? (
-        <StyledLink to={teaserData.frontmatter.slug} opacityValue={100 / index}>
+        <StyledLink to={teaserData.frontmatter.slug} opacityvalue={100 / index}>
           {" "}
           {teaserData.frontmatter.title}{" "}
         </StyledLink>
       ) : (
-        <Link to={teaserData.frontmatter.slug} opacityValue={100 / index}>
+        <Link to={teaserData.frontmatter.slug} opacityvalue={100 / index}>
           {" "}
           {teaserData.frontmatter.title}{" "}
         </Link>
