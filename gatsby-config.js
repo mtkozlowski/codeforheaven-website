@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-source-datocms`,
       options: {
-        apiToken: process.env.API_DATO_CMS
+        apiToken: process.env.API_DATO_CMS,
       },
     },
     `gatsby-plugin-react-helmet`,

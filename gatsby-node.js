@@ -1,5 +1,5 @@
-const path = require(`path`);
-const slugify = require('slugify');
+const path = require(`path`)
+const slugify = require("slugify")
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -26,11 +26,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title
         }
       }
-      allMdx(
-        filter: {
-          frontmatter: { date: { ne: null } }
-        }
-      ) {
+      allMdx(filter: { frontmatter: { date: { ne: null } } }) {
         edges {
           node {
             frontmatter {
@@ -42,33 +38,32 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `)
 
-
   const cmsArticles = results.data.allDatoCmsArticle.nodes.map(el => ({
-    slug: slugify(el.title, {lower: true, strict: true }),
-    id: el.id
-  }));
+    slug: slugify(el.title, { lower: true, strict: true }),
+    id: el.id,
+  }))
 
   cmsArticles.forEach(edge => {
     createPage({
       path: `/${edge.slug}`,
       component: path.resolve(`./src/style/templates/articleTemplate.js`),
       context: {
-        id: edge.id
+        id: edge.id,
       },
     })
   })
 
   const cmsPages = results.data.allDatoCmsPage.nodes.map(el => ({
-    slug: slugify(el.title, {lower: true, strict: true }),
-    id: el.id
-  }));
+    slug: slugify(el.title, { lower: true, strict: true }),
+    id: el.id,
+  }))
 
   cmsPages.forEach(edge => {
     createPage({
       path: `/${edge.slug}`,
       component: path.resolve(`./src/style/templates/pageTemplate.js`),
       context: {
-        id: edge.id
+        id: edge.id,
       },
     })
   })
@@ -83,6 +78,4 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
-
-
 }

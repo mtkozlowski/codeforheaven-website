@@ -12,10 +12,9 @@ const IndexPage = ({
     file: { childImageSharp },
   },
 }) => {
-
   const Posts = edges.map((edge, index) => (
-      <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />
-    ))
+    <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />
+  ))
 
   const myHelmetData = {
     description: "Front-end Creator on his way to UX.",
@@ -39,9 +38,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query {
     allMdx(
-      filter: {
-        frontmatter: { date: { ne: null } }
-      }
+      filter: { frontmatter: { date: { ne: null } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {

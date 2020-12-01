@@ -30,7 +30,7 @@ const PostDateBlock = styled.p`
 `
 
 export default function Template({ data }) {
-    console.log(data);
+  console.log(data)
   const { title, date, articleContent } = data.datoCmsArticle
 
   return (
@@ -41,30 +41,41 @@ export default function Template({ data }) {
         </RegularSection>
         <RegularSection>
           <DivFlex>
-          <H2 as={H1}>{title}</H2>
-          <PostDateBlock>{date}</PostDateBlock>
+            <H2 as={H1}>{title}</H2>
+            <PostDateBlock>{date}</PostDateBlock>
           </DivFlex>
 
-            {articleContent.map(item => {
-                const itemKey = Object.keys(item)[1];
+          {articleContent.map(item => {
+            const itemKey = Object.keys(item)[1]
 
-                switch (itemKey) {
-                case 'paragraphContent':
-                        return <p key={item.id}>{item[itemKey]}</p>;
-                case 'codeContent':
-                    return <MDXRenderer>{item.codeContentNode.childMdx.body}</MDXRenderer>;
-                case 'embeddedData':
-                    return <div class="youtubeIframeWrapper">
-                    <iframe width="756" height="425" src={`https://www.youtube.com/embed/${item[itemKey].providerUid}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    </div>;
-                case 'headingContent':
-                    return <h2>{item[itemKey]}</h2>;
-                default:
-                return null;
-
-                }
-
-            })}
+            switch (itemKey) {
+              case "paragraphContent":
+                return <p key={item.id}>{item[itemKey]}</p>
+              case "codeContent":
+                return (
+                  <MDXRenderer>
+                    {item.codeContentNode.childMdx.body}
+                  </MDXRenderer>
+                )
+              case "embeddedData":
+                return (
+                  <div class="youtubeIframeWrapper">
+                    <iframe
+                      width="756"
+                      height="425"
+                      src={`https://www.youtube.com/embed/${item[itemKey].providerUid}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )
+              case "headingContent":
+                return <h2>{item[itemKey]}</h2>
+              default:
+                return null
+            }
+          })}
         </RegularSection>
       </Layout>
     </>
@@ -73,48 +84,48 @@ export default function Template({ data }) {
 
 export const pageQuery = graphql`
   query ArticleBySlug($id: String!) {
-    datoCmsArticle(id: {eq: $id}) {
-        date(formatString: "DD.MM.YYYY")
-        featuredImage {
-            fixed(width: 1200, height: 638) {
+    datoCmsArticle(id: { eq: $id }) {
+      date(formatString: "DD.MM.YYYY")
+      featuredImage {
+        fixed(width: 1200, height: 638) {
+          src
+        }
+      }
+      title
+      articleContent {
+        ... on DatoCmsParagraph {
+          paragraphContent
+          id
+        }
+        ... on DatoCmsHeading {
+          headingContent
+          id
+        }
+        ... on DatoCmsArticleImage {
+          imageData {
+            fluid(maxWidth: 1200) {
               src
             }
+          }
+          id
         }
-        title
-        articleContent {
-            ... on DatoCmsParagraph {
-              paragraphContent
-              id
-            }
-            ... on DatoCmsHeading {
-              headingContent
-              id
-            }
-            ... on DatoCmsArticleImage {
-              imageData {
-                fluid(maxWidth: 1200) {
-                  src
-                }
-              }
-              id
-            }
-            ... on DatoCmsCode {
-              codeContent
-              codeContentNode {
-                childMdx {
-                  body
-                }
-              }
-              id
-            }
-            ... on DatoCmsArticleEmbedded {
-              embeddedData {
-                providerUid
-                thumbnailUrl
-              }
-              id
+        ... on DatoCmsCode {
+          codeContent
+          codeContentNode {
+            childMdx {
+              body
             }
           }
+          id
+        }
+        ... on DatoCmsArticleEmbedded {
+          embeddedData {
+            providerUid
+            thumbnailUrl
+          }
+          id
+        }
+      }
     }
   }
 `

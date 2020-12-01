@@ -5,11 +5,10 @@ import Layout from "../organisms/Layout"
 import RegularSection from "../organisms/RegularSection"
 import { H2 } from "../atoms/Headings"
 
-export default function Template({data}) {
-    const {title} = data.datoCmsPage;
+export default function Template({ data }) {
+  const { title } = data.datoCmsPage
   return (
     <>
-
       <Layout>
         <RegularSection>
           <H2>Whatsupp: {title}</H2>
@@ -19,10 +18,10 @@ export default function Template({data}) {
   )
 }
 export const pageQuery = graphql`
-    query pageQuery($id: String) {
-        datoCmsPage(id: {eq: $id}) {
-            id
-            title
-        }
+  query pageQuery($id: String) {
+    datoCmsPage(id: { eq: $id }) {
+      id
+      title
     }
+  }
 `
