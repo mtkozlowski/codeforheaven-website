@@ -1,7 +1,8 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { theme } from "../../style/theme"
-import { graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import { WideSection } from "../../style/organisms/Sections"
 import { H1 } from "../../style/atoms/Headings"
@@ -59,12 +60,26 @@ const Links = styled.div`
   }
 `
 
-const Img = styled.img`
+const Img = styled(Image)`
   grid-area: picture;
   border-radius: 50%;
 `
 
-export default function PortfolioSection_1({ cvPdf, myProfilePhoto }) {
+export default function PortfolioSection_1({ cvPdf,  }) {
+  const { myProfilePhoto } = useStaticQuery(
+    graphql`
+      query {
+        myProfilePhoto: file(name: {eq: "myProfilePhoto"}) {
+          childImageSharp {
+            fixed(width: 250) {
+              ...GatsbyImageSharpFixed_withWebp
+            }
+          }
+        }
+      }
+    `
+  )
+
   return (
     <ThemeProvider theme={theme}>
       <WideSection>
@@ -88,7 +103,7 @@ export default function PortfolioSection_1({ cvPdf, myProfilePhoto }) {
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
           </Breadcrumb>
-          <Img src={myProfilePhoto.publicURL} />
+          <Img fixed={myProfilePhoto.childImageSharp.fixed} />
           <Links>
             <a
               href={cvPdf}

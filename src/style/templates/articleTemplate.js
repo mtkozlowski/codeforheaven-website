@@ -30,7 +30,6 @@ const PostDateBlock = styled.p`
 `
 
 export default function Template({ data }) {
-  console.log(data)
   const { title, date, articleContent } = data.datoCmsArticle
 
   return (
@@ -50,7 +49,11 @@ export default function Template({ data }) {
 
             switch (itemKey) {
               case "paragraphContent":
-                return <p key={item.id}>{item[itemKey]}</p>
+                return (
+                  <MDXRenderer>
+                    {item.paragraphContentNode.childMdx.body}
+                  </MDXRenderer>
+                )
               case "codeContent":
                 return (
                   <MDXRenderer>
@@ -59,7 +62,7 @@ export default function Template({ data }) {
                 )
               case "embeddedData":
                 return (
-                  <div class="youtubeIframeWrapper">
+                  <div className="youtubeIframeWrapper">
                     <iframe
                       width="756"
                       height="425"
@@ -95,6 +98,11 @@ export const pageQuery = graphql`
       articleContent {
         ... on DatoCmsParagraph {
           paragraphContent
+          paragraphContentNode {
+            childMdx {
+              body
+            }
+          }
           id
         }
         ... on DatoCmsHeading {

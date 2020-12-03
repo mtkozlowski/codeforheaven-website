@@ -71,7 +71,6 @@ export default function Portfolio({ data }) {
     teamaton02,
     lmiux,
     findIt,
-    myProfilePhoto,
   } = data
   const myHelmetData = {
     description:
@@ -95,7 +94,6 @@ export default function Portfolio({ data }) {
           >
             <PortfolioSection_1
               cvPdf={CvPdf.publicURL}
-              myProfilePhoto={myProfilePhoto}
             />
           </div>
           <div id="mainsection">
@@ -310,9 +308,6 @@ export const sectionQuery = graphql`
       publicURL
     }
     findIt: file(name: { eq: "findIt" }) {
-      publicURL
-    }
-    myProfilePhoto: file(name: { eq: "myProfilePhoto" }) {
       publicURL
     }
   }
