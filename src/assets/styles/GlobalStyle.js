@@ -27,6 +27,12 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.6;
     }
 
+    blockquote, dl, ol, p, table, ul {
+        @media(min-width: 800px) {
+            font-size: 1.3rem;
+        }
+    }
+
     pre {
         @media(max-width: ${({ theme }) => theme.responsive.mobile}) {
             overflow-x: scroll !important;

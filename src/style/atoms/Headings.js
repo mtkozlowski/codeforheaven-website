@@ -3,6 +3,12 @@ import styled from "styled-components"
 export const H1 = styled.h1`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 3rem;
+  ${({ theme }) => theme.media.phoneS} {
+    font-size: 2.65rem;
+  }
+  @media (min-width: 800px) {
+    font-size: 3.9rem;
+  }
 `
 
 export const H2 = styled.h2`
@@ -13,6 +19,9 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 1.5rem;
+  @media (min-width: 800px) {
+    font-size: 1.95rem;
+  }
 `
 
 export const H4 = styled.h4`

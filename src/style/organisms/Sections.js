@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const NarrowSection = styled.section`
   width: ${({ theme }) => theme.narrowSection};
@@ -10,10 +10,17 @@ export const NarrowSection = styled.section`
   }
 `
 
-export const RegularSection = styled.section`
+export const regularSectionCss = css`
   width: ${({ theme }) => theme.regularSection};
   max-width: 100%;
   margin: 0 auto;
+  @media (min-width: 800px) {
+    width: 54rem;
+  }
+`
+
+export const RegularSection = styled.section`
+  ${regularSectionCss}
 `
 
 export const WideSection = styled.section`

@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../style/organisms/Layout"
 
-import RegularSection from "../style/organisms/RegularSection"
-import BlogTeaser from "../style/organisms/blog-teaser/blog-teaser"
+import { RegularSection } from "../style/organisms/Sections"
+import BlogTeaser from "../style/organisms/blogTeaser/BlogTeaser"
 import MyHelmet from "../style/components/MyHelmet"
+import Bio from "../style/components/Bio"
 
 const IndexPage = ({
   data: {
@@ -25,8 +26,8 @@ const IndexPage = ({
   return (
     <>
       <MyHelmet data={myHelmetData} />
-
       <Layout>
+        <Bio />
         <RegularSection>{Posts}</RegularSection>
       </Layout>
     </>
@@ -45,7 +46,7 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "MMM DD, YYYY")
             slug
             title
             description

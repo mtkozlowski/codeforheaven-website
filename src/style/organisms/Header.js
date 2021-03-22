@@ -1,51 +1,30 @@
 import React from "react"
 import styled from "styled-components"
 
-import { H1, H2 } from "../atoms/Headings"
 import Navigation from "../molecules/Navigation"
 import ResettedLink from "../atoms/ResettedLink"
+import { RegularSection, regularSectionCss } from "./Sections"
+import { boxPadding } from "../atoms/Box"
 
 export const StyledHeader = styled.header`
-  width: ${({ theme }) => theme.regularSection};
-  max-width: 100%;
-  margin: 0 auto;
+  ${boxPadding}
+  height: 10rem;
 
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.6rem 0;
-
-  ${({ theme }) => theme.media.regularSection} {
-    padding: 1rem 0.5rem 0;
-  }
+  ${regularSectionCss}
+  ${boxPadding}
 `
-
-const HeaderTagline = styled.p`
-  font-family: ${({ theme }) => theme.font.secondaryFamily};
-  margin-top: 0.5em;
-  ${({ theme }) => theme.media.phoneS} {
-    font-size: 0.95rem;
-  }
-`
-
-const PageHeader = styled(H1)`
-  line-height: 1;
+const PageHeader = styled.p`
   font-weight: 700;
-  letter-spacing: -4px;
-  ${({ theme }) => theme.media.phoneS} {
-    font-size: 2.65rem;
-  }
 `
 
 const Header = () => (
   <StyledHeader>
-    <div>
-      <PageHeader as={ResettedLink} to={"/"}>
-        Code for Heaven
-      </PageHeader>
-      <HeaderTagline>Frontend Creator on his way to UX.</HeaderTagline>
-    </div>
+    <PageHeader>
+      <ResettedLink to={"/"}>Code for Heaven</ResettedLink>
+    </PageHeader>
     <Navigation />
   </StyledHeader>
 )

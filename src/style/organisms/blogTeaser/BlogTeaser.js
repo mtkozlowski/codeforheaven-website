@@ -1,28 +1,36 @@
 import React from "react"
 import styled from "styled-components"
 
-import BlogTeaserTitle from "./blog-teaser-title"
-import BlogTeaserDateBlock from "./blog-teaser-date-block"
-import StyledLink from "../../atoms/StyledLink"
+import BlogTeaserTitle from "./BlogTeaserTitle"
+import BlogTeaserDateBlock from "./BlogTeaserDateBlock"
 import { Link } from "gatsby"
+import { boxPadding } from "../../atoms/Box"
 
 const BlogTeaserWrapper = styled.div`
+  ${boxPadding}
+
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   position: relative;
 
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
+
+  border-bottom: 1px solid hsl(0deg 0% 90%);
+
+  &:hover {
+    box-shadow: 0px 1px 5px 0px hsl(0deg 0% 90%);
+    border-bottom-width: 0px;
+  }
 `
 
 const BlogTeaserText = styled.p`
   width: 100%;
 
   line-height: 1.2;
-  margin: 1em 0 0;
+  margin: 1em 0;
   position: relative;
-  order: 3;
 
   ${({ theme }) => theme.media.phone} {
     margin-top: 1em;
@@ -45,23 +53,13 @@ const BlogTeaserText = styled.p`
 
 const BlogTeaser = ({ teaserData, index }) => (
   <BlogTeaserWrapper>
-    <BlogTeaserTitle>
-      {index < 5 ? (
-        <StyledLink to={teaserData.frontmatter.slug} opacityvalue={100 / index}>
-          {" "}
-          {teaserData.frontmatter.title}{" "}
-        </StyledLink>
-      ) : (
-        <Link to={teaserData.frontmatter.slug} opacityvalue={100 / index}>
-          {" "}
-          {teaserData.frontmatter.title}{" "}
-        </Link>
-      )}
+    <BlogTeaserTitle style={{ marginBottom: "0.3em" }}>
+      <Link to={teaserData.frontmatter.slug}>
+        {teaserData.frontmatter.title}
+      </Link>
     </BlogTeaserTitle>
+    <BlogTeaserDateBlock>{teaserData.frontmatter.date}</BlogTeaserDateBlock>
     <BlogTeaserText>{teaserData.frontmatter.description}</BlogTeaserText>
-    <BlogTeaserDateBlock index={index}>
-      {teaserData.frontmatter.date}
-    </BlogTeaserDateBlock>
   </BlogTeaserWrapper>
 )
 

@@ -1,22 +1,20 @@
 import { colors } from "./colors"
 
-const baseFontSize = 18,
-  narrowSection = `${34 * baseFontSize}px`,
-  regularSection = `768px`,
-  wideSection = `1280px`
+const narrowSection = `30rem`,
+  regularSection = `44.4rem`,
+  wideSection = `80rem`
 
 export const theme = {
   colors,
   font: {
-    primaryFamily: "'Source Sans Pro', sans-serif",
-    secondaryFamily:
-      "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+    primaryFamily: "DM Sans, sans-serif",
+    secondaryFamily: "DM Mono, monospace",
     boldFontWeight: 700,
 
     largeHeaderSize: "94px",
     subHeaderSize: "48px",
     blogPostTeaserSize: "24px",
-    regularTextSize: `calc(16px + 0.2vw)`,
+    regularTextSize: `16px`,
 
     /* MOBILE FONT SIZES */
     largeHeaderSize__Mobile: "72px",

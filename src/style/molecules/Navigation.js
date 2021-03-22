@@ -1,30 +1,49 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { boxPadding } from "../atoms/Box"
+import { Button } from "../atoms/Buttons"
+import { regularSectionCss } from "../organisms/Sections"
 
-const Nav = styled.nav`
+const Nav = styled.nav``
+
+const Menu = styled.ul`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+
+  list-style: none;
+
+  height: 100%;
 
   ${({ theme }) => theme.media.phone} {
     flex-direction: row;
     margin-left: auto;
     margin-top: 1em;
   }
+`
 
-  a {
-    padding: 0.3rem 0.6rem;
+const MenuItem = styled.li`
+  & + & {
+    margin-top: 0;
   }
 `
 
-const Navigation = ({ atHome }) => (
-  <Nav atHome={atHome}>
-    <Link to="/">Blog</Link>
-    <Link to="/valuable-resources">Valuable resources</Link>
-    <Link to="/useful-tools">Useful tools</Link>
-    <Link to="/portfolio">Portfolio [PL]</Link>
+const Navigation = () => (
+  <Nav>
+    <Menu>
+      <MenuItem>
+        <Button to="/">Blog</Button>
+      </MenuItem>
+      <MenuItem>
+        <Button to="/valuable-resources">Valuable resources</Button>
+      </MenuItem>
+      <MenuItem>
+        <Button to="/useful-tools">Useful tools</Button>
+      </MenuItem>
+      <MenuItem>
+        <Button to="/portfolio">Portfolio [PL]</Button>
+      </MenuItem>
+    </Menu>
   </Nav>
 )
 
