@@ -14,6 +14,10 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-weight: ${({ theme }) => theme.boldFontWeight};
   font-size: 1.875rem;
+
+  @media (min-width: 800px) {
+    font-size: 2.8rem;
+  }
 `;
 
 export const H3 = styled.h3`

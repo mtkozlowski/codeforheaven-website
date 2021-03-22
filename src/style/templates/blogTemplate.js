@@ -34,20 +34,29 @@ const Main = styled.main`
 `;
 
 export default function Template({ data }) {
-  const { mdx } = data;
-  const { frontmatter } = mdx;
+  const {
+    mdx: {
+      frontmatter: {
+        externalScriptsUrls,
+        facebookThumbnail,
+        description,
+        title,
+        slug,
+        date,
+      },
+      body,
+    },
+  } = data;
 
-  const externalScriptsUrls = frontmatter.externalScriptsUrls || [];
-  const facebookThumbnail =
-    (frontmatter.facebookThumbnail &&
-      frontmatter.facebookThumbnail.childImageSharp.fluid.src) ||
-    '';
+  const scripts = externalScriptsUrls || [];
+  const thumbnail =
+    (facebookThumbnail && facebookThumbnail.childImageSharp.fluid.src) || '';
   const myHelmetData = {
-    description: frontmatter.description,
-    externalScriptsUrls,
-    facebookThumbnail,
-    title: frontmatter.title,
-    slug: frontmatter.slug,
+    description: description,
+    externalScriptsUrls: scripts,
+    facebookThumbnail: thumbnail,
+    title: title,
+    slug: slug,
   };
 
   return (
@@ -58,12 +67,12 @@ export default function Template({ data }) {
           <header>
             <Box>
               <StyledLink to="/">Go to the home page</StyledLink>
-              <H1>{frontmatter.title}</H1>
-              <PostDateBlock>{frontmatter.date}</PostDateBlock>
+              <H1>{title}</H1>
+              <PostDateBlock>{date}</PostDateBlock>
             </Box>
           </header>
           <Main>
-            <MDXRenderer>{mdx.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </Main>
           <Contact />
         </Article>

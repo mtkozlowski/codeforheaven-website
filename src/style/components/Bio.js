@@ -7,7 +7,7 @@ import { H1 } from '../atoms/Headings';
 import { RegularSection } from '../organisms/Sections';
 
 const BioStyles = styled.div`
-  background-color: #f6f4f5;
+  background-color: #fafafa;
   margin-bottom: 6rem;
 `;
 
@@ -85,7 +85,11 @@ const Bio = () => {
       <RegularSection>
         <Container>
           <H1>Hi, I'm Mateusz</H1>
-          <p>Frontend Creator on his way to UX.</p>
+          <p>
+            By day UX in a Fan+ company.
+            <br />
+            By night - host of <em>Let me in UX</em> group.
+          </p>
           <Img fixed={myProfilePhoto.childImageSharp.fixed} />
         </Container>
       </RegularSection>

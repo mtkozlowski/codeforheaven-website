@@ -2,24 +2,19 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { H1, H2 } from '../atoms/Headings';
+import { H1 } from '../atoms/Headings';
 import StyledLink from '../atoms/StyledLink';
 
 import Layout from '../organisms/Layout';
-import RegularSection from '../organisms/RegularSection';
+import Contact from '../molecules/Contact';
+
+import { regularSectionCss } from '../organisms/Sections';
+
+import MyHelmet from '../components/MyHelmet';
+import Box, { boxPadding } from '../atoms/Box';
+import slugify from 'slugify';
 
 require('prismjs/themes/prism.css');
-
-const DivFlex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-
-  ${({ theme }) => theme.media.phone} {
-    /* flex-direction: column; */
-  }
-`;
 
 const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -27,59 +22,84 @@ const PostDateBlock = styled.p`
   letter-spacing: 0.2em;
   margin-left: auto;
   margin-top: 0.3em;
+  text-align: right;
+`;
+
+const Article = styled.article`
+  ${regularSectionCss}
+`;
+
+const Main = styled.main`
+  ${boxPadding}
 `;
 
 export default function Template({ data }) {
-  const { title, date, articleContent } = data.datoCmsArticle;
+  const {
+    title,
+    date,
+    articleContent,
+    featuredImage,
+    teaser,
+  } = data.datoCmsArticle;
+  const myHelmetData = {
+    description: teaser,
+    externalScriptsUrls: [],
+    facebookThumbnail: featuredImage,
+    title: title,
+    slug: slugify(title, { lower: true, strict: true }),
+  };
 
   return (
     <>
+      <MyHelmet data={myHelmetData} />
       <Layout>
-        <RegularSection>
-          <StyledLink to="/">Go to the home page</StyledLink>
-        </RegularSection>
-        <RegularSection>
-          <DivFlex>
-            <H2 as={H1}>{title}</H2>
-            <PostDateBlock>{date}</PostDateBlock>
-          </DivFlex>
+        <Article>
+          <header>
+            <Box>
+              <StyledLink to="/">Go to the home page</StyledLink>
+              <H1>{title}</H1>
+              <PostDateBlock>{date}</PostDateBlock>
+            </Box>
+          </header>
+          <Main>
+            {articleContent.map(item => {
+              const itemKey = Object.keys(item)[1];
 
-          {articleContent.map(item => {
-            const itemKey = Object.keys(item)[1];
-
-            switch (itemKey) {
-              case 'paragraphContent':
-                return (
-                  <MDXRenderer>
-                    {item.paragraphContentNode.childMdx.body}
-                  </MDXRenderer>
-                );
-              case 'codeContent':
-                return (
-                  <MDXRenderer>
-                    {item.codeContentNode.childMdx.body}
-                  </MDXRenderer>
-                );
-              case 'embeddedData':
-                return (
-                  <div className="youtubeIframeWrapper">
-                    <iframe
-                      width="756"
-                      height="425"
-                      src={`https://www.youtube.com/embed/${item[itemKey].providerUid}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                );
-              case 'headingContent':
-                return <h2>{item[itemKey]}</h2>;
-              default:
-                return null;
-            }
-          })}
-        </RegularSection>
+              switch (itemKey) {
+                case 'paragraphContent':
+                  return (
+                    <MDXRenderer>
+                      {item.paragraphContentNode.childMdx.body}
+                    </MDXRenderer>
+                  );
+                case 'codeContent':
+                  return (
+                    <MDXRenderer>
+                      {item.codeContentNode.childMdx.body}
+                    </MDXRenderer>
+                  );
+                case 'embeddedData':
+                  return (
+                    <div className="youtubeIframeWrapper">
+                      <iframe
+                        width="756"
+                        height="425"
+                        src={`https://www.youtube.com/embed/${item[itemKey].providerUid}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  );
+                case 'headingContent':
+                  return <h2>{item[itemKey]}</h2>;
+                default:
+                  return null;
+              }
+            })}
+          </Main>
+          <Contact />
+        </Article>
       </Layout>
     </>
   );
@@ -94,6 +114,7 @@ export const pageQuery = graphql`
           src
         }
       }
+      teaser
       title
       articleContent {
         ... on DatoCmsParagraph {

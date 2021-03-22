@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { boxPadding } from '../atoms/Box';
 import { H3 } from '../atoms/Headings';
 
 import LinkedInLogo from './LI-logo.png';
@@ -8,7 +9,7 @@ import TwitterLogo from './Twitter-logo.png';
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem 0;
+  ${boxPadding}
 
   h3 {
     margin-top: 1em;
