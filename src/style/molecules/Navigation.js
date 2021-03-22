@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { boxPadding } from "../atoms/Box"
-import { Button } from "../atoms/Buttons"
-import { regularSectionCss } from "../organisms/Sections"
+import React from 'react';
+import styled from 'styled-components';
+import { boxPadding } from '../atoms/Box';
+import { Button } from '../atoms/Buttons';
+import { regularSectionCss } from '../organisms/Sections';
 
-const Nav = styled.nav``
+const Nav = styled.nav``;
 
 const Menu = styled.ul`
   display: flex;
@@ -20,13 +20,13 @@ const Menu = styled.ul`
     margin-left: auto;
     margin-top: 1em;
   }
-`
+`;
 
 const MenuItem = styled.li`
   & + & {
     margin-top: 0;
   }
-`
+`;
 
 const Navigation = () => (
   <Nav>
@@ -45,6 +45,6 @@ const Navigation = () => (
       </MenuItem>
     </Menu>
   </Nav>
-)
+);
 
-export default Navigation
+export default Navigation;

@@ -1,5 +1,5 @@
-import { Link } from "gatsby"
-import styled from "styled-components"
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
   color: ${({ theme }) => theme.colors.dark};
@@ -40,6 +40,6 @@ const StyledLink = styled(Link)`
   &:hover {
     filter: contrast(100%) brightness(100%);
   }
-`
+`;
 
-export default StyledLink
+export default StyledLink;

@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import cloudSrc from "./code-for-heaven-cloud.png"
+import React from 'react';
+import styled from 'styled-components';
+import cloudSrc from './code-for-heaven-cloud.png';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -22,7 +22,7 @@ const StyledWrapper = styled.div`
             opacity: .7;
         }
     `}
-`
+`;
 
 const CloudPic = styled.img`
   position: absolute;
@@ -36,10 +36,10 @@ const CloudPic = styled.img`
     left: -100%;
     bottom: -95px;
   }
-`
+`;
 const Cloud = ({ atHome }) => (
   <StyledWrapper atHome={atHome}>
     <CloudPic src={cloudSrc} />
   </StyledWrapper>
-)
-export default Cloud
+);
+export default Cloud;

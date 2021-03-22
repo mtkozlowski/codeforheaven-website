@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
-import Navigation from "../molecules/Navigation"
-import ResettedLink from "../atoms/ResettedLink"
-import { RegularSection, regularSectionCss } from "./Sections"
-import { boxPadding } from "../atoms/Box"
+import Navigation from '../molecules/Navigation';
+import ResettedLink from '../atoms/ResettedLink';
+import { RegularSection, regularSectionCss } from './Sections';
+import { boxPadding } from '../atoms/Box';
 
 export const StyledHeader = styled.header`
   ${boxPadding}
@@ -15,18 +15,18 @@ export const StyledHeader = styled.header`
   align-items: center;
   ${regularSectionCss}
   ${boxPadding}
-`
+`;
 const PageHeader = styled.p`
   font-weight: 700;
-`
+`;
 
 const Header = () => (
   <StyledHeader>
     <PageHeader>
-      <ResettedLink to={"/"}>Code for Heaven</ResettedLink>
+      <ResettedLink to={'/'}>Code for Heaven</ResettedLink>
     </PageHeader>
     <Navigation />
   </StyledHeader>
-)
+);
 
-export default Header
+export default Header;

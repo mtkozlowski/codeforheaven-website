@@ -1,4 +1,4 @@
-require("dotenv").config()
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -78,8 +78,8 @@ module.exports = {
           `DM Sans\:400,700`,
           `DM Mono\:400,700`,
         ],
-        display: "swap",
+        display: 'swap',
       },
     },
   ],
-}
+};

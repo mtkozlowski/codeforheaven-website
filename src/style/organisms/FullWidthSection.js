@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const FullWidthSection = styled.section`
   width: 100%;
@@ -8,6 +8,6 @@ const FullWidthSection = styled.section`
   ${({ theme }) => theme.media.regularSection} {
     padding: 0 0.5rem;
   }
-`
+`;
 
-export default FullWidthSection
+export default FullWidthSection;

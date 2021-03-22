@@ -1,8 +1,8 @@
-import React from "react"
-import Layout from "../style/organisms/Layout"
-import { createGlobalStyle } from "styled-components"
-import { Helmet } from "react-helmet"
-import ContentPage from "../style/organisms/ContentPage"
+import React from 'react';
+import Layout from '../style/organisms/Layout';
+import { createGlobalStyle } from 'styled-components';
+import { Helmet } from 'react-helmet';
+import ContentPage from '../style/organisms/ContentPage';
 
 const GlobalStyle = createGlobalStyle`
   .content {
@@ -18,9 +18,9 @@ const GlobalStyle = createGlobalStyle`
   .content a {
     font-size: ${({ theme }) => theme.font.blogPostTeaserSize}
   }
-`
+`;
 
-const koledy = []
+const koledy = [];
 
 export default () => (
   <>
@@ -113,7 +113,7 @@ export default () => (
             </li>
             <li>
               <a href="https://www.polskatradycja.pl/piesni/koledy/487-jezu-sliczny-kwiecie.html">
-                Jezu, śliczy kwiecie{" "}
+                Jezu, śliczy kwiecie{' '}
               </a>
             </li>
             <li>
@@ -201,4 +201,4 @@ export default () => (
       </ContentPage>
     </Layout>
   </>
-)
+);

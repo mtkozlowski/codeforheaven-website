@@ -1,14 +1,14 @@
-import React from "react"
-import { graphql } from "gatsby"
-import styled from "styled-components"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, H2 } from "../atoms/Headings"
-import StyledLink from "../atoms/StyledLink"
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled from 'styled-components';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { H1, H2 } from '../atoms/Headings';
+import StyledLink from '../atoms/StyledLink';
 
-import Layout from "../organisms/Layout"
-import RegularSection from "../organisms/RegularSection"
+import Layout from '../organisms/Layout';
+import RegularSection from '../organisms/RegularSection';
 
-require("prismjs/themes/prism.css")
+require('prismjs/themes/prism.css');
 
 const DivFlex = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const DivFlex = styled.div`
   ${({ theme }) => theme.media.phone} {
     /* flex-direction: column; */
   }
-`
+`;
 
 const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -27,10 +27,10 @@ const PostDateBlock = styled.p`
   letter-spacing: 0.2em;
   margin-left: auto;
   margin-top: 0.3em;
-`
+`;
 
 export default function Template({ data }) {
-  const { title, date, articleContent } = data.datoCmsArticle
+  const { title, date, articleContent } = data.datoCmsArticle;
 
   return (
     <>
@@ -45,22 +45,22 @@ export default function Template({ data }) {
           </DivFlex>
 
           {articleContent.map(item => {
-            const itemKey = Object.keys(item)[1]
+            const itemKey = Object.keys(item)[1];
 
             switch (itemKey) {
-              case "paragraphContent":
+              case 'paragraphContent':
                 return (
                   <MDXRenderer>
                     {item.paragraphContentNode.childMdx.body}
                   </MDXRenderer>
-                )
-              case "codeContent":
+                );
+              case 'codeContent':
                 return (
                   <MDXRenderer>
                     {item.codeContentNode.childMdx.body}
                   </MDXRenderer>
-                )
-              case "embeddedData":
+                );
+              case 'embeddedData':
                 return (
                   <div className="youtubeIframeWrapper">
                     <iframe
@@ -72,17 +72,17 @@ export default function Template({ data }) {
                       allowFullScreen
                     ></iframe>
                   </div>
-                )
-              case "headingContent":
-                return <h2>{item[itemKey]}</h2>
+                );
+              case 'headingContent':
+                return <h2>{item[itemKey]}</h2>;
               default:
-                return null
+                return null;
             }
           })}
         </RegularSection>
       </Layout>
     </>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -136,4 +136,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

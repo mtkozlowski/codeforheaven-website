@@ -1,20 +1,20 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import { boxPadding } from "../atoms/Box"
-import { H1 } from "../atoms/Headings"
-import { RegularSection } from "../organisms/Sections"
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import { boxPadding } from '../atoms/Box';
+import { H1 } from '../atoms/Headings';
+import { RegularSection } from '../organisms/Sections';
 
 const BioStyles = styled.div`
   background-color: #f6f4f5;
   margin-bottom: 6rem;
-`
+`;
 
 const Img = styled(Image)`
   grid-area: picture;
   border-radius: 50%;
-`
+`;
 
 const Container = styled.div`
   display: grid;
@@ -22,10 +22,10 @@ const Container = styled.div`
   grid-gap: 1.3rem;
 
   grid-template-areas:
-    "picture . ."
-    "picture title title"
-    "picture text text"
-    "picture . .";
+    'picture . .'
+    'picture title title'
+    'picture text text'
+    'picture . .';
   align-items: center;
 
   ${boxPadding};
@@ -53,17 +53,17 @@ const Container = styled.div`
         auto
       );
     grid-template-areas:
-      ". picture breadcrumb breadcrumb . ."
-      ". name name name name ."
-      ". description description description description ."
-      ". . . . . ."
-      "links links links links links links";
+      '. picture breadcrumb breadcrumb . .'
+      '. name name name name .'
+      '. description description description description .'
+      '. . . . . .'
+      'links links links links links links';
     h1,
     p {
       padding-left: 0;
     }
   }
-`
+`;
 
 const Bio = () => {
   const { myProfilePhoto } = useStaticQuery(
@@ -78,7 +78,7 @@ const Bio = () => {
         }
       }
     `
-  )
+  );
 
   return (
     <BioStyles>
@@ -90,7 +90,7 @@ const Bio = () => {
         </Container>
       </RegularSection>
     </BioStyles>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;

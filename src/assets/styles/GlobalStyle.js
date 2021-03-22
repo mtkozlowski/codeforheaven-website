@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     *, *::before, *::after {box-sizing: border-box;}
@@ -84,6 +84,6 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
     }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

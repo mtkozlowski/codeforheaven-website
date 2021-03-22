@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { H3 } from "../../atoms/Headings"
+import styled from 'styled-components';
+import { H3 } from '../../atoms/Headings';
 
 const BlogTeaserTitle = styled(H3)`
   /* font-family: ${({ theme }) => theme.font.secondaryFamily}; */
@@ -13,6 +13,6 @@ const BlogTeaserTitle = styled(H3)`
   a {
     text-decoration: none;
   }
-`
+`;
 
-export default BlogTeaserTitle
+export default BlogTeaserTitle;

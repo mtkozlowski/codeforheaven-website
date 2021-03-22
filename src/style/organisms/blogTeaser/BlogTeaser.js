@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react';
+import styled from 'styled-components';
 
-import BlogTeaserTitle from "./BlogTeaserTitle"
-import BlogTeaserDateBlock from "./BlogTeaserDateBlock"
-import { Link } from "gatsby"
-import { boxPadding } from "../../atoms/Box"
+import BlogTeaserTitle from './BlogTeaserTitle';
+import BlogTeaserDateBlock from './BlogTeaserDateBlock';
+import { Link } from 'gatsby';
+import { boxPadding } from '../../atoms/Box';
 
 const BlogTeaserWrapper = styled.div`
   ${boxPadding}
@@ -23,7 +23,7 @@ const BlogTeaserWrapper = styled.div`
     box-shadow: 0px 1px 5px 0px hsl(0deg 0% 90%);
     border-bottom-width: 0px;
   }
-`
+`;
 
 const BlogTeaserText = styled.p`
   width: 100%;
@@ -49,11 +49,11 @@ const BlogTeaserText = styled.p`
       rgba(255, 255, 255, 1) 50%
     );
   }
-`
+`;
 
 const BlogTeaser = ({ teaserData, index }) => (
   <BlogTeaserWrapper>
-    <BlogTeaserTitle style={{ marginBottom: "0.3em" }}>
+    <BlogTeaserTitle style={{ marginBottom: '0.3em' }}>
       <Link to={teaserData.frontmatter.slug}>
         {teaserData.frontmatter.title}
       </Link>
@@ -61,6 +61,6 @@ const BlogTeaser = ({ teaserData, index }) => (
     <BlogTeaserDateBlock>{teaserData.frontmatter.date}</BlogTeaserDateBlock>
     <BlogTeaserText>{teaserData.frontmatter.description}</BlogTeaserText>
   </BlogTeaserWrapper>
-)
+);
 
-export default BlogTeaser
+export default BlogTeaser;

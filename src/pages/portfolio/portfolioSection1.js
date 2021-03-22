@@ -1,12 +1,12 @@
-import React from "react"
-import styled, { ThemeProvider } from "styled-components"
-import { theme } from "../../style/theme"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../../style/theme';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
 
-import { WideSection } from "../../style/organisms/Sections"
-import { H1 } from "../../style/atoms/Headings"
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import { WideSection } from '../../style/organisms/Sections';
+import { H1 } from '../../style/atoms/Headings';
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
 const Container = styled.div`
   display: grid;
@@ -16,11 +16,11 @@ const Container = styled.div`
       auto
     );
   grid-template-areas:
-    ". picture breadcrumb breadcrumb . ."
-    ". picture name name name ."
-    ". . description description description ."
-    ". . . . . ."
-    ". links links links links .";
+    '. picture breadcrumb breadcrumb . .'
+    '. picture name name name .'
+    '. . description description description .'
+    '. . . . . .'
+    '. links links links links .';
   align-items: center;
 
   h1,
@@ -36,17 +36,17 @@ const Container = styled.div`
         auto
       );
     grid-template-areas:
-      ". picture breadcrumb breadcrumb . ."
-      ". name name name name ."
-      ". description description description description ."
-      ". . . . . ."
-      "links links links links links links";
+      '. picture breadcrumb breadcrumb . .'
+      '. name name name name .'
+      '. description description description description .'
+      '. . . . . .'
+      'links links links links links links';
     h1,
     p {
       padding-left: 0;
     }
   }
-`
+`;
 
 const Links = styled.div`
   display: flex;
@@ -58,18 +58,18 @@ const Links = styled.div`
   ${({ theme }) => theme.media.phone} {
     padding: 0 0.5rem;
   }
-`
+`;
 
 const Img = styled(Image)`
   grid-area: picture;
   border-radius: 50%;
-`
+`;
 
-export default function PortfolioSection_1({ cvPdf,  }) {
+export default function PortfolioSection_1({ cvPdf }) {
   const { myProfilePhoto } = useStaticQuery(
     graphql`
       query {
-        myProfilePhoto: file(name: {eq: "myProfilePhoto"}) {
+        myProfilePhoto: file(name: { eq: "myProfilePhoto" }) {
           childImageSharp {
             fixed(width: 250) {
               ...GatsbyImageSharpFixed_withWebp
@@ -78,16 +78,16 @@ export default function PortfolioSection_1({ cvPdf,  }) {
         }
       }
     `
-  )
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <WideSection>
         <Container>
-          <H1 style={{ gridArea: "name", marginTop: "0", lineHeight: "1.1" }}>
+          <H1 style={{ gridArea: 'name', marginTop: '0', lineHeight: '1.1' }}>
             Nazywam się Mateusz Kozłowski
           </H1>
-          <p style={{ gridArea: "description" }}>
+          <p style={{ gridArea: 'description' }}>
             Tworzę szeroko rozumiany front-end
             <br />
             Lubię tworzyć świadome treści
@@ -107,16 +107,16 @@ export default function PortfolioSection_1({ cvPdf,  }) {
           <Links>
             <a
               href={cvPdf}
-              style={{ marginTop: "2rem", gridArea: "CV", textAlign: "center" }}
+              style={{ marginTop: '2rem', gridArea: 'CV', textAlign: 'center' }}
             >
               pobierz CV w PDF
             </a>
             <a
               href="#mainsection"
               style={{
-                marginTop: "2rem",
-                gridArea: "scrolldown",
-                textAlign: "center",
+                marginTop: '2rem',
+                gridArea: 'scrolldown',
+                textAlign: 'center',
               }}
             >
               kliknij, aby przewinąć w dół
@@ -125,9 +125,9 @@ export default function PortfolioSection_1({ cvPdf,  }) {
             <a
               href="mailto:mateusz@codeforheaven.com"
               style={{
-                marginTop: "2rem",
-                gridArea: "kontakt",
-                textAlign: "center",
+                marginTop: '2rem',
+                gridArea: 'kontakt',
+                textAlign: 'center',
               }}
             >
               E-mail
@@ -136,5 +136,5 @@ export default function PortfolioSection_1({ cvPdf,  }) {
         </Container>
       </WideSection>
     </ThemeProvider>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const RotatingSpan = styled.span`
   position: relative;
@@ -28,6 +28,6 @@ const RotatingSpan = styled.span`
       transform: rotateX(0);
     }
   }
-`
+`;
 
-export default RotatingSpan
+export default RotatingSpan;

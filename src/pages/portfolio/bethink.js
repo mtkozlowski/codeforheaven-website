@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import {
   centered,
@@ -9,23 +9,23 @@ import {
   flex,
   boxPadding,
   relativePosition,
-} from "../../style/organisms/Divs"
+} from '../../style/organisms/Divs';
 import {
   WideSection,
   NarrowSection,
   RegularSection,
-} from "../../style/organisms/Sections"
-import MyHelmet from "../../style/components/MyHelmet"
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
-import { theme } from "../../style/theme"
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { H2, H3, H4, H6 } from "../../style/atoms/Headings"
-import Footer from "../../style/organisms/Footer"
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+} from '../../style/organisms/Sections';
+import MyHelmet from '../../style/components/MyHelmet';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from '../../style/theme';
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { H2, H3, H4, H6 } from '../../style/atoms/Headings';
+import Footer from '../../style/organisms/Footer';
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
 const Main = styled.main`
   margin: 0;
-`
+`;
 
 const PortfolioStyle = createGlobalStyle`
   iframe {
@@ -53,7 +53,7 @@ const PortfolioStyle = createGlobalStyle`
     transform: translateX(-400%);
   }
 }
-`
+`;
 const SpeakBubble = styled.div`
   background-color: #ffffffaa;
   border-radius: 1rem;
@@ -65,7 +65,7 @@ const SpeakBubble = styled.div`
   margin-bottom: 1rem;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
@@ -91,7 +91,7 @@ const SpeakBubble = styled.div`
     width: 320px;
     margin: 0 calc(50% - 160px);
   }
-`
+`;
 
 const SpeakBubbleWrapper = styled.div`
   display: flex;
@@ -101,7 +101,7 @@ const SpeakBubbleWrapper = styled.div`
     overflow: hidden;
     padding-bottom: 20px;
   }
-`
+`;
 
 const SpeakBubbleAnimatedWrapper = styled.div`
   max-width: 100%;
@@ -116,7 +116,7 @@ const SpeakBubbleAnimatedWrapper = styled.div`
       animation-play-state: paused;
     }
   }
-`
+`;
 
 const PortfolioHomeSection = styled.div`
   ${flex}
@@ -149,7 +149,7 @@ const PortfolioHomeSection = styled.div`
   ${({ theme }) => theme.media.narrowSection} {
     flex-direction: column-reverse !important;
   }
-`
+`;
 
 const LogoWrapper = styled.div`
   ${col50}
@@ -158,7 +158,7 @@ const LogoWrapper = styled.div`
   ${centered}
 
   min-height: 260px;
-`
+`;
 
 const TextWrapper = styled.div`
   ${col50}
@@ -167,7 +167,7 @@ const TextWrapper = styled.div`
   ${({ theme }) => theme.media.narrowSection} {
     padding: 1rem;
   }
-`
+`;
 
 const GirlSvg = styled.img`
   order: 0;
@@ -176,7 +176,7 @@ const GirlSvg = styled.img`
   ${({ theme }) => theme.media.narrowSection} {
     display: none;
   }
-`
+`;
 
 const BoySvg = styled.img`
   order: 2;
@@ -185,17 +185,17 @@ const BoySvg = styled.img`
   ${({ theme }) => theme.media.narrowSection} {
     display: none;
   }
-`
+`;
 
 export default function Bethink({ data }) {
-  const { pracaKomiks, boySvg, girlSvg } = data
+  const { pracaKomiks, boySvg, girlSvg } = data;
   const myHelmetData = {
-    description: "",
-    domain: "https://codeforheaven.com",
+    description: '',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    title: "Bethink - Portfolio - Mateusz Kozłowski",
-    slug: "portfolio/bethink",
-  }
+    title: 'Bethink - Portfolio - Mateusz Kozłowski',
+    slug: 'portfolio/bethink',
+  };
 
   return (
     <>
@@ -204,11 +204,11 @@ export default function Bethink({ data }) {
         <GlobalStyle />
         <PortfolioStyle />
         <Main>
-          <div css={[centered]} style={{ backgroundColor: "#fafafa" }}>
+          <div css={[centered]} style={{ backgroundColor: '#fafafa' }}>
             <WideSection>
               <div css={[centered, viewportHigh]}>
                 <iframe
-                  style={{ order: 1, zIndex: 1, margin: "0 1rem" }}
+                  style={{ order: 1, zIndex: 1, margin: '0 1rem' }}
                   width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/ShFAt29f-ak"
@@ -216,14 +216,14 @@ export default function Bethink({ data }) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-                <GirlSvg src={girlSvg.publicURL} style={{ flexGrow: "1" }} />
-                <BoySvg src={boySvg.publicURL} style={{ flexGrow: "1" }} />
+                <GirlSvg src={girlSvg.publicURL} style={{ flexGrow: '1' }} />
+                <BoySvg src={boySvg.publicURL} style={{ flexGrow: '1' }} />
               </div>
             </WideSection>
           </div>
           <RegularSection>
             <div css={[boxPadding]}>
-              <p style={{ fontSize: "0.8rem" }}>
+              <p style={{ fontSize: '0.8rem' }}>
                 <em>
                   Transkrypcja wideo. <a href="#main-section">Przewiń w dół</a>
                 </em>
@@ -270,12 +270,12 @@ export default function Bethink({ data }) {
             </div>
           </RegularSection>
           <section id="main-section">
-            <PortfolioHomeSection style={{ background: "#ccc" }}>
-              <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
-                <img src={girlSvg.publicURL} style={{ flexGrow: "1" }} />
+            <PortfolioHomeSection style={{ background: '#ccc' }}>
+              <LogoWrapper style={{ backgroundColor: '#ffffffcc' }}>
+                <img src={girlSvg.publicURL} style={{ flexGrow: '1' }} />
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.667)' }}
               >
                 <SpeakBubbleWrapper>
                   <SpeakBubbleAnimatedWrapper>
@@ -302,12 +302,12 @@ export default function Bethink({ data }) {
             <section>
               <Img fluid={pracaKomiks.fluid} />
             </section>
-            <PortfolioHomeSection style={{ background: "rgb(224, 194, 174)" }}>
-              <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
-                <img src={boySvg.publicURL} style={{ flexGrow: "1" }} />
+            <PortfolioHomeSection style={{ background: 'rgb(224, 194, 174)' }}>
+              <LogoWrapper style={{ backgroundColor: '#ffffffcc' }}>
+                <img src={boySvg.publicURL} style={{ flexGrow: '1' }} />
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.667)' }}
               >
                 <SpeakBubbleWrapper>
                   <SpeakBubbleAnimatedWrapper>
@@ -337,14 +337,14 @@ export default function Bethink({ data }) {
             </PortfolioHomeSection>
           </section>
           <NarrowSection>
-            <H3 style={{ textAlign: "center", marginTop: "3rem" }}>
-              Zapraszam do mojego <Link to="/portfolio">portfolio</Link> oraz{" "}
+            <H3 style={{ textAlign: 'center', marginTop: '3rem' }}>
+              Zapraszam do mojego <Link to="/portfolio">portfolio</Link> oraz{' '}
               <a href="mailto:mateusz@codeforheaven.com">kontaktu</a>
             </H3>
           </NarrowSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -355,7 +355,7 @@ export default function Bethink({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -381,4 +381,4 @@ export const pageQuery = graphql`
       publicURL
     }
   }
-`
+`;

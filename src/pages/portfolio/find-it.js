@@ -1,37 +1,37 @@
-import React from "react"
-import { graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled, { ThemeProvider } from 'styled-components';
+import Img from 'gatsby-image';
 
-import { theme } from "../../style/theme"
+import { theme } from '../../style/theme';
 
-import { H1, H2, H3 } from "../../style/atoms/Headings"
-import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
+import { H1, H2, H3 } from '../../style/atoms/Headings';
+import ImageCaptionParagraph from '../../style/atoms/ImageCaptionParagraph';
 
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
-import MyHelmet from "../../style/components/MyHelmet"
+import MyHelmet from '../../style/components/MyHelmet';
 
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { StyledHeader } from "../../style/organisms/Header"
-import { RegularSection } from "../../style/organisms/Sections"
-import Footer from "../../style/organisms/Footer"
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { StyledHeader } from '../../style/organisms/Header';
+import { RegularSection } from '../../style/organisms/Sections';
+import Footer from '../../style/organisms/Footer';
 
 const Main = styled.main`
   margin-top: 2rem;
-`
+`;
 
 export default function FindIt({ data }) {
-  const { BriefStaraAppka, FindItBrief, Ankieta } = data
+  const { BriefStaraAppka, FindItBrief, Ankieta } = data;
 
   const myHelmetData = {
-    description: "Portfolio - Find.it - Mateusz Kozłowski",
-    domain: "https://codeforheaven.com",
+    description: 'Portfolio - Find.it - Mateusz Kozłowski',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    facebookThumbnail: "",
-    title: "Portfolio - Find.it - Mateusz Kozłowski",
-    slug: "portfolio/find-it",
-  }
+    facebookThumbnail: '',
+    title: 'Portfolio - Find.it - Mateusz Kozłowski',
+    slug: 'portfolio/find-it',
+  };
 
   return (
     <>
@@ -39,8 +39,8 @@ export default function FindIt({ data }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledHeader>
-          <H1 style={{ order: "2" }}>Projekt Find.it</H1>
-          <Breadcrumb style={{ order: "1", width: "100%", paddingLeft: "0" }}>
+          <H1 style={{ order: '2' }}>Projekt Find.it</H1>
+          <Breadcrumb style={{ order: '1', width: '100%', paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -72,7 +72,7 @@ export default function FindIt({ data }) {
             <H3>Ankieta</H3>
             <p>
               Po wstępnej dyskusji w naszym własnym gronie przyszedł czas na
-              poszerzenie horyzontów. Przygotowaliśmy{" "}
+              poszerzenie horyzontów. Przygotowaliśmy{' '}
               <a href="https://forms.gle/oQujStkvY6pJy89B8">ankietę</a> i
               rozesłaliśmy ją wśród znajomych oraz do grup gromadzących osoby z
               branży kreatywnej i informatycznej.
@@ -103,7 +103,7 @@ export default function FindIt({ data }) {
           </RegularSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -114,7 +114,7 @@ export default function FindIt({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -141,4 +141,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

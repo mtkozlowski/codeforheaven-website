@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 export const Breadcrumb = styled.ol`
   grid-area: breadcrumb;
@@ -9,7 +9,7 @@ export const Breadcrumb = styled.ol`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: table;
   }
 
@@ -21,11 +21,11 @@ export const Breadcrumb = styled.ol`
   }
 
   li + li:before {
-    content: ">";
+    content: '>';
     font-weight: 700;
     margin-right: 0.2rem;
   }
-`
+`;
 
 export const CrumbLink = styled(Link)`
   display: inline-block;
@@ -33,4 +33,4 @@ export const CrumbLink = styled(Link)`
   padding: 0.3rem 0.5rem 0.2rem;
   background-color: #eee;
   border-radius: 0.3rem;
-`
+`;

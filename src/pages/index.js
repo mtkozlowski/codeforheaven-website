@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react"
-import { graphql } from "gatsby"
-import Layout from "../style/organisms/Layout"
+import React, { useState, useEffect } from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../style/organisms/Layout';
 
-import { RegularSection } from "../style/organisms/Sections"
-import BlogTeaser from "../style/organisms/blogTeaser/BlogTeaser"
-import MyHelmet from "../style/components/MyHelmet"
-import Bio from "../style/components/Bio"
+import { RegularSection } from '../style/organisms/Sections';
+import BlogTeaser from '../style/organisms/blogTeaser/BlogTeaser';
+import MyHelmet from '../style/components/MyHelmet';
+import Bio from '../style/components/Bio';
 
 const IndexPage = ({
   data: {
@@ -15,13 +15,13 @@ const IndexPage = ({
 }) => {
   const Posts = edges.map((edge, index) => (
     <BlogTeaser key={edge.node.id} teaserData={edge.node} index={index} />
-  ))
+  ));
 
   const myHelmetData = {
-    description: "Front-end Creator on his way to UX.",
+    description: 'Front-end Creator on his way to UX.',
     facebookThumbnail: childImageSharp.fixed.src,
-    title: "UX & Front end",
-  }
+    title: 'UX & Front end',
+  };
 
   return (
     <>
@@ -31,10 +31,10 @@ const IndexPage = ({
         <RegularSection>{Posts}</RegularSection>
       </Layout>
     </>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const pageQuery = graphql`
   query {
@@ -62,4 +62,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

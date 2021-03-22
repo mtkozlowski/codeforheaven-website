@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const ContentPage = styled.div`
   display: grid;
@@ -10,9 +10,9 @@ const ContentPage = styled.div`
   grid-template-rows: 100px auto 100px;
 
   grid-template-areas:
-    ". . iconsWaterfall"
-    ". content iconsWaterfall"
-    ". . iconsWaterfall";
+    '. . iconsWaterfall'
+    '. content iconsWaterfall'
+    '. . iconsWaterfall';
 
   @media (max-width: ${({ theme }) => theme.responsive.tablet}) {
     grid-template-columns: 0 minmax(auto, 924px) minmax(auto, 100px);
@@ -22,6 +22,6 @@ const ContentPage = styled.div`
   @media (max-width: ${({ theme }) => theme.responsive.tabletVertical}) {
     grid-template-columns: 0 1fr 0;
   }
-`
+`;
 
-export default ContentPage
+export default ContentPage;

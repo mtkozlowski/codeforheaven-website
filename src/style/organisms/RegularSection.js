@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const RegularSection = styled.section`
   width: ${({ theme }) => theme.regularSection};
@@ -8,6 +8,6 @@ const RegularSection = styled.section`
   ${({ theme }) => theme.media.regularSection} {
     padding: 0 0.5rem;
   }
-`
+`;
 
-export default RegularSection
+export default RegularSection;

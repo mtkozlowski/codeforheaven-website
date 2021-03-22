@@ -1,39 +1,39 @@
 /* eslint-disable react/prop-types */
-import React from "react"
-import { graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
-import Img from "gatsby-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled, { ThemeProvider } from 'styled-components';
+import Img from 'gatsby-image';
 
-import { theme } from "../../style/theme"
+import { theme } from '../../style/theme';
 
-import { H1, H3, H4 } from "../../style/atoms/Headings"
-import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
+import { H1, H3, H4 } from '../../style/atoms/Headings';
+import ImageCaptionParagraph from '../../style/atoms/ImageCaptionParagraph';
 
-import MyHelmet from "../../style/components/MyHelmet"
+import MyHelmet from '../../style/components/MyHelmet';
 
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { RegularSection } from "../../style/organisms/Sections"
-import { StyledHeader } from "../../style/organisms/Header"
-import Footer from "../../style/organisms/Footer"
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { RegularSection } from '../../style/organisms/Sections';
+import { StyledHeader } from '../../style/organisms/Header';
+import Footer from '../../style/organisms/Footer';
 
-const Main = styled.main``
+const Main = styled.main``;
 
 const Callout = styled.p`
   background-color: #f9f9fa;
   padding: 2rem;
-`
+`;
 
 const FourImagesContainer = styled.div`
   background-color: #fafafa;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
-    "drafts"
-    "draft"
-    "suggestions"
-    "result";
+    'drafts'
+    'draft'
+    'suggestions'
+    'result';
   grid-gap: 0.6rem;
   margin-top: 1rem;
   padding: 0.6rem;
@@ -43,11 +43,11 @@ const FourImagesContainer = styled.div`
   ${({ theme }) => theme.media.minPhone} {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "drafts draft"
-      "drafts suggestions"
-      "result result";
+      'drafts draft'
+      'drafts suggestions'
+      'result result';
   }
-`
+`;
 
 const TwoVideosContainer = styled.div`
   display: grid;
@@ -62,7 +62,7 @@ const TwoVideosContainer = styled.div`
   ${({ theme }) => theme.media.minRegularSection} {
     grid-template-columns: 1fr 1fr;
   }
-`
+`;
 
 export default function Teamaton({ data }) {
   const {
@@ -81,16 +81,16 @@ export default function Teamaton({ data }) {
     CssGIFMP4,
     photoUploadWebM,
     photoUploadMP4,
-  } = data
+  } = data;
 
   const myHelmetData = {
-    description: "Portfolio - Teamaton - Mateusz Kozłowski",
-    domain: "https://codeforheaven.com",
+    description: 'Portfolio - Teamaton - Mateusz Kozłowski',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    facebookThumbnail: "",
-    title: "Portfolio - Teamaton - Mateusz Kozłowski",
-    slug: "portfolio/teamaton",
-  }
+    facebookThumbnail: '',
+    title: 'Portfolio - Teamaton - Mateusz Kozłowski',
+    slug: 'portfolio/teamaton',
+  };
 
   return (
     <>
@@ -98,8 +98,8 @@ export default function Teamaton({ data }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledHeader>
-          <H1 style={{ order: "2" }}>Teamaton</H1>
-          <Breadcrumb style={{ order: "1", width: "100%", paddingLeft: "0" }}>
+          <H1 style={{ order: '2' }}>Teamaton</H1>
+          <Breadcrumb style={{ order: '1', width: '100%', paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -111,9 +111,9 @@ export default function Teamaton({ data }) {
         <Main>
           <RegularSection>
             <Callout>
-              <img src={lightbulb.publicURL} />{" "}
+              <img src={lightbulb.publicURL} />{' '}
               <i>
-                Firma Teamaton tworzy aplikację pod nazwą{" "}
+                Firma Teamaton tworzy aplikację pod nazwą{' '}
                 <a href="//discoverize.com">Discoverize</a>. Pozwala ona
                 użytkownikowi stworzyć portal dowolnego rodzaju i dziedziny.
               </i>
@@ -137,7 +137,7 @@ export default function Teamaton({ data }) {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%" }}
+                  style={{ width: '100%' }}
                 >
                   <source src={dashboardWebM.publicURL} type="video/webm" />
                   <source src={dashboardMP4.publicURL} type="video/mp4" />
@@ -150,7 +150,7 @@ export default function Teamaton({ data }) {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%" }}
+                  style={{ width: '100%' }}
                 >
                   <source src={photoUploadWebM.publicURL} type="video/webm" />
                   <source src={photoUploadMP4.publicURL} type="video/mp4" />
@@ -187,10 +187,10 @@ export default function Teamaton({ data }) {
                 muted
                 playsInline
                 style={{
-                  maxWidth: "600px",
-                  width: "100%",
-                  display: "block",
-                  margin: "0 auto",
+                  maxWidth: '600px',
+                  width: '100%',
+                  display: 'block',
+                  margin: '0 auto',
                 }}
               >
                 <source src={fileSizesWebM.publicURL} type="video/webm" />
@@ -233,10 +233,10 @@ export default function Teamaton({ data }) {
                 muted
                 playsInline
                 style={{
-                  maxWidth: "600px",
-                  width: "100%",
-                  display: "block",
-                  margin: "0 auto",
+                  maxWidth: '600px',
+                  width: '100%',
+                  display: 'block',
+                  margin: '0 auto',
                 }}
               >
                 <source src={CssGIFWebM.publicURL} type="video/webm" />
@@ -287,19 +287,19 @@ export default function Teamaton({ data }) {
               </li>
             </ul>
             <FourImagesContainer>
-              <div style={{ gridArea: "drafts" }}>
+              <div style={{ gridArea: 'drafts' }}>
                 <Img fluid={CoronaDrafts2.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div style={{ gridArea: "draft" }}>
+              <div style={{ gridArea: 'draft' }}>
                 <Img fluid={CoronaDrafts.fluid} />
                 <span>Szkice do nowego logo</span>
               </div>
-              <div style={{ gridArea: "suggestions" }}>
+              <div style={{ gridArea: 'suggestions' }}>
                 <Img fluid={CoronaLogos.fluid} />
                 <span>Propozycje przesłane do klienta</span>
               </div>
-              <div style={{ gridArea: "result" }}>
+              <div style={{ gridArea: 'result' }}>
                 <Img fluid={CoronaHomepage.fluid} />
                 <span>Projekt strony głównej portalu Corona Helden</span>
               </div>
@@ -309,7 +309,7 @@ export default function Teamaton({ data }) {
               W miarę upływu czasu dokładałem starań, aby wygląd portali nie
               odbiegał zbyt daleko od współczesnych standardów. Jednocześnie nie
               wszyscy właściciele portali chcieli aktualizacji wyglądu.
-              Doprowadziło to do sytuacji, w której tzw. <em>mini search</em>{" "}
+              Doprowadziło to do sytuacji, w której tzw. <em>mini search</em>{' '}
               był dostępny w 5 różnych wzorach. Back end renderował ten element
               w tej samej strukturze HTML i tym samym zestawem klas CSS. Było to
               ograniczenie, którego mówiąc kolokwialnie developerzy nie byli w
@@ -352,7 +352,7 @@ export default function Teamaton({ data }) {
               Po analizie zastanej sytuacji, zdecydowałem że pierwszym krokiem
               będzie refaktoryzacja struktury HTMLu. Zależało mi na tym, aby
               blok wyszukiwania wyglądał znośnie nawet wtedy, gdy nie załadują
-              się style. Chciałem, żeby Flexbox i CSS Grid były tzw.{" "}
+              się style. Chciałem, żeby Flexbox i CSS Grid były tzw.{' '}
               <em>progressive enhancement</em>, a nie rdzeniem układu. Niektóre
               elementy tych technologii nie były wówczas wspierane przez
               Internet Explorera 11, którego używała znaczna część naszych
@@ -391,8 +391,8 @@ export default function Teamaton({ data }) {
             <p>
               <em>Last, but not least.</em> Moją wielką pasją jest nauka nowych
               rzeczy. Najbardziej lubię uczyć się, próbując opowiedzieć o tych
-              nowych treściach innnym. Stąd też inne moje projekty, jak{" "}
-              <a href="//codeforheaven.com">blog</a>, czy{" "}
+              nowych treściach innnym. Stąd też inne moje projekty, jak{' '}
+              <a href="//codeforheaven.com">blog</a>, czy{' '}
               <a href="//letmeinux.com">podcast</a>. Do tego celu czasami
               wykorzystuję sketchnoting, nadając graficzny wymiar tekstowym
               treściom. Poniżej znajduje się przykład jednej z takich notatek,
@@ -405,7 +405,7 @@ export default function Teamaton({ data }) {
           </RegularSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -416,7 +416,7 @@ export default function Teamaton({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -513,4 +513,4 @@ export const pageQuery = graphql`
       publicURL
     }
   }
-`
+`;

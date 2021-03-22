@@ -1,34 +1,34 @@
-import React from "react"
-import styled, { ThemeProvider } from "styled-components"
-import { graphql } from "gatsby"
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { graphql } from 'gatsby';
 
-import { theme } from "../../style/theme"
+import { theme } from '../../style/theme';
 
-import { H1, H2, H3, H5 } from "../../style/atoms/Headings"
-import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
+import { H1, H2, H3, H5 } from '../../style/atoms/Headings';
+import ImageCaptionParagraph from '../../style/atoms/ImageCaptionParagraph';
 
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
-import MyHelmet from "../../style/components/MyHelmet"
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
+import MyHelmet from '../../style/components/MyHelmet';
 
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { StyledHeader } from "../../style/organisms/Header"
-import { RegularSection } from "../../style/organisms/Sections"
-import Footer from "../../style/organisms/Footer"
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { StyledHeader } from '../../style/organisms/Header';
+import { RegularSection } from '../../style/organisms/Sections';
+import Footer from '../../style/organisms/Footer';
 
 const Main = styled.main`
   margin-top: 2rem;
-`
+`;
 
 export default function SzukajSlowa({ data }) {
-  const { szukajSlowaWebM, szukajSlowaMP4 } = data
+  const { szukajSlowaWebM, szukajSlowaMP4 } = data;
   const myHelmetData = {
-    description: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
-    domain: "https://codeforheaven.com",
+    description: 'Portfolio - Szukaj Slowa - Mateusz Kozłowski',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    facebookThumbnail: "",
-    title: "Portfolio - Szukaj Slowa - Mateusz Kozłowski",
-    slug: "portfolio/szukaj-slowa",
-  }
+    facebookThumbnail: '',
+    title: 'Portfolio - Szukaj Slowa - Mateusz Kozłowski',
+    slug: 'portfolio/szukaj-slowa',
+  };
 
   return (
     <>
@@ -36,8 +36,8 @@ export default function SzukajSlowa({ data }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledHeader>
-          <H1 style={{ order: "2" }}>Aplikacja Szukaj Słowa</H1>
-          <Breadcrumb style={{ order: "1", width: "100%", paddingLeft: "0" }}>
+          <H1 style={{ order: '2' }}>Aplikacja Szukaj Słowa</H1>
+          <Breadcrumb style={{ order: '1', width: '100%', paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -101,10 +101,10 @@ export default function SzukajSlowa({ data }) {
                 muted
                 playsInline
                 style={{
-                  maxWidth: "600px",
-                  display: "block",
-                  margin: "0 auto",
-                  width: "100%",
+                  maxWidth: '600px',
+                  display: 'block',
+                  margin: '0 auto',
+                  width: '100%',
                 }}
               >
                 <source src={szukajSlowaWebM.publicURL} type="video/webm" />
@@ -171,7 +171,7 @@ export default function SzukajSlowa({ data }) {
           </RegularSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -182,7 +182,7 @@ export default function SzukajSlowa({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const query = graphql`
@@ -200,4 +200,4 @@ export const query = graphql`
       publicURL
     }
   }
-`
+`;

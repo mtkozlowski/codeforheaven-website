@@ -1,24 +1,24 @@
-import React from "react"
-import styled, { ThemeProvider } from "styled-components"
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-import { theme } from "../../style/theme"
+import { theme } from '../../style/theme';
 
-import { H1 } from "../../style/atoms/Headings"
-import ImageCaptionParagraph from "../../style/atoms/ImageCaptionParagraph"
-import MyHelmet from "../../style/components/MyHelmet"
+import { H1 } from '../../style/atoms/Headings';
+import ImageCaptionParagraph from '../../style/atoms/ImageCaptionParagraph';
+import MyHelmet from '../../style/components/MyHelmet';
 
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { StyledHeader } from "../../style/organisms/Header"
-import { RegularSection, WideSection } from "../../style/organisms/Sections"
-import Footer from "../../style/organisms/Footer"
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { StyledHeader } from '../../style/organisms/Header';
+import { RegularSection, WideSection } from '../../style/organisms/Sections';
+import Footer from '../../style/organisms/Footer';
 
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby';
 
 const Main = styled.main`
   margin-top: 2rem;
-`
+`;
 
 const EpisodesContainer = styled.div`
   margin-top: 1rem;
@@ -33,12 +33,12 @@ const EpisodesContainer = styled.div`
   ${({ theme }) => theme.media.minRegularSection} {
     grid-template-columns: 1fr 1fr 1fr;
   }
-`
+`;
 
 const EpisodeImg = styled.img`
   max-width: 100%;
   min-width: 230px;
-`
+`;
 
 export default function LetMeInUX({ data }) {
   const {
@@ -50,15 +50,15 @@ export default function LetMeInUX({ data }) {
     episode09,
     podsumowanieWarsztatow,
     naszeTwarze,
-  } = data
+  } = data;
   const myHelmetData = {
-    description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    domain: "https://codeforheaven.com",
+    description: 'Portfolio - Lednica2000 - Mateusz Kozłowski',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    facebookThumbnail: "",
-    title: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    slug: "portfolio/lednica",
-  }
+    facebookThumbnail: '',
+    title: 'Portfolio - Lednica2000 - Mateusz Kozłowski',
+    slug: 'portfolio/lednica',
+  };
 
   return (
     <>
@@ -66,8 +66,8 @@ export default function LetMeInUX({ data }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledHeader>
-          <H1 style={{ order: "2" }}>Podcast Let me in UX</H1>
-          <Breadcrumb style={{ order: "1", width: "100%", paddingLeft: "0" }}>
+          <H1 style={{ order: '2' }}>Podcast Let me in UX</H1>
+          <Breadcrumb style={{ order: '1', width: '100%', paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -107,7 +107,7 @@ export default function LetMeInUX({ data }) {
             </p>
             <p>
               Prowadząc podcast realizuję swoje redaktorskie marzenia. W audycji
-              pełnię rolę głównego gospodarza.{" "}
+              pełnię rolę głównego gospodarza.{' '}
             </p>
           </RegularSection>
           <WideSection>
@@ -138,7 +138,7 @@ export default function LetMeInUX({ data }) {
           </WideSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -149,7 +149,7 @@ export default function LetMeInUX({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const query = graphql`
@@ -181,4 +181,4 @@ export const query = graphql`
       publicURL
     }
   }
-`
+`;

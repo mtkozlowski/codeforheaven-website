@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const NarrowSection = styled.section`
   width: ${({ theme }) => theme.narrowSection};
@@ -8,6 +8,6 @@ const NarrowSection = styled.section`
   ${({ theme }) => theme.media.narrowSection} {
     padding: 0 0.5rem;
   }
-`
+`;
 
-export default NarrowSection
+export default NarrowSection;

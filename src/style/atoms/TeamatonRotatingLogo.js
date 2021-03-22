@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const TeamatonRotatingLogo = styled.div`
   width: 80%;
@@ -16,6 +16,6 @@ const TeamatonRotatingLogo = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
-export default TeamatonRotatingLogo
+export default TeamatonRotatingLogo;

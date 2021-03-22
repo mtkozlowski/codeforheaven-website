@@ -1,33 +1,33 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 import {
   RegularSection,
   FullWidthSection,
-} from "../../style/organisms/Sections"
-import MyHelmet from "../../style/components/MyHelmet"
-import styled, { ThemeProvider } from "styled-components"
-import { theme } from "../../style/theme"
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import { StyledHeader } from "../../style/organisms/Header"
-import { H1, H2 } from "../../style/atoms/Headings"
-import Img from "gatsby-image"
-import Footer from "../../style/organisms/Footer"
+} from '../../style/organisms/Sections';
+import MyHelmet from '../../style/components/MyHelmet';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../../style/theme';
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import { StyledHeader } from '../../style/organisms/Header';
+import { H1, H2 } from '../../style/atoms/Headings';
+import Img from 'gatsby-image';
+import Footer from '../../style/organisms/Footer';
 
-import { Breadcrumb, CrumbLink } from "../../style/molecules/Breadcrumb"
+import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
 const Main = styled.main`
   margin-top: 2rem;
-`
+`;
 
 const Testimony = styled.div`
   background-color: #f1f7f1;
   padding: 1rem;
   border: 1px solid #e7f1e7;
   margin-top: 1rem;
-`
+`;
 
 const FourImagesContainer = styled.div`
-  background-color: "#fafafa";
+  background-color: '#fafafa';
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 0.6rem;
@@ -38,7 +38,7 @@ const FourImagesContainer = styled.div`
   ${({ theme }) => theme.media.phone} {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 const WorkshopPhotosContainer = styled.div`
   display: grid;
@@ -51,7 +51,7 @@ const WorkshopPhotosContainer = styled.div`
   ${({ theme }) => theme.media.phone} {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 export default function Lednica({ data }) {
   const {
@@ -64,16 +64,16 @@ export default function Lednica({ data }) {
     FilmCrew3,
     FilmCrew4,
     WspolpracaLednica,
-  } = data
+  } = data;
 
   const myHelmetData = {
-    description: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    domain: "https://codeforheaven.com",
+    description: 'Portfolio - Lednica2000 - Mateusz Kozłowski',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
-    facebookThumbnail: "",
-    title: "Portfolio - Lednica2000 - Mateusz Kozłowski",
-    slug: "portfolio/lednica",
-  }
+    facebookThumbnail: '',
+    title: 'Portfolio - Lednica2000 - Mateusz Kozłowski',
+    slug: 'portfolio/lednica',
+  };
 
   return (
     <>
@@ -81,8 +81,8 @@ export default function Lednica({ data }) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledHeader>
-          <H1 style={{ order: "2" }}>Lednica2000</H1>
-          <Breadcrumb style={{ order: "1", width: "100%", paddingLeft: "0" }}>
+          <H1 style={{ order: '2' }}>Lednica2000</H1>
+          <Breadcrumb style={{ order: '1', width: '100%', paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -96,7 +96,7 @@ export default function Lednica({ data }) {
             <Img fluid={Lednica01.fluid} />
           </FullWidthSection>
           <RegularSection>
-            <p style={{ marginTop: "1rem" }}>
+            <p style={{ marginTop: '1rem' }}>
               Przez lata włożyłem bardzo dużo serca w rozwój i organizację
               spotkań, które co roku gromadzą dziesiątki tysięcy młodych osób.
               Na studiach, razem z kolegą otworzyliśmy Grupę Promocji na
@@ -120,7 +120,7 @@ export default function Lednica({ data }) {
                   do końca. Współpraca z Mateuszem była zawsze bardzo owocna.
                 </em>
               </p>
-              <p style={{ textAlign: "right", fontSize: "0.8rem" }}>
+              <p style={{ textAlign: 'right', fontSize: '0.8rem' }}>
                 Dominika Chylewska
                 <br />
                 Koordynatorka Biura Prasowego w latach 2016 - 2017
@@ -205,7 +205,7 @@ export default function Lednica({ data }) {
             </p>
 
             <WorkshopPhotosContainer>
-              <div style={{ gridRow: "1 / 3" }}>
+              <div style={{ gridRow: '1 / 3' }}>
                 <Img fluid={Warsztaty1.fluid} />
                 <span>Warsztaty dot. strategii w Social Media</span>
               </div>
@@ -220,7 +220,7 @@ export default function Lednica({ data }) {
             </WorkshopPhotosContainer>
 
             <p>
-              Nieco więcej o tym warsztacie opowiadam{" "}
+              Nieco więcej o tym warsztacie opowiadam{' '}
               <a href="https://letmeinux.com/design-thinking-prawdziwe-historie">
                 w piątym odcinku podcastu LET ME IN UX
               </a>
@@ -231,7 +231,7 @@ export default function Lednica({ data }) {
               Wsparcie techniczne nowo powstającej strony internetowej
             </H2>
             <p>
-              W połowie bieżącego roku zespół pracujący nad nową stroną{" "}
+              W połowie bieżącego roku zespół pracujący nad nową stroną{' '}
               <a href="//lednica2000.pl">Lednica2000.pl</a> poprosił mnie o
               wsparcie i pomoc związane ze stackiem technologicznym, który
               chcieli wybrać. Byli zainteresowanie wykorzystaniem generatora
@@ -243,7 +243,7 @@ export default function Lednica({ data }) {
           </RegularSection>
         </Main>
         <Footer>
-          <Breadcrumb style={{ paddingLeft: "0" }}>
+          <Breadcrumb style={{ paddingLeft: '0' }}>
             <li>
               <CrumbLink to="/portfolio">Portfolio</CrumbLink>
             </li>
@@ -254,7 +254,7 @@ export default function Lednica({ data }) {
         </Footer>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -326,4 +326,4 @@ export const pageQuery = graphql`
       publicURL
     }
   }
-`
+`;

@@ -1,12 +1,12 @@
-import React from "react"
-import styled, { ThemeProvider } from "styled-components"
-import { theme } from "../theme"
-import GlobalStyle from "../../assets/styles/GlobalStyle"
-import Header from "./Header"
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../theme';
+import GlobalStyle from '../../assets/styles/GlobalStyle';
+import Header from './Header';
 
 const Main = styled.main`
   margin-top: 2rem;
-`
+`;
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
@@ -16,6 +16,6 @@ const Layout = ({ children }) => (
       <Main>{children}</Main>
     </>
   </ThemeProvider>
-)
+);
 
-export default Layout
+export default Layout;

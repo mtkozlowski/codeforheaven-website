@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { H3 } from "../atoms/Headings"
+import React from 'react';
+import styled from 'styled-components';
+import { H3 } from '../atoms/Headings';
 
-import LinkedInLogo from "./LI-logo.png"
-import TwitterLogo from "./Twitter-logo.png"
+import LinkedInLogo from './LI-logo.png';
+import TwitterLogo from './Twitter-logo.png';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     margin-top: 1em;
     width: 100%;
   }
-`
+`;
 
 export const LinkedInLink = styled.a`
   background-image: url(${LinkedInLogo});
@@ -32,7 +32,7 @@ export const LinkedInLink = styled.a`
   &:hover {
     transform: scale(1.1);
   }
-`
+`;
 
 export const TwitterLink = styled.a`
   background-image: url(${TwitterLogo});
@@ -49,7 +49,7 @@ export const TwitterLink = styled.a`
   &:hover {
     transform: scale(1.1);
   }
-`
+`;
 
 const Contact = () => (
   <Wrapper>
@@ -59,6 +59,6 @@ const Contact = () => (
     </LinkedInLink>
     <TwitterLink href="//twitter.com/mtKozlowski">Twitter</TwitterLink>
   </Wrapper>
-)
+);
 
-export default Contact
+export default Contact;

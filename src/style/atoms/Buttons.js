@@ -1,5 +1,5 @@
-import { Link } from "gatsby"
-import styled from "styled-components"
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 export const Button = styled(Link)`
   display: inline-block;
@@ -14,9 +14,9 @@ export const Button = styled(Link)`
   ${({ theme }) => theme.media.phone} {
     margin-top: 0 !important;
   }
-`
+`;
 
 export const LargeButton = styled(Button)`
   font-size: 1.4em;
   padding: 0.3em 1em;
-`
+`;

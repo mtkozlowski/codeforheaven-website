@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 
 import {
   centered,
@@ -8,28 +8,28 @@ import {
   flex,
   boxPadding,
   relativePosition,
-} from "../style/organisms/Divs"
-import MyHelmet from "../style/components/MyHelmet"
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
-import { theme } from "../style/theme"
-import GlobalStyle from "../assets/styles/GlobalStyle"
-import ResettedLink from "../style/atoms/ResettedLink"
-import { H2, H3, H6 } from "../style/atoms/Headings"
-import TeamatonRotatingLogo from "../style/atoms/TeamatonRotatingLogo"
+} from '../style/organisms/Divs';
+import MyHelmet from '../style/components/MyHelmet';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from '../style/theme';
+import GlobalStyle from '../assets/styles/GlobalStyle';
+import ResettedLink from '../style/atoms/ResettedLink';
+import { H2, H3, H6 } from '../style/atoms/Headings';
+import TeamatonRotatingLogo from '../style/atoms/TeamatonRotatingLogo';
 
-import BadgesBelt from "../components/BadgesBelt/BadgesBelt"
+import BadgesBelt from '../components/BadgesBelt/BadgesBelt';
 
-import PortfolioSection_1 from "./portfolio/portfolioSection1"
+import PortfolioSection_1 from './portfolio/portfolioSection1';
 
 const Main = styled.main`
   margin: 0;
-`
+`;
 
 const PortfolioStyle = createGlobalStyle`
   iframe {
     max-width: 560px;
   }
-`
+`;
 
 const PortfolioHomeSection = styled.div`
   ${flex}
@@ -41,7 +41,7 @@ const PortfolioHomeSection = styled.div`
   ${({ theme }) => theme.media.narrowSection} {
     display: block;
   }
-`
+`;
 
 const LogoWrapper = styled.div`
   ${col50}
@@ -50,17 +50,17 @@ const LogoWrapper = styled.div`
   ${centered}
 
   min-height: 260px;
-`
+`;
 
 const TextWrapper = styled.div`
   ${col50}
   ${boxPadding}
-`
+`;
 
 const LearnMoreLink = styled(Link)`
   margin-top: 1rem;
   display: block;
-`
+`;
 
 export default function Portfolio({ data }) {
   const {
@@ -71,16 +71,16 @@ export default function Portfolio({ data }) {
     teamaton02,
     lmiux,
     findIt,
-  } = data
+  } = data;
   const myHelmetData = {
     description:
-      "Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.",
-    domain: "https://codeforheaven.com",
+      'Czy normalny misjonarz z bródką może zostać... projektantem User Experience? Ostatnie kilka lat to najpierw misje w Nowej Zelandii, a następnie praca w world wide webie - żeby pozostać mobilnym i robić ciekawe rzeczy. Obecny rok to czas szkoleń w Porozumieniu bez przemocy oraz powrót na studia z psychologii. Wreszcie ostanie dwa miesiące, to pierwsze kroki w user experience.',
+    domain: 'https://codeforheaven.com',
     externalScriptsUrls: [],
     facebookThumbnail: facebookThumbnail.publicURL,
-    title: "Portfolio - Mateusz Kozłowski",
-    slug: "portfolio",
-  }
+    title: 'Portfolio - Mateusz Kozłowski',
+    slug: 'portfolio',
+  };
   return (
     <>
       <MyHelmet data={myHelmetData} />
@@ -90,14 +90,12 @@ export default function Portfolio({ data }) {
         <Main>
           <div
             css={[centered, viewportHigh]}
-            style={{ backgroundColor: "#fafafa" }}
+            style={{ backgroundColor: '#fafafa' }}
           >
-            <PortfolioSection_1
-              cvPdf={CvPdf.publicURL}
-            />
+            <PortfolioSection_1 cvPdf={CvPdf.publicURL} />
           </div>
           <div id="mainsection">
-            <p style={{ textAlign: "center", padding: "1rem 0" }}>
+            <p style={{ textAlign: 'center', padding: '1rem 0' }}>
               <iframe
                 width="100%"
                 height="315"
@@ -110,20 +108,20 @@ export default function Portfolio({ data }) {
           </div>
           <section>
             <BadgesBelt />
-            <PortfolioHomeSection style={{ background: "#ccc" }}>
-              <LogoWrapper style={{ backgroundColor: "#ffffffcc" }}>
+            <PortfolioHomeSection style={{ background: '#ccc' }}>
+              <LogoWrapper style={{ backgroundColor: '#ffffffcc' }}>
                 <TeamatonRotatingLogo>
                   <img
                     src={teamaton01.publicURL}
-                    style={{ display: "inline-block", marginRight: "20px" }}
+                    style={{ display: 'inline-block', marginRight: '20px' }}
                   />
                   <img
                     src={teamaton02.publicURL}
-                    style={{ display: "inline-block", width: "70%" }}
+                    style={{ display: 'inline-block', width: '70%' }}
                   />
                 </TeamatonRotatingLogo>
               </LogoWrapper>
-              <TextWrapper style={{ backgroundColor: "#ffffffaa" }}>
+              <TextWrapper style={{ backgroundColor: '#ffffffaa' }}>
                 <H2 id="teamaton">
                   <ResettedLink to="/portfolio/teamaton">
                     Projektowanie, realizacja, utrzymanie - Teamaton
@@ -144,17 +142,17 @@ export default function Portfolio({ data }) {
                 </LearnMoreLink>
               </TextWrapper>
             </PortfolioHomeSection>
-            <PortfolioHomeSection style={{ background: "rgb(184, 214, 184)" }}>
+            <PortfolioHomeSection style={{ background: 'rgb(184, 214, 184)' }}>
               <LogoWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <img
                   src={lednica01.publicURL}
-                  style={{ width: "60%", minWidth: "240px" }}
+                  style={{ width: '60%', minWidth: '240px' }}
                 />
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.667)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.667)' }}
               >
                 <H2 id="lednica">
                   <ResettedLink to="/portfolio/lednica">
@@ -173,24 +171,24 @@ export default function Portfolio({ data }) {
                 </LearnMoreLink>
               </TextWrapper>
             </PortfolioHomeSection>
-            <PortfolioHomeSection style={{ background: "rgb(234, 184, 234)" }}>
+            <PortfolioHomeSection style={{ background: 'rgb(234, 184, 234)' }}>
               <LogoWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <img
                   src={findIt.publicURL}
                   style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
                 />
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <H2 id="find-it">
                   <ResettedLink to="/portfolio/find-it">
@@ -207,24 +205,24 @@ export default function Portfolio({ data }) {
                 </LearnMoreLink>
               </TextWrapper>
             </PortfolioHomeSection>
-            <PortfolioHomeSection style={{ background: "rgb(174, 204, 234)" }}>
+            <PortfolioHomeSection style={{ background: 'rgb(174, 204, 234)' }}>
               <LogoWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <img
                   src={lmiux.publicURL}
                   style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
                 />
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <H2 id="let-me-in-ux">
                   <ResettedLink to="/portfolio/let-me-in-ux">
@@ -243,19 +241,19 @@ export default function Portfolio({ data }) {
                 </LearnMoreLink>
               </TextWrapper>
             </PortfolioHomeSection>
-            <PortfolioHomeSection style={{ background: "rgb(224, 194, 174)" }}>
+            <PortfolioHomeSection style={{ background: 'rgb(224, 194, 174)' }}>
               <LogoWrapper
                 style={{
-                  background: "#ffdab9",
-                  fontSize: "calc(2.8rem + 2vw)",
-                  fontFamily: "serif",
-                  fontWeight: "700",
+                  background: '#ffdab9',
+                  fontSize: 'calc(2.8rem + 2vw)',
+                  fontFamily: 'serif',
+                  fontWeight: '700',
                 }}
               >
-                <p style={{ lineHeight: "1.1" }}>Szukaj Słowa</p>
+                <p style={{ lineHeight: '1.1' }}>Szukaj Słowa</p>
               </LogoWrapper>
               <TextWrapper
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
               >
                 <H2 id="szukaj-slowa">
                   <ResettedLink to="/portfolio/szukaj-slowa">
@@ -280,7 +278,7 @@ export default function Portfolio({ data }) {
         </Main>
       </ThemeProvider>
     </>
-  )
+  );
 }
 
 export const sectionQuery = graphql`
@@ -311,4 +309,4 @@ export const sectionQuery = graphql`
       publicURL
     }
   }
-`
+`;

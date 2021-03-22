@@ -1,15 +1,15 @@
-import React from "react"
-import Layout from "../style/organisms/Layout"
-import RegularSection from "../style/organisms/RegularSection"
-import MyHelmet from "../style/components/MyHelmet"
-import { graphql, Link } from "gatsby"
+import React from 'react';
+import Layout from '../style/organisms/Layout';
+import RegularSection from '../style/organisms/RegularSection';
+import MyHelmet from '../style/components/MyHelmet';
+import { graphql, Link } from 'gatsby';
 
 const NothingFound = ({ data }) => {
   const myHelmetData = {
-    description: "Front-end Creator on his way to UX.",
+    description: 'Front-end Creator on his way to UX.',
     facebookThumbnail: data.file.childImageSharp.fixed.src,
-    title: "UX & Front end",
-  }
+    title: 'UX & Front end',
+  };
 
   return (
     <>
@@ -22,8 +22,8 @@ const NothingFound = ({ data }) => {
         </RegularSection>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
@@ -35,6 +35,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default NothingFound
+export default NothingFound;

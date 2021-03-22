@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import LogoSrc from "../components/code-for-heaven-logo.png"
-import MobileLogoSrc from "../components/code-for-heaven-mobile-logo.png"
-import { Link } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
+import LogoSrc from '../components/code-for-heaven-logo.png';
+import MobileLogoSrc from '../components/code-for-heaven-mobile-logo.png';
+import { Link } from 'gatsby';
 
 const Wrapper = styled.div`
   width: 58%;
@@ -19,25 +19,25 @@ const Wrapper = styled.div`
     width: auto;
     margin-right: 1rem;
   }
-`
+`;
 
 const Img = styled.img`
   display: block;
   max-width: 100%;
-`
+`;
 
 const BrowserView = styled.div`
   ${({ theme }) => theme.media.phone} {
     display: none;
   }
-`
+`;
 
 const MobileView = styled.div`
   display: none;
   ${({ theme }) => theme.media.phone} {
     display: block;
   }
-`
+`;
 
 const Logo = ({ atHome }) => (
   <Wrapper atHome={atHome}>
@@ -58,6 +58,6 @@ const Logo = ({ atHome }) => (
       </MobileView>
     </Link>
   </Wrapper>
-)
+);
 
-export default Logo
+export default Logo;

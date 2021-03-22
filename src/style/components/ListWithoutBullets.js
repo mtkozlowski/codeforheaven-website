@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const ListWithoutBullets = styled.ul`
   list-style: none;
@@ -7,6 +7,6 @@ const ListWithoutBullets = styled.ul`
   li {
     margin: 0.5rem;
   }
-`
+`;
 
-export default ListWithoutBullets
+export default ListWithoutBullets;

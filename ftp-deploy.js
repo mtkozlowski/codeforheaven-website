@@ -1,37 +1,37 @@
-const FtpDeploy = require("ftp-deploy")
-const ftp = require("basic-ftp")
-const basicFtpClient = new ftp.Client()
-const https = require("https")
-const fs = require("fs")
+const FtpDeploy = require('ftp-deploy');
+const ftp = require('basic-ftp');
+const basicFtpClient = new ftp.Client();
+const https = require('https');
+const fs = require('fs');
 
-const LOCAL_BUILD_DIRECTORY = "public"
-const DEPLOY_DIRECTORY_NAME = "temp"
-const PRODUCTION_DIRECTORY_NAME = "public"
-const BROKEN_BUILD = "broken"
-const PRODUCTION_URL = "https://codeforheaven.com/"
+const LOCAL_BUILD_DIRECTORY = 'public';
+const DEPLOY_DIRECTORY_NAME = 'temp';
+const PRODUCTION_DIRECTORY_NAME = 'public';
+const BROKEN_BUILD = 'broken';
+const PRODUCTION_URL = 'https://codeforheaven.com/';
 
-const [host, user, password] = process.argv.slice(2)
+const [host, user, password] = process.argv.slice(2);
 
 function main() {
-  fs.copyFile("./static/.htaccess", "./public/.htaccess", err => {
-    if (err) throw err
-    console.log("File was copied to destination")
-  })
+  fs.copyFile('./static/.htaccess', './public/.htaccess', err => {
+    if (err) throw err;
+    console.log('File was copied to destination');
+  });
 
   return uploadBuildDirectory()
-    .catch(error => onError("Upload", error))
+    .catch(error => onError('Upload', error))
     .then(() => renameFtpDirectories())
-    .catch(error => onError("Rename", error))
+    .catch(error => onError('Rename', error))
     .then(async backupDirectoryName => {
-      const isLive = await isProductionLive()
-      if (!isLive) return rollBackProduction(backupDirectoryName)
+      const isLive = await isProductionLive();
+      if (!isLive) return rollBackProduction(backupDirectoryName);
     })
-    .catch(error => onError("Rollback", error))
+    .catch(error => onError('Rollback', error))
     .then(() => {
-      console.log("Deploy FINISHED")
-      basicFtpClient.close()
-      process.exit(0)
-    })
+      console.log('Deploy FINISHED');
+      basicFtpClient.close();
+      process.exit(0);
+    });
 }
 
 function uploadBuildDirectory() {
@@ -41,96 +41,98 @@ function uploadBuildDirectory() {
     password,
     localRoot: `./${LOCAL_BUILD_DIRECTORY}`,
     remoteRoot: `./${DEPLOY_DIRECTORY_NAME}`,
-    include: ["*", "**/*"],
-  }
+    include: ['*', '**/*'],
+  };
 
-  const ftpDeploy = new FtpDeploy()
+  const ftpDeploy = new FtpDeploy();
 
-  ftpDeploy.on("uploading", data => {
-    const { totalFilesCount, transferredFileCount, filename } = data
-    console.log(`${transferredFileCount} out of ${totalFilesCount} ${filename}`)
-  })
+  ftpDeploy.on('uploading', data => {
+    const { totalFilesCount, transferredFileCount, filename } = data;
+    console.log(
+      `${transferredFileCount} out of ${totalFilesCount} ${filename}`
+    );
+  });
 
-  ftpDeploy.on("upload-error", data => {
-    console.log(data.err)
-    throw new Error("Upload FAILED")
-  })
+  ftpDeploy.on('upload-error', data => {
+    console.log(data.err);
+    throw new Error('Upload FAILED');
+  });
 
-  return ftpDeploy.deploy(config).then(() => console.log(`Upload COMPLETED`))
+  return ftpDeploy.deploy(config).then(() => console.log(`Upload COMPLETED`));
 }
 
 async function renameFtpDirectories() {
-  await basicFtpClient.access({ host, user, password })
+  await basicFtpClient.access({ host, user, password });
 
-  const directories = await basicFtpClient.list(".")
-  const backupDirectoryName = createBackupDirectoryName(directories)
-  console.log(`Backup folder name: ${backupDirectoryName}`)
+  const directories = await basicFtpClient.list('.');
+  const backupDirectoryName = createBackupDirectoryName(directories);
+  console.log(`Backup folder name: ${backupDirectoryName}`);
 
-  await basicFtpClient.rename(PRODUCTION_DIRECTORY_NAME, backupDirectoryName)
-  await basicFtpClient.rename(DEPLOY_DIRECTORY_NAME, PRODUCTION_DIRECTORY_NAME)
-  console.log("Renaming COMPLETED")
+  await basicFtpClient.rename(PRODUCTION_DIRECTORY_NAME, backupDirectoryName);
+  await basicFtpClient.rename(DEPLOY_DIRECTORY_NAME, PRODUCTION_DIRECTORY_NAME);
+  console.log('Renaming COMPLETED');
 
-  return backupDirectoryName
+  return backupDirectoryName;
 }
 
 function createBackupDirectoryName(directories) {
   const productionDirectory = directories.find(
     fileInfo => fileInfo.name === PRODUCTION_DIRECTORY_NAME
-  )
+  );
 
-  const formattedDate = formatDate(productionDirectory.modifiedAt)
+  const formattedDate = formatDate(productionDirectory.modifiedAt);
 
   const numberOfDateOccurrences = directories.filter(fileInfo =>
     fileInfo.name.includes(formattedDate)
-  ).length
+  ).length;
 
   if (numberOfDateOccurrences === 0) {
-    return formattedDate
+    return formattedDate;
   } else {
-    return `${formattedDate}_${numberOfDateOccurrences + 1}`
+    return `${formattedDate}_${numberOfDateOccurrences + 1}`;
   }
 }
 
 function formatDate(date) {
-  const month = date.getMonth() + 1
-  const paddedMonth = month.toString().padStart(2, "0")
+  const month = date.getMonth() + 1;
+  const paddedMonth = month.toString().padStart(2, '0');
   const paddedDay = date
     .getDate()
     .toString()
-    .padStart(2, "0")
+    .padStart(2, '0');
 
-  return `${date.getFullYear()}.${paddedMonth}.${paddedDay}`
+  return `${date.getFullYear()}.${paddedMonth}.${paddedDay}`;
 }
 
 function isProductionLive() {
   return new Promise(resolve => {
     https
       .get(PRODUCTION_URL, res => {
-        console.log(`Production status code ${res.statusCode}`)
-        resolve(res.statusCode === 200)
+        console.log(`Production status code ${res.statusCode}`);
+        resolve(res.statusCode === 200);
       })
-      .on("error", _ => {
-        resolve(false)
-      })
-  })
+      .on('error', _ => {
+        resolve(false);
+      });
+  });
 }
 
 async function rollBackProduction(backupDirectoryName) {
-  await basicFtpClient.rename(PRODUCTION_DIRECTORY_NAME, BROKEN_BUILD)
-  await basicFtpClient.rename(backupDirectoryName, PRODUCTION_DIRECTORY_NAME)
-  console.log(`Rollback COMPLETED`)
-  fail()
+  await basicFtpClient.rename(PRODUCTION_DIRECTORY_NAME, BROKEN_BUILD);
+  await basicFtpClient.rename(backupDirectoryName, PRODUCTION_DIRECTORY_NAME);
+  console.log(`Rollback COMPLETED`);
+  fail();
 }
 
 function onError(name, error) {
-  console.log(`${name} FAILED`)
-  console.log(error)
-  fail()
+  console.log(`${name} FAILED`);
+  console.log(error);
+  fail();
 }
 
 function fail() {
-  basicFtpClient.close()
-  process.exit(1)
+  basicFtpClient.close();
+  process.exit(1);
 }
 
-main()
+main();
