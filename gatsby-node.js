@@ -46,7 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   cmsArticles.forEach(edge => {
     createPage({
       path: `/${edge.slug}`,
-      component: path.resolve(`./src/style/templates/articleTemplate.js`),
+      component: path.resolve(`./src/templates/articleTemplate.js`),
       context: {
         id: edge.id,
       },
@@ -61,7 +61,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   cmsPages.forEach(edge => {
     createPage({
       path: `/${edge.slug}`,
-      component: path.resolve(`./src/style/templates/pageTemplate.js`),
+      component: path.resolve(`./src/templates/pageTemplate.js`),
       context: {
         id: edge.id,
       },
