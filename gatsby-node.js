@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   blogEdges.forEach(edge => {
     createPage({
       path: `/${edge.node.frontmatter.slug}`,
-      component: path.resolve('./src/style/templates/blogTemplate.js'),
+      component: path.resolve('./src/templates/blogTemplate.js'),
       context: {
         slug: edge.node.frontmatter.slug,
       },
