@@ -2,9 +2,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import Layout from '../organisms/Layout';
-import RegularSection from '../organisms/RegularSection';
-import { H2 } from '../atoms/Headings';
+import Layout from '../style/organisms/Layout';
+import RegularSection from '../style/organisms/RegularSection';
+import { H2 } from '../style/atoms/Headings';
 
 export default function Template({ data }) {
   const { title, articleContent } = data.datoCmsPage;

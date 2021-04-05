@@ -12,6 +12,8 @@ import { regularSectionCss } from '../style/organisms/Sections';
 import MyHelmet from '../style/components/MyHelmet';
 import Box, { boxPadding } from '../style/atoms/Box';
 
+require('prismjs/themes/prism.css');
+
 const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
   font-family: ${({ theme }) => theme.font.secondaryFamily};

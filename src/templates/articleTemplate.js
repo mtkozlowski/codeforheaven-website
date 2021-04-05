@@ -2,16 +2,16 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { H1 } from '../atoms/Headings';
-import StyledLink from '../atoms/StyledLink';
+import { H1 } from '../style/atoms/Headings';
+import StyledLink from '../style/atoms/StyledLink';
 
-import Layout from '../organisms/Layout';
-import Contact from '../molecules/Contact';
+import Layout from '../style/organisms/Layout';
+import Contact from '../style/molecules/Contact';
 
-import { regularSectionCss } from '../organisms/Sections';
+import { regularSectionCss } from '../style/organisms/Sections';
 
-import MyHelmet from '../components/MyHelmet';
-import Box, { boxPadding } from '../atoms/Box';
+import MyHelmet from '../style/components/MyHelmet';
+import Box, { boxPadding } from '../style/atoms/Box';
 import slugify from 'slugify';
 
 require('prismjs/themes/prism.css');
