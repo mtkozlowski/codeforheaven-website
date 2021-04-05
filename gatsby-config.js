@@ -15,21 +15,17 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
-    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              // showLineNumbers: true
-            },
-          },
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-copy-linked-files`,
           },
