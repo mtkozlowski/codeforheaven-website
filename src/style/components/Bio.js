@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { boxPadding } from '../atoms/Box';
@@ -86,9 +86,8 @@ const Bio = () => {
         <Container>
           <H1>Hi, I'm Mateusz</H1>
           <p>
-            By day UX in a Fan+ company.
-            <br />
-            By night - host of <em>Let me in UX</em> group.
+            I work as a UX Designer in a leading ticketing company and help a
+            group of UX novices get into business.
           </p>
           <Img fixed={myProfilePhoto.childImageSharp.fixed} />
         </Container>
