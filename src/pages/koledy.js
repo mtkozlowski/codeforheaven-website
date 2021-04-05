@@ -20,9 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const koledy = [];
-
-export default () => (
+const Koledy = () => (
   <>
     <Helmet>
       <meta charSet="utf-8" />
@@ -202,3 +200,5 @@ export default () => (
     </Layout>
   </>
 );
+
+export default Koledy;
