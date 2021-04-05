@@ -1,20 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { H1, H2 } from '../atoms/Headings';
-import StyledLink from '../atoms/StyledLink';
-import Layout from '../organisms/Layout';
-import Contact from '../molecules/Contact';
+import { H1 } from '../style/atoms/Headings';
+import Layout from '../style/organisms/Layout';
+import Contact from '../style/molecules/Contact';
 
-import { regularSectionCss } from '../organisms/Sections';
+import { regularSectionCss } from '../style/organisms/Sections';
 
-import MyHelmet from '../components/MyHelmet';
-import Box, { boxPadding } from '../atoms/Box';
-
-require('prismjs/themes/prism.css');
+import MyHelmet from '../style/components/MyHelmet';
+import Box, { boxPadding } from '../style/atoms/Box';
 
 const PostDateBlock = styled.p`
   color: ${({ theme }) => theme.colors.grey};
@@ -36,24 +32,16 @@ const Main = styled.main`
 export default function Template({ data }) {
   const {
     mdx: {
-      frontmatter: {
-        externalScriptsUrls,
-        facebookThumbnail,
-        description,
-        title,
-        slug,
-        date,
-      },
+      frontmatter: { facebookThumbnail, description, title, slug, date },
       body,
     },
   } = data;
 
-  const scripts = externalScriptsUrls || [];
   const thumbnail =
     (facebookThumbnail && facebookThumbnail.childImageSharp.fluid.src) || '';
   const myHelmetData = {
     description: description,
-    externalScriptsUrls: scripts,
+    externalScriptsUrls: [],
     facebookThumbnail: thumbnail,
     title: title,
     slug: slug,
@@ -66,7 +54,7 @@ export default function Template({ data }) {
         <Article>
           <header>
             <Box>
-              <StyledLink to="/">Go to the home page</StyledLink>
+              <Link to="/">Go to the home page</Link>
               <H1>{title}</H1>
               <PostDateBlock>{date}</PostDateBlock>
             </Box>
@@ -89,7 +77,6 @@ export const pageQuery = graphql`
         slug
         title
         description
-        externalScriptsUrls
         facebookThumbnail {
           childImageSharp {
             fluid(maxWidth: 1200) {
