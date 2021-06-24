@@ -121,7 +121,7 @@ const SpeakBubbleAnimatedWrapper = styled.div`
 const PortfolioHomeSection = styled.div`
   ${flex}
 
-  &:nth-child(odd) {
+  &:nth-child(1) {
     flex-direction: row-reverse;
 
     ${SpeakBubbleWrapper} {
@@ -173,6 +173,7 @@ const GirlSvg = styled.img`
   order: 0;
   flex-grow: 0.8;
   align-self: flex-end;
+  max-width: 300px; 
   ${({ theme }) => theme.media.narrowSection} {
     display: none;
   }
@@ -182,6 +183,7 @@ const BoySvg = styled.img`
   order: 2;
   flex-grow: 0.8;
   align-self: flex-end;
+  max-width: 300px; 
   ${({ theme }) => theme.media.narrowSection} {
     display: none;
   }
@@ -216,8 +218,8 @@ export default function Bethink({ data }) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-                <GirlSvg src={girlSvg.publicURL} style={{ flexGrow: '1' }} />
-                <BoySvg src={boySvg.publicURL} style={{ flexGrow: '1' }} />
+                <GirlSvg src={girlSvg.publicURL} />
+                <BoySvg src={boySvg.publicURL} />
               </div>
             </WideSection>
           </div>
@@ -300,7 +302,7 @@ export default function Bethink({ data }) {
               </TextWrapper>
             </PortfolioHomeSection>
             <section>
-              <Img fluid={pracaKomiks.fluid} />
+              <img src={pracaKomiks.publicURL} />
             </section>
             <PortfolioHomeSection style={{ background: 'rgb(224, 194, 174)' }}>
               <LogoWrapper style={{ backgroundColor: '#ffffffcc' }}>
@@ -361,18 +363,7 @@ export default function Bethink({ data }) {
 export const pageQuery = graphql`
   query {
     pracaKomiks: file(name: { eq: "bethink__komiks" }) {
-      childImageSharp {
-        fluid(
-          maxWidth: 1920
-          cropFocus: CENTER
-          srcSetBreakpoints: [480, 640, 960, 1920]
-        ) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-        fixed(height: 690, cropFocus: CENTER) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
+      publicURL
     }
     boySvg: file(name: { eq: "bethink__boy" }) {
       publicURL

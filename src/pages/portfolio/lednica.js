@@ -17,6 +17,10 @@ import { Breadcrumb, CrumbLink } from '../../style/molecules/Breadcrumb';
 
 const Main = styled.main`
   margin-top: 2rem;
+
+  .grid13 .gatsby-image-wrapper > div {
+    padding-bottom: 139.6% !important;
+  }
 `;
 
 const Testimony = styled.div`
@@ -205,7 +209,7 @@ export default function Lednica({ data }) {
             </p>
 
             <WorkshopPhotosContainer>
-              <div style={{ gridRow: '1 / 3' }}>
+              <div style={{ gridRow: '1 / 3' }} className="grid13">
                 <Img fluid={Warsztaty1.fluid} />
                 <span>Warsztaty dot. strategii w Social Media</span>
               </div>

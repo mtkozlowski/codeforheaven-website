@@ -71,6 +71,7 @@ export default function Portfolio({ data }) {
     teamaton02,
     lmiux,
     findIt,
+    roboticketLogo
   } = data;
   const myHelmetData = {
     description:
@@ -108,6 +109,29 @@ export default function Portfolio({ data }) {
           </div>
           <section>
             <BadgesBelt />
+            <PortfolioHomeSection>
+              <LogoWrapper style={{ backgroundColor: '#A3106E0A' }}>
+                <img
+                    src={roboticketLogo.publicURL}
+                  />
+              </LogoWrapper>
+              <TextWrapper style={{ backgroundColor: '#A3106E1F' }} >
+                <H2>
+                  <ResettedLink to="/portfolio/roboticket">
+                    UI, UX - Roboticket
+                  </ResettedLink>
+                </H2>
+                <H6>
+                  <i>Piłka jest okrągła a bramki są dwie</i>
+                </H6>
+                <p>
+                  Praca nad oprogramowaniem dla wydarzeń sportowych dostarcza wielu emocji. System, który nieustannie się rozwija potrzebuje odpowiedniego formowania, aby zachował spójność i pozostał zrozumiały dla każdego użytkownika.
+                </p>
+                <LearnMoreLink to="/portfolio/roboticket">
+                  Dowiedz się więcej
+                </LearnMoreLink>
+              </TextWrapper>
+            </PortfolioHomeSection>
             <PortfolioHomeSection style={{ background: '#ccc' }}>
               <LogoWrapper style={{ backgroundColor: '#ffffffcc' }}>
                 <TeamatonRotatingLogo>
@@ -226,7 +250,7 @@ export default function Portfolio({ data }) {
               >
                 <H2 id="let-me-in-ux">
                   <ResettedLink to="/portfolio/let-me-in-ux">
-                    Podcast Let me in UX
+                    Podcast i grupa Let me in UX
                   </ResettedLink>
                 </H2>
                 <H6>Od nas dla Was</H6>
@@ -306,6 +330,9 @@ export const sectionQuery = graphql`
       publicURL
     }
     findIt: file(name: { eq: "findIt" }) {
+      publicURL
+    }
+    roboticketLogo: file(name: { eq: "roboticket-logo" }) {
       publicURL
     }
   }
